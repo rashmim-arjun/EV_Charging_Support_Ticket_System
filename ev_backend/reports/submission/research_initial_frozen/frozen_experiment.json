@@ -1,0 +1,452 @@
+{
+  "frozen_before_final_test_predictions": true,
+  "threshold": 0.45,
+  "text_model": {
+    "training_documents": {
+      "none": 2,
+      "charger_controller_timeout": 2,
+      "vehicle_bms_fault": 2,
+      "authorization_conflict": 2,
+      "payment_conflict": 2,
+      "connector_fault": 2,
+      "network_delay": 2,
+      "network_loss": 4,
+      "network_duplicate": 2,
+      "stale_availability": 2,
+      "metering_mismatch": 2,
+      "inconclusive": 6,
+      "network_duplicate+vehicle_bms_fault": 2
+    },
+    "word_counts": {
+      "none": {
+        "support": 2,
+        "check": 2,
+        "finished": 2,
+        "like": 2,
+        "car": 2,
+        "charging": 2,
+        "and": 2,
+        "this": 2,
+        "visit": 2,
+        "would": 2,
+        "receipt": 2,
+        "its": 2,
+        "but": 2
+      },
+      "charger_controller_timeout": {
+        "could": 2,
+        "car": 2,
+        "and": 2,
+        "tried": 2,
+        "not": 2,
+        "get": 2,
+        "start": 2,
+        "connected": 2,
+        "the": 2,
+        "but": 2,
+        "charge": 2
+      },
+      "vehicle_bms_fault": {
+        "could": 2,
+        "car": 2,
+        "and": 2,
+        "tried": 2,
+        "not": 2,
+        "get": 2,
+        "start": 2,
+        "connected": 2,
+        "the": 2,
+        "but": 2,
+        "charge": 2
+      },
+      "authorization_conflict": {
+        "could": 2,
+        "car": 2,
+        "and": 2,
+        "tried": 2,
+        "not": 2,
+        "get": 2,
+        "start": 2,
+        "connected": 2,
+        "the": 2,
+        "but": 2,
+        "charge": 2
+      },
+      "payment_conflict": {
+        "support": 2,
+        "check": 2,
+        "finished": 2,
+        "like": 2,
+        "car": 2,
+        "charging": 2,
+        "and": 2,
+        "this": 2,
+        "visit": 2,
+        "would": 2,
+        "receipt": 2,
+        "its": 2,
+        "but": 2
+      },
+      "connector_fault": {
+        "could": 2,
+        "car": 2,
+        "and": 2,
+        "tried": 2,
+        "not": 2,
+        "get": 2,
+        "start": 2,
+        "connected": 2,
+        "the": 2,
+        "but": 2,
+        "charge": 2
+      },
+      "network_delay": {
+        "could": 2,
+        "car": 2,
+        "and": 2,
+        "tried": 2,
+        "not": 2,
+        "get": 2,
+        "start": 2,
+        "connected": 2,
+        "the": 2,
+        "but": 2,
+        "charge": 2
+      },
+      "network_loss": {
+        "could": 2,
+        "car": 4,
+        "and": 4,
+        "tried": 2,
+        "not": 2,
+        "get": 2,
+        "start": 2,
+        "connected": 2,
+        "the": 2,
+        "but": 4,
+        "charge": 2,
+        "support": 2,
+        "check": 2,
+        "finished": 2,
+        "like": 2,
+        "charging": 2,
+        "this": 2,
+        "visit": 2,
+        "would": 2,
+        "receipt": 2,
+        "its": 2
+      },
+      "network_duplicate": {
+        "support": 2,
+        "check": 2,
+        "finished": 2,
+        "like": 2,
+        "car": 2,
+        "charging": 2,
+        "and": 2,
+        "this": 2,
+        "visit": 2,
+        "would": 2,
+        "receipt": 2,
+        "its": 2,
+        "but": 2
+      },
+      "stale_availability": {
+        "already": 2,
+        "plugged": 2,
+        "charger": 2,
+        "another": 2,
+        "when": 2,
+        "car": 2,
+        "arrived": 2,
+        "showed": 2,
+        "was": 2,
+        "map": 2,
+        "the": 2,
+        "but": 2,
+        "free": 2
+      },
+      "metering_mismatch": {
+        "support": 2,
+        "check": 2,
+        "finished": 2,
+        "like": 2,
+        "car": 2,
+        "charging": 2,
+        "and": 2,
+        "this": 2,
+        "visit": 2,
+        "would": 2,
+        "receipt": 2,
+        "its": 2,
+        "but": 2
+      },
+      "inconclusive": {
+        "support": 4,
+        "check": 6,
+        "finished": 4,
+        "like": 4,
+        "car": 4,
+        "charging": 6,
+        "and": 4,
+        "this": 4,
+        "visit": 4,
+        "would": 4,
+        "receipt": 6,
+        "its": 4,
+        "but": 6,
+        "unclear": 2,
+        "please": 2,
+        "happened": 2,
+        "ended": 2,
+        "final": 2,
+        "the": 2,
+        "what": 2
+      },
+      "network_duplicate+vehicle_bms_fault": {
+        "could": 2,
+        "car": 2,
+        "and": 2,
+        "tried": 2,
+        "not": 2,
+        "get": 2,
+        "start": 2,
+        "connected": 2,
+        "the": 2,
+        "but": 2,
+        "charge": 2
+      }
+    }
+  },
+  "validation_calibration": {
+    "fixed_baseline": {
+      "method": "monotonic bins with Beta(1,1) smoothing; fitted on validation decisions only",
+      "bins": [
+        {
+          "upper": 0.5,
+          "support": 12,
+          "correct": 2,
+          "probability": 0.214286
+        },
+        {
+          "upper": 0.75,
+          "support": 6,
+          "correct": 2,
+          "probability": 0.375
+        },
+        {
+          "upper": 0.9,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        },
+        {
+          "upper": 1.0,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        }
+      ]
+    },
+    "current_adaptive": {
+      "method": "monotonic bins with Beta(1,1) smoothing; fitted on validation decisions only",
+      "bins": [
+        {
+          "upper": 0.5,
+          "support": 14,
+          "correct": 2,
+          "probability": 0.1875
+        },
+        {
+          "upper": 0.75,
+          "support": 6,
+          "correct": 2,
+          "probability": 0.375
+        },
+        {
+          "upper": 0.9,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        },
+        {
+          "upper": 1.0,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        }
+      ]
+    },
+    "multi_component": {
+      "method": "monotonic bins with Beta(1,1) smoothing; fitted on validation decisions only",
+      "bins": [
+        {
+          "upper": 0.5,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        },
+        {
+          "upper": 0.75,
+          "support": 2,
+          "correct": 2,
+          "probability": 0.75
+        },
+        {
+          "upper": 0.9,
+          "support": 24,
+          "correct": 24,
+          "probability": 0.928571
+        },
+        {
+          "upper": 1.0,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.928571
+        }
+      ]
+    },
+    "text_only": {
+      "method": "monotonic bins with Beta(1,1) smoothing; fitted on validation decisions only",
+      "bins": [
+        {
+          "upper": 0.5,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        },
+        {
+          "upper": 0.75,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        },
+        {
+          "upper": 0.9,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        },
+        {
+          "upper": 1.0,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        }
+      ]
+    },
+    "text_plus_observations": {
+      "method": "monotonic bins with Beta(1,1) smoothing; fitted on validation decisions only",
+      "bins": [
+        {
+          "upper": 0.5,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        },
+        {
+          "upper": 0.75,
+          "support": 2,
+          "correct": 2,
+          "probability": 0.75
+        },
+        {
+          "upper": 0.9,
+          "support": 24,
+          "correct": 24,
+          "probability": 0.928571
+        },
+        {
+          "upper": 1.0,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.928571
+        }
+      ]
+    }
+  },
+  "manifest_sha256": "6e83cf152a8c1a9423f59d67d26b4dc55f5e2ca9a219615d5b3ece96a090f408",
+  "source_sha256": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "agent\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "agent\\agent.py": "74426eade86f455890b3ca8df56abbb5985ecb3e2197833e6e3efac9c63c9b4c",
+    "agent\\baseline.py": "db04cdea93ff9392180ce95d7bd1a4bf464c431320d081e00b68445f0526bf0e",
+    "agent\\calibration.py": "3556c310020b8d58d0e2c55a9a8e196850877884c04c6f0b44eb58aec5686d4a",
+    "agent\\policy.py": "55e8fd1784a4a6bd172fd3befb82808e4b4dd96188a853d5542cc66e6e85203c",
+    "agent\\tools\\__init__.py": "f27501ee048dbf07eed17757052c5b019f1cf45603708190eeaf1be2a8bed72a",
+    "agent\\tools\\app_error_check.py": "11386ee691322cc88f67999f653b0c29fb9a760c6d828bdb1fd28d53de6f0a30",
+    "agent\\tools\\connectivity_check.py": "a7155f740fcdeb1c39acb7ff6742bb6c9eb822f0f49a6efb6cb5bbac2ba2dc18",
+    "agent\\tools\\connector_check.py": "b5469a3303e30a8d68b0932bb83bed41e76be339874ea750d512289d58bad7ca",
+    "agent\\tools\\error_code_check.py": "62f8e34a44413a5ad593ea57bc58e34fa2a5d06eec80e6c1c3c04b437991b163",
+    "agent\\tools\\handshake_check.py": "58cf60acd54faf691e2a48df000a337b1cdaa376cd343c2157e66e361224a55e",
+    "agent\\tools\\history_check.py": "1e420d179b097a2b68ebc46fab086a1968b87c7d6361ec98e58daa2db03ee9d3",
+    "agent\\tools\\payment_check.py": "e398462b494a5b60549498e430c5b084f40cf247f4cb2d5b418a22c1692f94ae",
+    "agent\\tools\\scope.py": "132bc06bb284e551346643658b0a2497c46fb95cc392ed375b7f7a49a0c314d3",
+    "agent\\tools\\session_lookup.py": "c5c665913f070d02682a24341d9e6915e56eab44caa3a26ab8453573b3c509f6",
+    "agent\\tools\\similar_cases_check.py": "2f86ce66839c725b3bf828f980cf0703a6c005a25c28c7b3664093eda6412bc4",
+    "agent\\tools\\station_status_check.py": "1e7ea173e5498fefd38c36ae6d5a4eb4101660f683da5e4c31d67a68a60c37e9",
+    "agent\\tools\\telematics_check.py": "e13e59459992bc406f41099ec5d362408c09b6d7e85401c75408c244358dff31",
+    "agent\\tools\\timeline_check.py": "db70bdb1b1c27ee896fbfa9aeb6f328bcfce9931188ae5d74f673af6bf133252",
+    "communication\\__init__.py": "4f1effdea102a19d768ff0b4370d8d4ece0e9492857d4d5afd964aae46531a9b",
+    "communication\\catalog.py": "a08825d1c848be08ac6be63c8034acc4a622708ed169469eda4241feec96d2ae",
+    "communication\\correlation.py": "23200b171cb9500d4a1455a5c2c9508339d41c67c3392d3869c3d84bc09ee389",
+    "communication\\diagnosis.py": "972cd8212b491b86f62f04c76b598fc34d4cdd081676c05566c5be408cf566b3",
+    "communication\\evaluation.py": "e44733317053cfd2d3720c9343e4b5c64ed3aad1458a1d0ab49eb3200742bbcb",
+    "communication\\migration.py": "b0176ce35e7dea64dffbddca72219dac260d6a8220b613fca8e98f90100580f2",
+    "communication\\schema.py": "a814265995bb42507d746fe0a98f359520c0b81630e0836914f7260ea00a86eb",
+    "communication\\service.py": "d21e590e99589afb841bf93c4e2214bb84d02222601b4e63a99eb86b503726f5",
+    "communication\\simulator.py": "eaacdf54acf3fa6e18776e146659b31db82225291574e6efcc54c95a1f467b2c",
+    "communication\\storage.py": "a090b418b419b41b2ff70c4d013405ef9f184f342d9e7a7c174398c6c97b5f92",
+    "core\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "core\\db.py": "8cf18d2a89f1dc1f01a72b5eb99ab68679f613166c44bc0c9f16182b4f277a1a",
+    "core\\logging_setup.py": "ace05a54f0492ab5b9ffd47854fe5b6cacf2500b51abaee3f9e236328964f6f7",
+    "core\\observations.py": "dd257d0f83f986a9b8ee09a535ed338e238bd04533b0db6a84140de7665c3e28",
+    "core\\settings.py": "883079657e2181a5c708fec172aedaf8b20f52d20e7fe90b2659b69d353478fe",
+    "core\\transactions.py": "56a1b9bca82791d9631439880676a7bd731ebb2ff6a0b2c71a9c606f52967721",
+    "data\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data\\seed_rules.py": "929e38c42fecefcd40626d63478befb0cb7f28239bbedb350c5c719bc41d125b",
+    "data\\synthetic_generator.py": "36abb261c608aeeac598a0d0f5d7190dbafeb56343510f48db2e7dd3a683746d",
+    "evaluation\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evaluation\\dataset_audit.py": "7f15e2294e74f9bf34c419bb3f424aed2b100506ba60b0c91cfb5b9983c317d9",
+    "evaluation\\evaluation.py": "7e9562df87d8878c646237ccd59a755a68e8560159f990622cdabc7cdbf43372",
+    "evaluation\\metrics.py": "772183ce5639477b71f05902a85a7a7646f5a6d83014438cc9a74e58d59a5ddf",
+    "evaluation\\report_details.py": "fb1e16cfe9beadddc7e79dd36b14911c73e714a6c314b3ca4ac088800d6368ef",
+    "main.py": "cd913e21a90513ad6ea2ec0766fec682958ac1b5f5cd159d185e01d90567b831",
+    "models.py": "68a1e7143db314499a2a632217f4702c50c70539d171c4f1ea108325e37f51cd",
+    "redaction.py": "c2c8b956527b4b3f7ec1277b5e3599cd721612889fae4460fa321db6f38b9964",
+    "research\\__init__.py": "a8cdba448d778a1a23a661da2a2ba384163faec490a46907b6e18dfe5e18f4c8",
+    "research\\dataset.py": "e7093b55c9caf64f5e08e89826e33458d5e2e24c84d499c4a4223180b3a184f6",
+    "research\\experiment.py": "61046a0d4917d40fc61876436cb7faa49666ea5114822ee0b73188ec1bce1b7c",
+    "routers\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "routers\\apps.py": "fc6020116404d130e8ace6bdeec00a4a865712f4678ef4f427c2568ee1bd511b",
+    "routers\\cases.py": "cc9be3389014c8e616b3a02d1f60c27198f9b37775384398fa9b6ad551e521ea",
+    "routers\\communication.py": "affa4444c39acd4ee0967136747e14592bfb8f12da9d9166bed617a7754b6337",
+    "routers\\deps.py": "56ce9a32ef1fdaa3faa3a2d26425b0ea6a40a66ba0b33383b0b9c3cf64dfe912",
+    "routers\\errors.py": "a5a669225a414402ed00d5a64adcb2ab444d22466ebf67bb060d35d6779ec69f",
+    "routers\\evaluation.py": "9b3a3370a124a0ef8bf6fc6c6710331cb68056b28fb4d741abbc322452a8beeb",
+    "routers\\feedback_rt.py": "c0f33026eb22aa47b7329a2ddae9331f741615679039b4be84a518bd21239930",
+    "routers\\health.py": "9bd30c007360cfadf339ab90a35d9f86015a001721c2a52c5ea5cd010f5e7e89",
+    "routers\\knowledge.py": "d49376c13ea6b7fc7ea114800d43cd755005f24a0e2699f1bff50013d105657f",
+    "routers\\metrics_rt.py": "c649db42a4daa43df3f93f13a903c135c5ceb6fd927408ab208a0c5f9487f66e",
+    "routers\\reviewers.py": "702b5a5b68eccb8005b806cfd28aeb6f6085fd98e0c44dbab075b56c41dc084c",
+    "routers\\reviews.py": "a27e3fbfbcb2807b1415de06aa8a523b99cb8d1018798a1ba296342fb060086c",
+    "routers\\tickets.py": "696712d42b8494081a1b732508141e394c5b9fa049e4a1c9e1b9c8b43c368727",
+    "schemas.py": "55a98dc775dea33a42c6ae853cf21c2e1683f92fb2bdd5dffa4d5fcfdaa204b3",
+    "services\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "services\\case_service.py": "cc579b783af6acc4fb752bb6ddb338912a9b1ab3f984c4e6448f1a7129dedd46",
+    "services\\diagnosis.py": "bfc00033eb42c96d33573e792b7607f09511395d6da8be8e34c57ba1314cff89",
+    "services\\feedback.py": "ed1cea1dba3fc1e08e071d12801a1015a8e8f074947ab90ccaf36921c21f4679",
+    "services\\intake.py": "bbbbbe18bbff15c007f42c0bd12f6bc135d153af941e97f08e94cbe9c636537e",
+    "services\\metrics.py": "a79d59ce1109ad24425906d61a6558c79b3287fd09445a64f63ed39cbf2bd670",
+    "services\\recommendations.py": "c4c0ab6934a8937647a98c0722667a06b67232d06e6bad80ee015c28924255a2",
+    "services\\ticket_migration.py": "737ff769e52ae34b929893044eafb504d680e1cb47da0828e046faa5e67553d2",
+    "services\\tickets.py": "59b9969042e1d198abd3b86bc096615b756e4561e3c6430d9a1dc2ab63fc698c",
+    "config\\apps.json": "beb5a7dde8b75a0f8f7670615e6eddecd52f287722c935bff0021d952513b73c",
+    "config\\calibration.json": "89d6f8652190b16f9acb66525d642478b6f7b3cd1a9e81d8c6ceaa5ee96d2368",
+    "config\\categories.json": "ae1ee9aec8321c5fb842f88827e11c2a6c144de056e89f247a7e8c305644443f",
+    "config\\communication_calibration.json": "608b656c67fb1fa38e5278e13c0887a291ba45dc478ccc115898d91c5aad3b8d",
+    "config\\settings.json": "cd6655131c87b9fc920e2324c0655de371bbafa95a090926c2e9cb768dc4724d",
+    "config\\support_policy.json": "5713e23a8b4a6943c3cd231af32edba92b43abf2e57526268e5f87945c0ebb91"
+  },
+  "exposure": "New authored test configurations declared before first challenge scoring. Authors know the simulator and ontology. Legacy benchmark test cases were exposed during earlier development; those are regression benchmarks, not untouched external tests."
+}

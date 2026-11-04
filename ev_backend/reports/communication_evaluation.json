@@ -1,0 +1,4768 @@
+{
+  "generated_at": "2026-11-04T06:14:56.749152+00:00",
+  "simulator_version": "communication-v1",
+  "seed": 42,
+  "per_template": 4,
+  "dataset_size": 144,
+  "split_sizes": {
+    "train": 48,
+    "validation": 48,
+    "test": 48
+  },
+  "split_templates": {
+    "train": [
+      "communication-v1-train-00",
+      "communication-v1-train-01",
+      "communication-v1-train-02",
+      "communication-v1-train-03",
+      "communication-v1-train-04",
+      "communication-v1-train-05",
+      "communication-v1-train-06",
+      "communication-v1-train-07",
+      "communication-v1-train-08",
+      "communication-v1-train-09",
+      "communication-v1-train-10",
+      "communication-v1-train-11"
+    ],
+    "validation": [
+      "communication-v1-validation-00",
+      "communication-v1-validation-01",
+      "communication-v1-validation-02",
+      "communication-v1-validation-03",
+      "communication-v1-validation-04",
+      "communication-v1-validation-05",
+      "communication-v1-validation-06",
+      "communication-v1-validation-07",
+      "communication-v1-validation-08",
+      "communication-v1-validation-09",
+      "communication-v1-validation-10",
+      "communication-v1-validation-11"
+    ],
+    "test": [
+      "communication-v1-test-00",
+      "communication-v1-test-01",
+      "communication-v1-test-02",
+      "communication-v1-test-03",
+      "communication-v1-test-04",
+      "communication-v1-test-05",
+      "communication-v1-test-06",
+      "communication-v1-test-07",
+      "communication-v1-test-08",
+      "communication-v1-test-09",
+      "communication-v1-test-10",
+      "communication-v1-test-11"
+    ]
+  },
+  "split_configuration_hashes": {
+    "train": [
+      "07c9b2ec4f49dded",
+      "0ccbbf40fe209715",
+      "0e5a116dcea66726",
+      "11bc4ad125b14ebc",
+      "17812d3b607a849c",
+      "1ad532121d2292fd",
+      "31b1febe77c667e4",
+      "4109e57dace4107f",
+      "456fa55c863de0f1",
+      "49e98cb4541c91b8",
+      "6395a6765e1db257",
+      "6fbcea5884f4d607",
+      "73574031d3932043",
+      "7a578e599d792889",
+      "91add3648f78d9d8",
+      "928ce647d6e7dc0b",
+      "9d64ee957f068345",
+      "bcf23500d9ff324e",
+      "bf3aa27bbf682312",
+      "ca26545e21d84005",
+      "d8be9ce0e5fd6cd4",
+      "f3d272eaa77073df",
+      "f9b17561f12642ae",
+      "fe8da823fa46e27c"
+    ],
+    "validation": [
+      "04a19471ca6a2969",
+      "058d64e3eed94ffe",
+      "073b6fc80d27809f",
+      "0c4d63bd1bcff8fa",
+      "0d1eebb8f83e9e9c",
+      "15968fe8e461db27",
+      "159b466e1f06f8b3",
+      "21ef957a916ef833",
+      "34b7cd495236c3a0",
+      "383a32cb128f848c",
+      "3c48816f3131df7d",
+      "55fb5549451873a9",
+      "60dba150b512ad37",
+      "71d1b5d80cfa9491",
+      "aa3becb4deb06e9b",
+      "b6a927bb3dcbb737",
+      "bc879e8db7510b7d",
+      "c625931e52bb594b",
+      "c9acd30a176d0c63",
+      "cec7af7bf8aebfcd",
+      "e146e579df1fd076",
+      "e210bb162ee34a73",
+      "f098a41f7a646111",
+      "f11e4709ed1b9337"
+    ],
+    "test": [
+      "18eb7ff19d612612",
+      "1fa0e8ba8c9d96e5",
+      "25b819d689b605f0",
+      "28d60d8be30ba672",
+      "2996235d1eb3a43c",
+      "30eedb934d068ef3",
+      "37fa21a54661c0c9",
+      "3868eeca41283fde",
+      "406d9f4983618af4",
+      "49a3a0df2dd73657",
+      "4a3940881a018de7",
+      "54a5d71cf9d60937",
+      "5a89df769663db89",
+      "5dbb0ebbe35a460b",
+      "71631828dacb35e8",
+      "717c0512c57f9a6c",
+      "74623f20c090111c",
+      "8ff765904b8ebea3",
+      "9fc5e82222cf4e06",
+      "a6b00e307e09838e",
+      "b681da9dbc558649",
+      "e08c6ffc0c6366af",
+      "e6537de97f051e25",
+      "edf6994ad75eda1c"
+    ]
+  },
+  "training": {
+    "verified_resolutions": 40,
+    "knowledge_changes": 60,
+    "test_labels_used": false
+  },
+  "calibration_models": {
+    "fixed_baseline": {
+      "method": "monotonic bins with Beta(1,1) smoothing; fitted on validation decisions only",
+      "bins": [
+        {
+          "upper": 0.5,
+          "support": 12,
+          "correct": 4,
+          "probability": 0.357143
+        },
+        {
+          "upper": 0.75,
+          "support": 12,
+          "correct": 4,
+          "probability": 0.357143
+        },
+        {
+          "upper": 0.9,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        },
+        {
+          "upper": 1.0,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        }
+      ]
+    },
+    "current_adaptive": {
+      "method": "monotonic bins with Beta(1,1) smoothing; fitted on validation decisions only",
+      "bins": [
+        {
+          "upper": 0.5,
+          "support": 12,
+          "correct": 4,
+          "probability": 0.357143
+        },
+        {
+          "upper": 0.75,
+          "support": 12,
+          "correct": 4,
+          "probability": 0.357143
+        },
+        {
+          "upper": 0.9,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        },
+        {
+          "upper": 1.0,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        }
+      ]
+    },
+    "multi_component": {
+      "method": "monotonic bins with Beta(1,1) smoothing; fitted on validation decisions only",
+      "bins": [
+        {
+          "upper": 0.5,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        },
+        {
+          "upper": 0.75,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.5
+        },
+        {
+          "upper": 0.9,
+          "support": 44,
+          "correct": 44,
+          "probability": 0.958333
+        },
+        {
+          "upper": 1.0,
+          "support": 0,
+          "correct": 0,
+          "probability": 0.958333
+        }
+      ]
+    }
+  },
+  "metrics": {
+    "fixed_baseline": {
+      "sessions": 48,
+      "decision_accuracy_pct": 25.0,
+      "root_cause_accuracy_pct": 18.18,
+      "category_accuracy_pct": 33.33,
+      "macro_f1": 0.1,
+      "classification_report": {
+        "none": {
+          "precision": 0.3333,
+          "recall": 1.0,
+          "f1": 0.5,
+          "support": 4
+        },
+        "charger_controller_timeout": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "vehicle_bms_fault": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "authorization_conflict": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "payment_conflict": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "connector_fault": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "network_delay": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "network_loss": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "network_duplicate": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "stale_availability": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "metering_mismatch": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "inconclusive": {
+          "precision": 0.1667,
+          "recall": 1.0,
+          "f1": 0.2857,
+          "support": 4
+        },
+        "unresolved:session_fails_to_start": {
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "none",
+          "charger_controller_timeout",
+          "vehicle_bms_fault",
+          "authorization_conflict",
+          "payment_conflict",
+          "connector_fault",
+          "network_delay",
+          "network_loss",
+          "network_duplicate",
+          "stale_availability",
+          "metering_mismatch",
+          "inconclusive",
+          "unresolved:session_fails_to_start"
+        ],
+        "rows": [
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "orientation": "rows=true, columns=predicted"
+      },
+      "communication_failure_detection_pct": 75.0,
+      "transport_failure_detection_pct": 66.67,
+      "communication_false_positive_pct": 0.0,
+      "component_localization_accuracy_pct": 10.0,
+      "false_confident_on_inconclusive_pct": 0.0,
+      "avg_checks_per_session": 8.0,
+      "calibration": {
+        "ece": 0.02381,
+        "brier": 0.222789,
+        "asserted_sessions": 24,
+        "bins": [
+          {
+            "range": [
+              0,
+              0.2
+            ],
+            "support": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "range": [
+              0.2,
+              0.4
+            ],
+            "support": 24,
+            "mean_confidence": 0.357143,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "range": [
+              0.4,
+              0.6
+            ],
+            "support": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "range": [
+              0.6,
+              0.8
+            ],
+            "support": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "range": [
+              0.8,
+              1
+            ],
+            "support": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          }
+        ]
+      },
+      "tool_errors": 0
+    },
+    "current_adaptive": {
+      "sessions": 48,
+      "decision_accuracy_pct": 25.0,
+      "root_cause_accuracy_pct": 18.18,
+      "category_accuracy_pct": 33.33,
+      "macro_f1": 0.1,
+      "classification_report": {
+        "none": {
+          "precision": 0.3333,
+          "recall": 1.0,
+          "f1": 0.5,
+          "support": 4
+        },
+        "charger_controller_timeout": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "vehicle_bms_fault": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "authorization_conflict": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "payment_conflict": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "connector_fault": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "network_delay": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "network_loss": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "network_duplicate": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "stale_availability": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "metering_mismatch": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "inconclusive": {
+          "precision": 0.1667,
+          "recall": 1.0,
+          "f1": 0.2857,
+          "support": 4
+        },
+        "unresolved:session_fails_to_start": {
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "none",
+          "charger_controller_timeout",
+          "vehicle_bms_fault",
+          "authorization_conflict",
+          "payment_conflict",
+          "connector_fault",
+          "network_delay",
+          "network_loss",
+          "network_duplicate",
+          "stale_availability",
+          "metering_mismatch",
+          "inconclusive",
+          "unresolved:session_fails_to_start"
+        ],
+        "rows": [
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "orientation": "rows=true, columns=predicted"
+      },
+      "communication_failure_detection_pct": 75.0,
+      "transport_failure_detection_pct": 66.67,
+      "communication_false_positive_pct": 0.0,
+      "component_localization_accuracy_pct": 10.0,
+      "false_confident_on_inconclusive_pct": 0.0,
+      "avg_checks_per_session": 6.833,
+      "calibration": {
+        "ece": 0.02381,
+        "brier": 0.222789,
+        "asserted_sessions": 24,
+        "bins": [
+          {
+            "range": [
+              0,
+              0.2
+            ],
+            "support": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "range": [
+              0.2,
+              0.4
+            ],
+            "support": 24,
+            "mean_confidence": 0.357143,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "range": [
+              0.4,
+              0.6
+            ],
+            "support": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "range": [
+              0.6,
+              0.8
+            ],
+            "support": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "range": [
+              0.8,
+              1
+            ],
+            "support": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          }
+        ]
+      },
+      "tool_errors": 0
+    },
+    "multi_component": {
+      "sessions": 48,
+      "decision_accuracy_pct": 100.0,
+      "root_cause_accuracy_pct": 100.0,
+      "category_accuracy_pct": 100.0,
+      "macro_f1": 1.0,
+      "classification_report": {
+        "none": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "charger_controller_timeout": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "vehicle_bms_fault": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "authorization_conflict": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "payment_conflict": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "connector_fault": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "network_delay": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "network_loss": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "network_duplicate": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "stale_availability": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "metering_mismatch": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "inconclusive": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "none",
+          "charger_controller_timeout",
+          "vehicle_bms_fault",
+          "authorization_conflict",
+          "payment_conflict",
+          "connector_fault",
+          "network_delay",
+          "network_loss",
+          "network_duplicate",
+          "stale_availability",
+          "metering_mismatch",
+          "inconclusive"
+        ],
+        "rows": [
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ]
+        ],
+        "orientation": "rows=true, columns=predicted"
+      },
+      "communication_failure_detection_pct": 100.0,
+      "transport_failure_detection_pct": 100.0,
+      "communication_false_positive_pct": 0.0,
+      "component_localization_accuracy_pct": 100.0,
+      "false_confident_on_inconclusive_pct": 0.0,
+      "avg_checks_per_session": 5.083,
+      "calibration": {
+        "ece": 0.041667,
+        "brier": 0.001736,
+        "asserted_sessions": 44,
+        "bins": [
+          {
+            "range": [
+              0,
+              0.2
+            ],
+            "support": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "range": [
+              0.2,
+              0.4
+            ],
+            "support": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "range": [
+              0.4,
+              0.6
+            ],
+            "support": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "range": [
+              0.6,
+              0.8
+            ],
+            "support": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "range": [
+              0.8,
+              1
+            ],
+            "support": 44,
+            "mean_confidence": 0.958333,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      "tool_errors": 0
+    }
+  },
+  "per_session": {
+    "fixed_baseline": [
+      {
+        "session_id": "MC-f7db7ef0746cb387",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "none",
+        "template_id": "communication-v1-test-00"
+      },
+      {
+        "session_id": "MC-7fcc0d1b3a238da9",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "none",
+        "template_id": "communication-v1-test-00"
+      },
+      {
+        "session_id": "MC-e53f83b65ba16c7a",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "none",
+        "template_id": "communication-v1-test-00"
+      },
+      {
+        "session_id": "MC-f24c7c91dfe9426f",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "none",
+        "template_id": "communication-v1-test-00"
+      },
+      {
+        "session_id": "MC-5d36f8c7dbd803ca",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.6470588235294118,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": true,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "charger_controller_timeout",
+        "template_id": "communication-v1-test-01"
+      },
+      {
+        "session_id": "MC-860817f9ee80f0f8",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.6470588235294118,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": true,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "charger_controller_timeout",
+        "template_id": "communication-v1-test-01"
+      },
+      {
+        "session_id": "MC-ee278cd583a0f25f",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.6470588235294118,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": true,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "charger_controller_timeout",
+        "template_id": "communication-v1-test-01"
+      },
+      {
+        "session_id": "MC-251770c5ae13ac7a",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.6470588235294118,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": true,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "charger_controller_timeout",
+        "template_id": "communication-v1-test-01"
+      },
+      {
+        "session_id": "MC-ba4a2e0963585f27",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "vehicle_bms_fault",
+        "template_id": "communication-v1-test-02"
+      },
+      {
+        "session_id": "MC-a18fb407093339e9",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "vehicle_bms_fault",
+        "template_id": "communication-v1-test-02"
+      },
+      {
+        "session_id": "MC-a8fedc2e68a17a6d",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "vehicle_bms_fault",
+        "template_id": "communication-v1-test-02"
+      },
+      {
+        "session_id": "MC-692933db86f1a860",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "vehicle_bms_fault",
+        "template_id": "communication-v1-test-02"
+      },
+      {
+        "session_id": "MC-564f5a525cc5d446",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "authorization_conflict",
+        "template_id": "communication-v1-test-03"
+      },
+      {
+        "session_id": "MC-0f9e21f3ff975a26",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "authorization_conflict",
+        "template_id": "communication-v1-test-03"
+      },
+      {
+        "session_id": "MC-524dd22b19b28954",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "authorization_conflict",
+        "template_id": "communication-v1-test-03"
+      },
+      {
+        "session_id": "MC-31a7be6f1c700b93",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "authorization_conflict",
+        "template_id": "communication-v1-test-03"
+      },
+      {
+        "session_id": "MC-a17b7b831a855557",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "payment_conflict",
+        "template_id": "communication-v1-test-04"
+      },
+      {
+        "session_id": "MC-5f20b84b36f75296",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "payment_conflict",
+        "template_id": "communication-v1-test-04"
+      },
+      {
+        "session_id": "MC-ace71d81ee604c6d",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "payment_conflict",
+        "template_id": "communication-v1-test-04"
+      },
+      {
+        "session_id": "MC-8b6513f3060fe5c5",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "payment_conflict",
+        "template_id": "communication-v1-test-04"
+      },
+      {
+        "session_id": "MC-7c34b1af3bb50fe6",
+        "root_cause": "connector_fault",
+        "category": "connector_or_charger_hardware_fault",
+        "component_type": "connector",
+        "evidence_strength": 0.6756756756756757,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "connector_fault",
+        "template_id": "communication-v1-test-05"
+      },
+      {
+        "session_id": "MC-434404bf4a94ceb1",
+        "root_cause": "connector_fault",
+        "category": "connector_or_charger_hardware_fault",
+        "component_type": "connector",
+        "evidence_strength": 0.6756756756756757,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "connector_fault",
+        "template_id": "communication-v1-test-05"
+      },
+      {
+        "session_id": "MC-a6126d22e48950c8",
+        "root_cause": "connector_fault",
+        "category": "connector_or_charger_hardware_fault",
+        "component_type": "connector",
+        "evidence_strength": 0.6756756756756757,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "connector_fault",
+        "template_id": "communication-v1-test-05"
+      },
+      {
+        "session_id": "MC-a7cb4c57ca954dd4",
+        "root_cause": "connector_fault",
+        "category": "connector_or_charger_hardware_fault",
+        "component_type": "connector",
+        "evidence_strength": 0.6756756756756757,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "connector_fault",
+        "template_id": "communication-v1-test-05"
+      },
+      {
+        "session_id": "MC-bef8639ad9ac6f1d",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_delay",
+        "template_id": "communication-v1-test-06"
+      },
+      {
+        "session_id": "MC-4e5912fb6758dfe6",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_delay",
+        "template_id": "communication-v1-test-06"
+      },
+      {
+        "session_id": "MC-96bd2c1f9f4fd2ba",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_delay",
+        "template_id": "communication-v1-test-06"
+      },
+      {
+        "session_id": "MC-7e0a152508a72d0a",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_delay",
+        "template_id": "communication-v1-test-06"
+      },
+      {
+        "session_id": "MC-1a172adba372023f",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.5625,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_loss",
+        "template_id": "communication-v1-test-07"
+      },
+      {
+        "session_id": "MC-3e9b2ad91b06670f",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.5625,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_loss",
+        "template_id": "communication-v1-test-07"
+      },
+      {
+        "session_id": "MC-7ffd55400926708a",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.5625,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_loss",
+        "template_id": "communication-v1-test-07"
+      },
+      {
+        "session_id": "MC-aee8dc0202daccc1",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.5625,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_loss",
+        "template_id": "communication-v1-test-07"
+      },
+      {
+        "session_id": "MC-14c9abc470801756",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_duplicate",
+        "template_id": "communication-v1-test-08"
+      },
+      {
+        "session_id": "MC-322de8bdf2115864",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_duplicate",
+        "template_id": "communication-v1-test-08"
+      },
+      {
+        "session_id": "MC-4b442b909775b484",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_duplicate",
+        "template_id": "communication-v1-test-08"
+      },
+      {
+        "session_id": "MC-5dffce9527cf6394",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_duplicate",
+        "template_id": "communication-v1-test-08"
+      },
+      {
+        "session_id": "MC-0331411247d89f28",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "stale_availability",
+        "template_id": "communication-v1-test-09"
+      },
+      {
+        "session_id": "MC-e3ae9109ab719fcb",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "stale_availability",
+        "template_id": "communication-v1-test-09"
+      },
+      {
+        "session_id": "MC-5a0f3365241c6756",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "stale_availability",
+        "template_id": "communication-v1-test-09"
+      },
+      {
+        "session_id": "MC-b96afb5f1a3f1819",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "stale_availability",
+        "template_id": "communication-v1-test-09"
+      },
+      {
+        "session_id": "MC-861f436d6c03ea78",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.4304347826086957,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "metering_mismatch",
+        "template_id": "communication-v1-test-10"
+      },
+      {
+        "session_id": "MC-cd870b21687694b8",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.4304347826086957,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "metering_mismatch",
+        "template_id": "communication-v1-test-10"
+      },
+      {
+        "session_id": "MC-c54bb999e1184f46",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.4304347826086957,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "metering_mismatch",
+        "template_id": "communication-v1-test-10"
+      },
+      {
+        "session_id": "MC-4212124e2e6053fd",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.4304347826086957,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "metering_mismatch",
+        "template_id": "communication-v1-test-10"
+      },
+      {
+        "session_id": "MC-c7d9f12a0c9b80b2",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "inconclusive",
+        "template_id": "communication-v1-test-11"
+      },
+      {
+        "session_id": "MC-f144a9c83942bcd4",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "inconclusive",
+        "template_id": "communication-v1-test-11"
+      },
+      {
+        "session_id": "MC-89904ef03395092b",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "inconclusive",
+        "template_id": "communication-v1-test-11"
+      },
+      {
+        "session_id": "MC-0d612a58488842c1",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "inconclusive",
+        "template_id": "communication-v1-test-11"
+      }
+    ],
+    "current_adaptive": [
+      {
+        "session_id": "MC-f7db7ef0746cb387",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "none",
+        "template_id": "communication-v1-test-00"
+      },
+      {
+        "session_id": "MC-7fcc0d1b3a238da9",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "none",
+        "template_id": "communication-v1-test-00"
+      },
+      {
+        "session_id": "MC-e53f83b65ba16c7a",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "none",
+        "template_id": "communication-v1-test-00"
+      },
+      {
+        "session_id": "MC-f24c7c91dfe9426f",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "none",
+        "template_id": "communication-v1-test-00"
+      },
+      {
+        "session_id": "MC-5d36f8c7dbd803ca",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.6470588235294118,
+        "diagnostic_checks": 4,
+        "communication_failure_detected": true,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "charger_controller_timeout",
+        "template_id": "communication-v1-test-01"
+      },
+      {
+        "session_id": "MC-860817f9ee80f0f8",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.6470588235294118,
+        "diagnostic_checks": 4,
+        "communication_failure_detected": true,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "charger_controller_timeout",
+        "template_id": "communication-v1-test-01"
+      },
+      {
+        "session_id": "MC-ee278cd583a0f25f",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.6470588235294118,
+        "diagnostic_checks": 4,
+        "communication_failure_detected": true,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "charger_controller_timeout",
+        "template_id": "communication-v1-test-01"
+      },
+      {
+        "session_id": "MC-251770c5ae13ac7a",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.6470588235294118,
+        "diagnostic_checks": 4,
+        "communication_failure_detected": true,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "charger_controller_timeout",
+        "template_id": "communication-v1-test-01"
+      },
+      {
+        "session_id": "MC-ba4a2e0963585f27",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "vehicle_bms_fault",
+        "template_id": "communication-v1-test-02"
+      },
+      {
+        "session_id": "MC-a18fb407093339e9",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "vehicle_bms_fault",
+        "template_id": "communication-v1-test-02"
+      },
+      {
+        "session_id": "MC-a8fedc2e68a17a6d",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "vehicle_bms_fault",
+        "template_id": "communication-v1-test-02"
+      },
+      {
+        "session_id": "MC-692933db86f1a860",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "vehicle_bms_fault",
+        "template_id": "communication-v1-test-02"
+      },
+      {
+        "session_id": "MC-564f5a525cc5d446",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "authorization_conflict",
+        "template_id": "communication-v1-test-03"
+      },
+      {
+        "session_id": "MC-0f9e21f3ff975a26",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "authorization_conflict",
+        "template_id": "communication-v1-test-03"
+      },
+      {
+        "session_id": "MC-524dd22b19b28954",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "authorization_conflict",
+        "template_id": "communication-v1-test-03"
+      },
+      {
+        "session_id": "MC-31a7be6f1c700b93",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "authorization_conflict",
+        "template_id": "communication-v1-test-03"
+      },
+      {
+        "session_id": "MC-a17b7b831a855557",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "payment_conflict",
+        "template_id": "communication-v1-test-04"
+      },
+      {
+        "session_id": "MC-5f20b84b36f75296",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "payment_conflict",
+        "template_id": "communication-v1-test-04"
+      },
+      {
+        "session_id": "MC-ace71d81ee604c6d",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "payment_conflict",
+        "template_id": "communication-v1-test-04"
+      },
+      {
+        "session_id": "MC-8b6513f3060fe5c5",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "payment_conflict",
+        "template_id": "communication-v1-test-04"
+      },
+      {
+        "session_id": "MC-7c34b1af3bb50fe6",
+        "root_cause": "connector_fault",
+        "category": "connector_or_charger_hardware_fault",
+        "component_type": "connector",
+        "evidence_strength": 0.6756756756756757,
+        "diagnostic_checks": 3,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "connector_fault",
+        "template_id": "communication-v1-test-05"
+      },
+      {
+        "session_id": "MC-434404bf4a94ceb1",
+        "root_cause": "connector_fault",
+        "category": "connector_or_charger_hardware_fault",
+        "component_type": "connector",
+        "evidence_strength": 0.6756756756756757,
+        "diagnostic_checks": 3,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "connector_fault",
+        "template_id": "communication-v1-test-05"
+      },
+      {
+        "session_id": "MC-a6126d22e48950c8",
+        "root_cause": "connector_fault",
+        "category": "connector_or_charger_hardware_fault",
+        "component_type": "connector",
+        "evidence_strength": 0.6756756756756757,
+        "diagnostic_checks": 3,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "connector_fault",
+        "template_id": "communication-v1-test-05"
+      },
+      {
+        "session_id": "MC-a7cb4c57ca954dd4",
+        "root_cause": "connector_fault",
+        "category": "connector_or_charger_hardware_fault",
+        "component_type": "connector",
+        "evidence_strength": 0.6756756756756757,
+        "diagnostic_checks": 3,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "connector_fault",
+        "template_id": "communication-v1-test-05"
+      },
+      {
+        "session_id": "MC-bef8639ad9ac6f1d",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 7,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_delay",
+        "template_id": "communication-v1-test-06"
+      },
+      {
+        "session_id": "MC-4e5912fb6758dfe6",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 7,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_delay",
+        "template_id": "communication-v1-test-06"
+      },
+      {
+        "session_id": "MC-96bd2c1f9f4fd2ba",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 7,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_delay",
+        "template_id": "communication-v1-test-06"
+      },
+      {
+        "session_id": "MC-7e0a152508a72d0a",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.40909090909090906,
+        "diagnostic_checks": 7,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_delay",
+        "template_id": "communication-v1-test-06"
+      },
+      {
+        "session_id": "MC-1a172adba372023f",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.5625,
+        "diagnostic_checks": 7,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_loss",
+        "template_id": "communication-v1-test-07"
+      },
+      {
+        "session_id": "MC-3e9b2ad91b06670f",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.5625,
+        "diagnostic_checks": 7,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_loss",
+        "template_id": "communication-v1-test-07"
+      },
+      {
+        "session_id": "MC-7ffd55400926708a",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.5625,
+        "diagnostic_checks": 7,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_loss",
+        "template_id": "communication-v1-test-07"
+      },
+      {
+        "session_id": "MC-aee8dc0202daccc1",
+        "root_cause": "unresolved:session_fails_to_start",
+        "category": "session_fails_to_start",
+        "component_type": null,
+        "evidence_strength": 0.5625,
+        "diagnostic_checks": 7,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_loss",
+        "template_id": "communication-v1-test-07"
+      },
+      {
+        "session_id": "MC-14c9abc470801756",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_duplicate",
+        "template_id": "communication-v1-test-08"
+      },
+      {
+        "session_id": "MC-322de8bdf2115864",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_duplicate",
+        "template_id": "communication-v1-test-08"
+      },
+      {
+        "session_id": "MC-4b442b909775b484",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_duplicate",
+        "template_id": "communication-v1-test-08"
+      },
+      {
+        "session_id": "MC-5dffce9527cf6394",
+        "root_cause": "none",
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.5,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": 0.357143,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "network_duplicate",
+        "template_id": "communication-v1-test-08"
+      },
+      {
+        "session_id": "MC-0331411247d89f28",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "stale_availability",
+        "template_id": "communication-v1-test-09"
+      },
+      {
+        "session_id": "MC-e3ae9109ab719fcb",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "stale_availability",
+        "template_id": "communication-v1-test-09"
+      },
+      {
+        "session_id": "MC-5a0f3365241c6756",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "stale_availability",
+        "template_id": "communication-v1-test-09"
+      },
+      {
+        "session_id": "MC-b96afb5f1a3f1819",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "stale_availability",
+        "template_id": "communication-v1-test-09"
+      },
+      {
+        "session_id": "MC-861f436d6c03ea78",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.4304347826086957,
+        "diagnostic_checks": 5,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "metering_mismatch",
+        "template_id": "communication-v1-test-10"
+      },
+      {
+        "session_id": "MC-cd870b21687694b8",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.4304347826086957,
+        "diagnostic_checks": 5,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "metering_mismatch",
+        "template_id": "communication-v1-test-10"
+      },
+      {
+        "session_id": "MC-c54bb999e1184f46",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.4304347826086957,
+        "diagnostic_checks": 5,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "metering_mismatch",
+        "template_id": "communication-v1-test-10"
+      },
+      {
+        "session_id": "MC-4212124e2e6053fd",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.4304347826086957,
+        "diagnostic_checks": 5,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "metering_mismatch",
+        "template_id": "communication-v1-test-10"
+      },
+      {
+        "session_id": "MC-c7d9f12a0c9b80b2",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "inconclusive",
+        "template_id": "communication-v1-test-11"
+      },
+      {
+        "session_id": "MC-f144a9c83942bcd4",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "inconclusive",
+        "template_id": "communication-v1-test-11"
+      },
+      {
+        "session_id": "MC-89904ef03395092b",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "inconclusive",
+        "template_id": "communication-v1-test-11"
+      },
+      {
+        "session_id": "MC-0d612a58488842c1",
+        "root_cause": null,
+        "category": null,
+        "component_type": null,
+        "evidence_strength": 0.0,
+        "diagnostic_checks": 8,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "confidence": null,
+        "evidence": [],
+        "tool_errors": [],
+        "expected_label": "inconclusive",
+        "template_id": "communication-v1-test-11"
+      }
+    ],
+    "multi_component": [
+      {
+        "session_id": "MC-f7db7ef0746cb387",
+        "root_cause": "none",
+        "category": null,
+        "classification": "normal",
+        "component_type": null,
+        "component_id": null,
+        "evidence_strength": 0.8,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "none",
+            "description": "Observed authorization, power delivery, increasing metering, completion and successful payment agree.",
+            "event_ids": [
+              "MC-f7db7ef0746cb387-E0024",
+              "MC-f7db7ef0746cb387-E0032",
+              "MC-f7db7ef0746cb387-E0053",
+              "MC-f7db7ef0746cb387-E0092",
+              "MC-f7db7ef0746cb387-E0099",
+              "MC-f7db7ef0746cb387-E0102",
+              "MC-f7db7ef0746cb387-E0111",
+              "MC-f7db7ef0746cb387-E0120",
+              "MC-f7db7ef0746cb387-E0129",
+              "MC-f7db7ef0746cb387-E0138",
+              "MC-f7db7ef0746cb387-E0145",
+              "MC-f7db7ef0746cb387-E0152",
+              "MC-f7db7ef0746cb387-E0159"
+            ],
+            "component_type": null,
+            "signal_key": null,
+            "weight": 0.8,
+            "tool_name": "communication_completion"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "none",
+        "template_id": "communication-v1-test-00"
+      },
+      {
+        "session_id": "MC-7fcc0d1b3a238da9",
+        "root_cause": "none",
+        "category": null,
+        "classification": "normal",
+        "component_type": null,
+        "component_id": null,
+        "evidence_strength": 0.8,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "none",
+            "description": "Observed authorization, power delivery, increasing metering, completion and successful payment agree.",
+            "event_ids": [
+              "MC-7fcc0d1b3a238da9-E0024",
+              "MC-7fcc0d1b3a238da9-E0032",
+              "MC-7fcc0d1b3a238da9-E0053",
+              "MC-7fcc0d1b3a238da9-E0092",
+              "MC-7fcc0d1b3a238da9-E0099",
+              "MC-7fcc0d1b3a238da9-E0102",
+              "MC-7fcc0d1b3a238da9-E0111",
+              "MC-7fcc0d1b3a238da9-E0120",
+              "MC-7fcc0d1b3a238da9-E0129",
+              "MC-7fcc0d1b3a238da9-E0138",
+              "MC-7fcc0d1b3a238da9-E0145",
+              "MC-7fcc0d1b3a238da9-E0152",
+              "MC-7fcc0d1b3a238da9-E0159"
+            ],
+            "component_type": null,
+            "signal_key": null,
+            "weight": 0.8,
+            "tool_name": "communication_completion"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "none",
+        "template_id": "communication-v1-test-00"
+      },
+      {
+        "session_id": "MC-e53f83b65ba16c7a",
+        "root_cause": "none",
+        "category": null,
+        "classification": "normal",
+        "component_type": null,
+        "component_id": null,
+        "evidence_strength": 0.8,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "none",
+            "description": "Observed authorization, power delivery, increasing metering, completion and successful payment agree.",
+            "event_ids": [
+              "MC-e53f83b65ba16c7a-E0024",
+              "MC-e53f83b65ba16c7a-E0032",
+              "MC-e53f83b65ba16c7a-E0053",
+              "MC-e53f83b65ba16c7a-E0092",
+              "MC-e53f83b65ba16c7a-E0099",
+              "MC-e53f83b65ba16c7a-E0102",
+              "MC-e53f83b65ba16c7a-E0111",
+              "MC-e53f83b65ba16c7a-E0120",
+              "MC-e53f83b65ba16c7a-E0129",
+              "MC-e53f83b65ba16c7a-E0138",
+              "MC-e53f83b65ba16c7a-E0145",
+              "MC-e53f83b65ba16c7a-E0152",
+              "MC-e53f83b65ba16c7a-E0159"
+            ],
+            "component_type": null,
+            "signal_key": null,
+            "weight": 0.8,
+            "tool_name": "communication_completion"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "none",
+        "template_id": "communication-v1-test-00"
+      },
+      {
+        "session_id": "MC-f24c7c91dfe9426f",
+        "root_cause": "none",
+        "category": null,
+        "classification": "normal",
+        "component_type": null,
+        "component_id": null,
+        "evidence_strength": 0.8,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "none",
+            "description": "Observed authorization, power delivery, increasing metering, completion and successful payment agree.",
+            "event_ids": [
+              "MC-f24c7c91dfe9426f-E0024",
+              "MC-f24c7c91dfe9426f-E0032",
+              "MC-f24c7c91dfe9426f-E0053",
+              "MC-f24c7c91dfe9426f-E0092",
+              "MC-f24c7c91dfe9426f-E0099",
+              "MC-f24c7c91dfe9426f-E0102",
+              "MC-f24c7c91dfe9426f-E0111",
+              "MC-f24c7c91dfe9426f-E0120",
+              "MC-f24c7c91dfe9426f-E0129",
+              "MC-f24c7c91dfe9426f-E0138",
+              "MC-f24c7c91dfe9426f-E0145",
+              "MC-f24c7c91dfe9426f-E0152",
+              "MC-f24c7c91dfe9426f-E0159"
+            ],
+            "component_type": null,
+            "signal_key": null,
+            "weight": 0.8,
+            "tool_name": "communication_completion"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "none",
+        "template_id": "communication-v1-test-00"
+      },
+      {
+        "session_id": "MC-5d36f8c7dbd803ca",
+        "root_cause": "charger_controller_timeout",
+        "category": "session_fails_to_start",
+        "classification": "probable",
+        "component_type": "charger",
+        "component_id": "CHARGER-5d36f8c7dbd803ca",
+        "evidence_strength": 0.8,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "charger_controller_timeout",
+            "description": "The charger received its command, then its own controller watchdog expired before replying.",
+            "event_ids": [
+              "MC-5d36f8c7dbd803ca-E0047",
+              "MC-5d36f8c7dbd803ca-E0048"
+            ],
+            "component_type": "charger",
+            "signal_key": "mc_charger_controller_timeout",
+            "weight": 1.0,
+            "tool_name": "communication_controller"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_availability",
+          "communication_controller",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 4,
+        "communication_failure_detected": true,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "charger_controller_timeout"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "charger_controller_timeout",
+        "template_id": "communication-v1-test-01"
+      },
+      {
+        "session_id": "MC-860817f9ee80f0f8",
+        "root_cause": "charger_controller_timeout",
+        "category": "session_fails_to_start",
+        "classification": "probable",
+        "component_type": "charger",
+        "component_id": "CHARGER-860817f9ee80f0f8",
+        "evidence_strength": 0.8,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "charger_controller_timeout",
+            "description": "The charger received its command, then its own controller watchdog expired before replying.",
+            "event_ids": [
+              "MC-860817f9ee80f0f8-E0047",
+              "MC-860817f9ee80f0f8-E0048"
+            ],
+            "component_type": "charger",
+            "signal_key": "mc_charger_controller_timeout",
+            "weight": 1.0,
+            "tool_name": "communication_controller"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_availability",
+          "communication_controller",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 4,
+        "communication_failure_detected": true,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "charger_controller_timeout"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "charger_controller_timeout",
+        "template_id": "communication-v1-test-01"
+      },
+      {
+        "session_id": "MC-ee278cd583a0f25f",
+        "root_cause": "charger_controller_timeout",
+        "category": "session_fails_to_start",
+        "classification": "probable",
+        "component_type": "charger",
+        "component_id": "CHARGER-ee278cd583a0f25f",
+        "evidence_strength": 0.8,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "charger_controller_timeout",
+            "description": "The charger received its command, then its own controller watchdog expired before replying.",
+            "event_ids": [
+              "MC-ee278cd583a0f25f-E0047",
+              "MC-ee278cd583a0f25f-E0048"
+            ],
+            "component_type": "charger",
+            "signal_key": "mc_charger_controller_timeout",
+            "weight": 1.0,
+            "tool_name": "communication_controller"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_availability",
+          "communication_controller",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 4,
+        "communication_failure_detected": true,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "charger_controller_timeout"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "charger_controller_timeout",
+        "template_id": "communication-v1-test-01"
+      },
+      {
+        "session_id": "MC-251770c5ae13ac7a",
+        "root_cause": "charger_controller_timeout",
+        "category": "session_fails_to_start",
+        "classification": "probable",
+        "component_type": "charger",
+        "component_id": "CHARGER-251770c5ae13ac7a",
+        "evidence_strength": 0.8,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "charger_controller_timeout",
+            "description": "The charger received its command, then its own controller watchdog expired before replying.",
+            "event_ids": [
+              "MC-251770c5ae13ac7a-E0047",
+              "MC-251770c5ae13ac7a-E0048"
+            ],
+            "component_type": "charger",
+            "signal_key": "mc_charger_controller_timeout",
+            "weight": 1.0,
+            "tool_name": "communication_controller"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_availability",
+          "communication_controller",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 4,
+        "communication_failure_detected": true,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "charger_controller_timeout"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "charger_controller_timeout",
+        "template_id": "communication-v1-test-01"
+      },
+      {
+        "session_id": "MC-ba4a2e0963585f27",
+        "root_cause": "vehicle_bms_fault",
+        "category": "vehicle_specific_or_telematics_issue",
+        "classification": "probable",
+        "component_type": "bms",
+        "component_id": "BMS-ba4a2e0963585f27",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "vehicle_bms_fault",
+            "description": "bms reported ISOLATION_FAULT; a matching safety stop reached the charger and energy delivery stopped.",
+            "event_ids": [
+              "MC-ba4a2e0963585f27-E0118",
+              "MC-ba4a2e0963585f27-E0127",
+              "MC-ba4a2e0963585f27-E0131"
+            ],
+            "component_type": "bms",
+            "signal_key": "mc_vehicle_bms_fault",
+            "weight": 1.0,
+            "tool_name": "communication_physical"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "vehicle_bms_fault"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "vehicle_bms_fault",
+        "template_id": "communication-v1-test-02"
+      },
+      {
+        "session_id": "MC-a18fb407093339e9",
+        "root_cause": "vehicle_bms_fault",
+        "category": "vehicle_specific_or_telematics_issue",
+        "classification": "probable",
+        "component_type": "bms",
+        "component_id": "BMS-a18fb407093339e9",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "vehicle_bms_fault",
+            "description": "bms reported ISOLATION_FAULT; a matching safety stop reached the charger and energy delivery stopped.",
+            "event_ids": [
+              "MC-a18fb407093339e9-E0118",
+              "MC-a18fb407093339e9-E0127",
+              "MC-a18fb407093339e9-E0131"
+            ],
+            "component_type": "bms",
+            "signal_key": "mc_vehicle_bms_fault",
+            "weight": 1.0,
+            "tool_name": "communication_physical"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "vehicle_bms_fault"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "vehicle_bms_fault",
+        "template_id": "communication-v1-test-02"
+      },
+      {
+        "session_id": "MC-a8fedc2e68a17a6d",
+        "root_cause": "vehicle_bms_fault",
+        "category": "vehicle_specific_or_telematics_issue",
+        "classification": "probable",
+        "component_type": "bms",
+        "component_id": "BMS-a8fedc2e68a17a6d",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "vehicle_bms_fault",
+            "description": "bms reported ISOLATION_FAULT; a matching safety stop reached the charger and energy delivery stopped.",
+            "event_ids": [
+              "MC-a8fedc2e68a17a6d-E0118",
+              "MC-a8fedc2e68a17a6d-E0127",
+              "MC-a8fedc2e68a17a6d-E0131"
+            ],
+            "component_type": "bms",
+            "signal_key": "mc_vehicle_bms_fault",
+            "weight": 1.0,
+            "tool_name": "communication_physical"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "vehicle_bms_fault"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "vehicle_bms_fault",
+        "template_id": "communication-v1-test-02"
+      },
+      {
+        "session_id": "MC-692933db86f1a860",
+        "root_cause": "vehicle_bms_fault",
+        "category": "vehicle_specific_or_telematics_issue",
+        "classification": "probable",
+        "component_type": "bms",
+        "component_id": "BMS-692933db86f1a860",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "vehicle_bms_fault",
+            "description": "bms reported ISOLATION_FAULT; a matching safety stop reached the charger and energy delivery stopped.",
+            "event_ids": [
+              "MC-692933db86f1a860-E0118",
+              "MC-692933db86f1a860-E0127",
+              "MC-692933db86f1a860-E0131"
+            ],
+            "component_type": "bms",
+            "signal_key": "mc_vehicle_bms_fault",
+            "weight": 1.0,
+            "tool_name": "communication_physical"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "vehicle_bms_fault"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "vehicle_bms_fault",
+        "template_id": "communication-v1-test-02"
+      },
+      {
+        "session_id": "MC-564f5a525cc5d446",
+        "root_cause": "authorization_conflict",
+        "category": "session_fails_to_start",
+        "classification": "probable",
+        "component_type": "app",
+        "component_id": "APP-564f5a525cc5d446",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "authorization_conflict",
+            "description": "App authorization display conflicts with the CSMS decision.",
+            "event_ids": [
+              "MC-564f5a525cc5d446-E0051",
+              "MC-564f5a525cc5d446-E0052"
+            ],
+            "component_type": "app",
+            "signal_key": "mc_authorization_conflict",
+            "weight": 1.0,
+            "tool_name": "communication_authorization"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 4,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "authorization_conflict"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "authorization_conflict",
+        "template_id": "communication-v1-test-03"
+      },
+      {
+        "session_id": "MC-0f9e21f3ff975a26",
+        "root_cause": "authorization_conflict",
+        "category": "session_fails_to_start",
+        "classification": "probable",
+        "component_type": "app",
+        "component_id": "APP-0f9e21f3ff975a26",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "authorization_conflict",
+            "description": "App authorization display conflicts with the CSMS decision.",
+            "event_ids": [
+              "MC-0f9e21f3ff975a26-E0051",
+              "MC-0f9e21f3ff975a26-E0052"
+            ],
+            "component_type": "app",
+            "signal_key": "mc_authorization_conflict",
+            "weight": 1.0,
+            "tool_name": "communication_authorization"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 4,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "authorization_conflict"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "authorization_conflict",
+        "template_id": "communication-v1-test-03"
+      },
+      {
+        "session_id": "MC-524dd22b19b28954",
+        "root_cause": "authorization_conflict",
+        "category": "session_fails_to_start",
+        "classification": "probable",
+        "component_type": "app",
+        "component_id": "APP-524dd22b19b28954",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "authorization_conflict",
+            "description": "App authorization display conflicts with the CSMS decision.",
+            "event_ids": [
+              "MC-524dd22b19b28954-E0051",
+              "MC-524dd22b19b28954-E0052"
+            ],
+            "component_type": "app",
+            "signal_key": "mc_authorization_conflict",
+            "weight": 1.0,
+            "tool_name": "communication_authorization"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 4,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "authorization_conflict"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "authorization_conflict",
+        "template_id": "communication-v1-test-03"
+      },
+      {
+        "session_id": "MC-31a7be6f1c700b93",
+        "root_cause": "authorization_conflict",
+        "category": "session_fails_to_start",
+        "classification": "probable",
+        "component_type": "app",
+        "component_id": "APP-31a7be6f1c700b93",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "authorization_conflict",
+            "description": "App authorization display conflicts with the CSMS decision.",
+            "event_ids": [
+              "MC-31a7be6f1c700b93-E0051",
+              "MC-31a7be6f1c700b93-E0052"
+            ],
+            "component_type": "app",
+            "signal_key": "mc_authorization_conflict",
+            "weight": 1.0,
+            "tool_name": "communication_authorization"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 4,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "authorization_conflict"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "authorization_conflict",
+        "template_id": "communication-v1-test-03"
+      },
+      {
+        "session_id": "MC-a17b7b831a855557",
+        "root_cause": "payment_conflict",
+        "category": "payment_or_billing_failure",
+        "classification": "probable",
+        "component_type": "payment",
+        "component_id": "PAYMENT-a17b7b831a855557",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "payment_conflict",
+            "description": "App payment display conflicts with the payment-service result.",
+            "event_ids": [
+              "MC-a17b7b831a855557-E0159",
+              "MC-a17b7b831a855557-E0160"
+            ],
+            "component_type": "payment",
+            "signal_key": "mc_payment_conflict",
+            "weight": 1.0,
+            "tool_name": "communication_billing"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "payment_conflict"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "payment_conflict",
+        "template_id": "communication-v1-test-04"
+      },
+      {
+        "session_id": "MC-5f20b84b36f75296",
+        "root_cause": "payment_conflict",
+        "category": "payment_or_billing_failure",
+        "classification": "probable",
+        "component_type": "payment",
+        "component_id": "PAYMENT-5f20b84b36f75296",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "payment_conflict",
+            "description": "App payment display conflicts with the payment-service result.",
+            "event_ids": [
+              "MC-5f20b84b36f75296-E0159",
+              "MC-5f20b84b36f75296-E0160"
+            ],
+            "component_type": "payment",
+            "signal_key": "mc_payment_conflict",
+            "weight": 1.0,
+            "tool_name": "communication_billing"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "payment_conflict"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "payment_conflict",
+        "template_id": "communication-v1-test-04"
+      },
+      {
+        "session_id": "MC-ace71d81ee604c6d",
+        "root_cause": "payment_conflict",
+        "category": "payment_or_billing_failure",
+        "classification": "probable",
+        "component_type": "payment",
+        "component_id": "PAYMENT-ace71d81ee604c6d",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "payment_conflict",
+            "description": "App payment display conflicts with the payment-service result.",
+            "event_ids": [
+              "MC-ace71d81ee604c6d-E0159",
+              "MC-ace71d81ee604c6d-E0160"
+            ],
+            "component_type": "payment",
+            "signal_key": "mc_payment_conflict",
+            "weight": 1.0,
+            "tool_name": "communication_billing"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "payment_conflict"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "payment_conflict",
+        "template_id": "communication-v1-test-04"
+      },
+      {
+        "session_id": "MC-8b6513f3060fe5c5",
+        "root_cause": "payment_conflict",
+        "category": "payment_or_billing_failure",
+        "classification": "probable",
+        "component_type": "payment",
+        "component_id": "PAYMENT-8b6513f3060fe5c5",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "payment_conflict",
+            "description": "App payment display conflicts with the payment-service result.",
+            "event_ids": [
+              "MC-8b6513f3060fe5c5-E0159",
+              "MC-8b6513f3060fe5c5-E0160"
+            ],
+            "component_type": "payment",
+            "signal_key": "mc_payment_conflict",
+            "weight": 1.0,
+            "tool_name": "communication_billing"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "payment_conflict"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "payment_conflict",
+        "template_id": "communication-v1-test-04"
+      },
+      {
+        "session_id": "MC-7c34b1af3bb50fe6",
+        "root_cause": "connector_fault",
+        "category": "connector_or_charger_hardware_fault",
+        "classification": "probable",
+        "component_type": "connector",
+        "component_id": "CONNECTOR-7c34b1af3bb50fe6",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "connector_fault",
+            "description": "connector reported CONNECTOR_OVER_TEMPERATURE; a matching safety stop reached the charger and energy delivery stopped.",
+            "event_ids": [
+              "MC-7c34b1af3bb50fe6-E0118",
+              "MC-7c34b1af3bb50fe6-E0121",
+              "MC-7c34b1af3bb50fe6-E0125"
+            ],
+            "component_type": "connector",
+            "signal_key": "mc_connector_fault",
+            "weight": 1.0,
+            "tool_name": "communication_physical"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "connector_fault"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "connector_fault",
+        "template_id": "communication-v1-test-05"
+      },
+      {
+        "session_id": "MC-434404bf4a94ceb1",
+        "root_cause": "connector_fault",
+        "category": "connector_or_charger_hardware_fault",
+        "classification": "probable",
+        "component_type": "connector",
+        "component_id": "CONNECTOR-434404bf4a94ceb1",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "connector_fault",
+            "description": "connector reported CONNECTOR_OVER_TEMPERATURE; a matching safety stop reached the charger and energy delivery stopped.",
+            "event_ids": [
+              "MC-434404bf4a94ceb1-E0118",
+              "MC-434404bf4a94ceb1-E0121",
+              "MC-434404bf4a94ceb1-E0125"
+            ],
+            "component_type": "connector",
+            "signal_key": "mc_connector_fault",
+            "weight": 1.0,
+            "tool_name": "communication_physical"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "connector_fault"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "connector_fault",
+        "template_id": "communication-v1-test-05"
+      },
+      {
+        "session_id": "MC-a6126d22e48950c8",
+        "root_cause": "connector_fault",
+        "category": "connector_or_charger_hardware_fault",
+        "classification": "probable",
+        "component_type": "connector",
+        "component_id": "CONNECTOR-a6126d22e48950c8",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "connector_fault",
+            "description": "connector reported CONNECTOR_OVER_TEMPERATURE; a matching safety stop reached the charger and energy delivery stopped.",
+            "event_ids": [
+              "MC-a6126d22e48950c8-E0118",
+              "MC-a6126d22e48950c8-E0121",
+              "MC-a6126d22e48950c8-E0125"
+            ],
+            "component_type": "connector",
+            "signal_key": "mc_connector_fault",
+            "weight": 1.0,
+            "tool_name": "communication_physical"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "connector_fault"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "connector_fault",
+        "template_id": "communication-v1-test-05"
+      },
+      {
+        "session_id": "MC-a7cb4c57ca954dd4",
+        "root_cause": "connector_fault",
+        "category": "connector_or_charger_hardware_fault",
+        "classification": "probable",
+        "component_type": "connector",
+        "component_id": "CONNECTOR-a7cb4c57ca954dd4",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "connector_fault",
+            "description": "connector reported CONNECTOR_OVER_TEMPERATURE; a matching safety stop reached the charger and energy delivery stopped.",
+            "event_ids": [
+              "MC-a7cb4c57ca954dd4-E0118",
+              "MC-a7cb4c57ca954dd4-E0121",
+              "MC-a7cb4c57ca954dd4-E0125"
+            ],
+            "component_type": "connector",
+            "signal_key": "mc_connector_fault",
+            "weight": 1.0,
+            "tool_name": "communication_physical"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "connector_fault"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "connector_fault",
+        "template_id": "communication-v1-test-05"
+      },
+      {
+        "session_id": "MC-bef8639ad9ac6f1d",
+        "root_cause": "network_delay",
+        "category": "network_or_connectivity_issue",
+        "classification": "probable",
+        "component_type": "network",
+        "component_id": "NETWORK-bef8639ad9ac6f1d",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "network_delay",
+            "description": "TransactionEvent.Ended exceeded its observed request deadline (20729 ms).",
+            "event_ids": [
+              "MC-bef8639ad9ac6f1d-E0146",
+              "MC-bef8639ad9ac6f1d-E0148"
+            ],
+            "component_type": "network",
+            "signal_key": "mc_network_delay",
+            "weight": 1.0,
+            "tool_name": "communication_transport"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_controller",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "candidate_root_causes": [
+          "network_delay"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "network_delay",
+        "template_id": "communication-v1-test-06"
+      },
+      {
+        "session_id": "MC-4e5912fb6758dfe6",
+        "root_cause": "network_delay",
+        "category": "network_or_connectivity_issue",
+        "classification": "probable",
+        "component_type": "network",
+        "component_id": "NETWORK-4e5912fb6758dfe6",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "network_delay",
+            "description": "TransactionEvent.Ended exceeded its observed request deadline (20936 ms).",
+            "event_ids": [
+              "MC-4e5912fb6758dfe6-E0146",
+              "MC-4e5912fb6758dfe6-E0148"
+            ],
+            "component_type": "network",
+            "signal_key": "mc_network_delay",
+            "weight": 1.0,
+            "tool_name": "communication_transport"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_controller",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "candidate_root_causes": [
+          "network_delay"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "network_delay",
+        "template_id": "communication-v1-test-06"
+      },
+      {
+        "session_id": "MC-96bd2c1f9f4fd2ba",
+        "root_cause": "network_delay",
+        "category": "network_or_connectivity_issue",
+        "classification": "probable",
+        "component_type": "network",
+        "component_id": "NETWORK-96bd2c1f9f4fd2ba",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "network_delay",
+            "description": "TransactionEvent.Ended exceeded its observed request deadline (20244 ms).",
+            "event_ids": [
+              "MC-96bd2c1f9f4fd2ba-E0146",
+              "MC-96bd2c1f9f4fd2ba-E0148"
+            ],
+            "component_type": "network",
+            "signal_key": "mc_network_delay",
+            "weight": 1.0,
+            "tool_name": "communication_transport"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_controller",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "candidate_root_causes": [
+          "network_delay"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "network_delay",
+        "template_id": "communication-v1-test-06"
+      },
+      {
+        "session_id": "MC-7e0a152508a72d0a",
+        "root_cause": "network_delay",
+        "category": "network_or_connectivity_issue",
+        "classification": "probable",
+        "component_type": "network",
+        "component_id": "NETWORK-7e0a152508a72d0a",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "network_delay",
+            "description": "TransactionEvent.Ended exceeded its observed request deadline (20845 ms).",
+            "event_ids": [
+              "MC-7e0a152508a72d0a-E0146",
+              "MC-7e0a152508a72d0a-E0148"
+            ],
+            "component_type": "network",
+            "signal_key": "mc_network_delay",
+            "weight": 1.0,
+            "tool_name": "communication_transport"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_controller",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "candidate_root_causes": [
+          "network_delay"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "network_delay",
+        "template_id": "communication-v1-test-06"
+      },
+      {
+        "session_id": "MC-1a172adba372023f",
+        "root_cause": "network_loss",
+        "category": "network_or_connectivity_issue",
+        "classification": "probable",
+        "component_type": "network",
+        "component_id": "NETWORK-1a172adba372023f",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "network_loss",
+            "description": "ChargeParameterDiscoveryReq was explicitly dropped by the transport.",
+            "event_ids": [
+              "MC-1a172adba372023f-E0067",
+              "MC-1a172adba372023f-E0068"
+            ],
+            "component_type": "network",
+            "signal_key": "mc_network_loss",
+            "weight": 1.0,
+            "tool_name": "communication_transport"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_controller",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 5,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "candidate_root_causes": [
+          "network_loss"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "network_loss",
+        "template_id": "communication-v1-test-07"
+      },
+      {
+        "session_id": "MC-3e9b2ad91b06670f",
+        "root_cause": "network_loss",
+        "category": "network_or_connectivity_issue",
+        "classification": "probable",
+        "component_type": "network",
+        "component_id": "NETWORK-3e9b2ad91b06670f",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "network_loss",
+            "description": "ChargeParameterDiscoveryReq was explicitly dropped by the transport.",
+            "event_ids": [
+              "MC-3e9b2ad91b06670f-E0067",
+              "MC-3e9b2ad91b06670f-E0068"
+            ],
+            "component_type": "network",
+            "signal_key": "mc_network_loss",
+            "weight": 1.0,
+            "tool_name": "communication_transport"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_controller",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 5,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "candidate_root_causes": [
+          "network_loss"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "network_loss",
+        "template_id": "communication-v1-test-07"
+      },
+      {
+        "session_id": "MC-7ffd55400926708a",
+        "root_cause": "network_loss",
+        "category": "network_or_connectivity_issue",
+        "classification": "probable",
+        "component_type": "network",
+        "component_id": "NETWORK-7ffd55400926708a",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "network_loss",
+            "description": "ChargeParameterDiscoveryReq was explicitly dropped by the transport.",
+            "event_ids": [
+              "MC-7ffd55400926708a-E0067",
+              "MC-7ffd55400926708a-E0068"
+            ],
+            "component_type": "network",
+            "signal_key": "mc_network_loss",
+            "weight": 1.0,
+            "tool_name": "communication_transport"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_controller",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 5,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "candidate_root_causes": [
+          "network_loss"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "network_loss",
+        "template_id": "communication-v1-test-07"
+      },
+      {
+        "session_id": "MC-aee8dc0202daccc1",
+        "root_cause": "network_loss",
+        "category": "network_or_connectivity_issue",
+        "classification": "probable",
+        "component_type": "network",
+        "component_id": "NETWORK-aee8dc0202daccc1",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "network_loss",
+            "description": "ChargeParameterDiscoveryReq was explicitly dropped by the transport.",
+            "event_ids": [
+              "MC-aee8dc0202daccc1-E0067",
+              "MC-aee8dc0202daccc1-E0068"
+            ],
+            "component_type": "network",
+            "signal_key": "mc_network_loss",
+            "weight": 1.0,
+            "tool_name": "communication_transport"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_controller",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 5,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "candidate_root_causes": [
+          "network_loss"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "network_loss",
+        "template_id": "communication-v1-test-07"
+      },
+      {
+        "session_id": "MC-14c9abc470801756",
+        "root_cause": "network_duplicate",
+        "category": "network_or_connectivity_issue",
+        "classification": "probable",
+        "component_type": "network",
+        "component_id": "NETWORK-14c9abc470801756",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "network_duplicate",
+            "description": "2 receives share one message ID; idempotent receivers must avoid repeated side effects.",
+            "event_ids": [
+              "MC-14c9abc470801756-E0153",
+              "MC-14c9abc470801756-E0155",
+              "MC-14c9abc470801756-E0157"
+            ],
+            "component_type": "network",
+            "signal_key": "mc_network_duplicate",
+            "weight": 1.0,
+            "tool_name": "communication_transport"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "candidate_root_causes": [
+          "network_duplicate"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "network_duplicate",
+        "template_id": "communication-v1-test-08"
+      },
+      {
+        "session_id": "MC-322de8bdf2115864",
+        "root_cause": "network_duplicate",
+        "category": "network_or_connectivity_issue",
+        "classification": "probable",
+        "component_type": "network",
+        "component_id": "NETWORK-322de8bdf2115864",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "network_duplicate",
+            "description": "2 receives share one message ID; idempotent receivers must avoid repeated side effects.",
+            "event_ids": [
+              "MC-322de8bdf2115864-E0153",
+              "MC-322de8bdf2115864-E0155",
+              "MC-322de8bdf2115864-E0157"
+            ],
+            "component_type": "network",
+            "signal_key": "mc_network_duplicate",
+            "weight": 1.0,
+            "tool_name": "communication_transport"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "candidate_root_causes": [
+          "network_duplicate"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "network_duplicate",
+        "template_id": "communication-v1-test-08"
+      },
+      {
+        "session_id": "MC-4b442b909775b484",
+        "root_cause": "network_duplicate",
+        "category": "network_or_connectivity_issue",
+        "classification": "probable",
+        "component_type": "network",
+        "component_id": "NETWORK-4b442b909775b484",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "network_duplicate",
+            "description": "2 receives share one message ID; idempotent receivers must avoid repeated side effects.",
+            "event_ids": [
+              "MC-4b442b909775b484-E0153",
+              "MC-4b442b909775b484-E0155",
+              "MC-4b442b909775b484-E0157"
+            ],
+            "component_type": "network",
+            "signal_key": "mc_network_duplicate",
+            "weight": 1.0,
+            "tool_name": "communication_transport"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "candidate_root_causes": [
+          "network_duplicate"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "network_duplicate",
+        "template_id": "communication-v1-test-08"
+      },
+      {
+        "session_id": "MC-5dffce9527cf6394",
+        "root_cause": "network_duplicate",
+        "category": "network_or_connectivity_issue",
+        "classification": "probable",
+        "component_type": "network",
+        "component_id": "NETWORK-5dffce9527cf6394",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "network_duplicate",
+            "description": "2 receives share one message ID; idempotent receivers must avoid repeated side effects.",
+            "event_ids": [
+              "MC-5dffce9527cf6394-E0153",
+              "MC-5dffce9527cf6394-E0155",
+              "MC-5dffce9527cf6394-E0157"
+            ],
+            "component_type": "network",
+            "signal_key": "mc_network_duplicate",
+            "weight": 1.0,
+            "tool_name": "communication_transport"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": true,
+        "transport_failure_detected": true,
+        "candidate_root_causes": [
+          "network_duplicate"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "network_duplicate",
+        "template_id": "communication-v1-test-08"
+      },
+      {
+        "session_id": "MC-0331411247d89f28",
+        "root_cause": "stale_availability",
+        "category": "charger_availability_mismatch",
+        "classification": "probable",
+        "component_type": "csms",
+        "component_id": "CSMS-0331411247d89f28",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "stale_availability",
+            "description": "Published availability conflicts with the charger snapshot.",
+            "event_ids": [
+              "MC-0331411247d89f28-E0026",
+              "MC-0331411247d89f28-E0027"
+            ],
+            "component_type": "csms",
+            "signal_key": "mc_stale_availability",
+            "weight": 1.0,
+            "tool_name": "communication_availability"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_availability",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 3,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "stale_availability"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "stale_availability",
+        "template_id": "communication-v1-test-09"
+      },
+      {
+        "session_id": "MC-e3ae9109ab719fcb",
+        "root_cause": "stale_availability",
+        "category": "charger_availability_mismatch",
+        "classification": "probable",
+        "component_type": "csms",
+        "component_id": "CSMS-e3ae9109ab719fcb",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "stale_availability",
+            "description": "Published availability conflicts with the charger snapshot.",
+            "event_ids": [
+              "MC-e3ae9109ab719fcb-E0026",
+              "MC-e3ae9109ab719fcb-E0027"
+            ],
+            "component_type": "csms",
+            "signal_key": "mc_stale_availability",
+            "weight": 1.0,
+            "tool_name": "communication_availability"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_availability",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 3,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "stale_availability"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "stale_availability",
+        "template_id": "communication-v1-test-09"
+      },
+      {
+        "session_id": "MC-5a0f3365241c6756",
+        "root_cause": "stale_availability",
+        "category": "charger_availability_mismatch",
+        "classification": "probable",
+        "component_type": "csms",
+        "component_id": "CSMS-5a0f3365241c6756",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "stale_availability",
+            "description": "Published availability conflicts with the charger snapshot.",
+            "event_ids": [
+              "MC-5a0f3365241c6756-E0026",
+              "MC-5a0f3365241c6756-E0027"
+            ],
+            "component_type": "csms",
+            "signal_key": "mc_stale_availability",
+            "weight": 1.0,
+            "tool_name": "communication_availability"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_availability",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 3,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "stale_availability"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "stale_availability",
+        "template_id": "communication-v1-test-09"
+      },
+      {
+        "session_id": "MC-b96afb5f1a3f1819",
+        "root_cause": "stale_availability",
+        "category": "charger_availability_mismatch",
+        "classification": "probable",
+        "component_type": "csms",
+        "component_id": "CSMS-b96afb5f1a3f1819",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "stale_availability",
+            "description": "Published availability conflicts with the charger snapshot.",
+            "event_ids": [
+              "MC-b96afb5f1a3f1819-E0026",
+              "MC-b96afb5f1a3f1819-E0027"
+            ],
+            "component_type": "csms",
+            "signal_key": "mc_stale_availability",
+            "weight": 1.0,
+            "tool_name": "communication_availability"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_availability",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 3,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "stale_availability"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "stale_availability",
+        "template_id": "communication-v1-test-09"
+      },
+      {
+        "session_id": "MC-861f436d6c03ea78",
+        "root_cause": "metering_mismatch",
+        "category": "payment_or_billing_failure",
+        "classification": "probable",
+        "component_type": "csms",
+        "component_id": "CSMS-861f436d6c03ea78",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "metering_mismatch",
+            "description": "Meter delta 8.2190 kWh differs from invoiced 11.0956 kWh.",
+            "event_ids": [
+              "MC-861f436d6c03ea78-E0099",
+              "MC-861f436d6c03ea78-E0138",
+              "MC-861f436d6c03ea78-E0152"
+            ],
+            "component_type": "csms",
+            "signal_key": "mc_metering_mismatch",
+            "weight": 1.0,
+            "tool_name": "communication_billing"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "metering_mismatch"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "metering_mismatch",
+        "template_id": "communication-v1-test-10"
+      },
+      {
+        "session_id": "MC-cd870b21687694b8",
+        "root_cause": "metering_mismatch",
+        "category": "payment_or_billing_failure",
+        "classification": "probable",
+        "component_type": "csms",
+        "component_id": "CSMS-cd870b21687694b8",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "metering_mismatch",
+            "description": "Meter delta 12.7015 kWh differs from invoiced 17.1470 kWh.",
+            "event_ids": [
+              "MC-cd870b21687694b8-E0099",
+              "MC-cd870b21687694b8-E0138",
+              "MC-cd870b21687694b8-E0152"
+            ],
+            "component_type": "csms",
+            "signal_key": "mc_metering_mismatch",
+            "weight": 1.0,
+            "tool_name": "communication_billing"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "metering_mismatch"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "metering_mismatch",
+        "template_id": "communication-v1-test-10"
+      },
+      {
+        "session_id": "MC-c54bb999e1184f46",
+        "root_cause": "metering_mismatch",
+        "category": "payment_or_billing_failure",
+        "classification": "probable",
+        "component_type": "csms",
+        "component_id": "CSMS-c54bb999e1184f46",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "metering_mismatch",
+            "description": "Meter delta 5.6050 kWh differs from invoiced 7.5667 kWh.",
+            "event_ids": [
+              "MC-c54bb999e1184f46-E0099",
+              "MC-c54bb999e1184f46-E0138",
+              "MC-c54bb999e1184f46-E0152"
+            ],
+            "component_type": "csms",
+            "signal_key": "mc_metering_mismatch",
+            "weight": 1.0,
+            "tool_name": "communication_billing"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "metering_mismatch"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "metering_mismatch",
+        "template_id": "communication-v1-test-10"
+      },
+      {
+        "session_id": "MC-4212124e2e6053fd",
+        "root_cause": "metering_mismatch",
+        "category": "payment_or_billing_failure",
+        "classification": "probable",
+        "component_type": "csms",
+        "component_id": "CSMS-4212124e2e6053fd",
+        "evidence_strength": 0.85,
+        "confidence": 0.958333,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [
+          {
+            "root_cause": "metering_mismatch",
+            "description": "Meter delta 5.5185 kWh differs from invoiced 7.4500 kWh.",
+            "event_ids": [
+              "MC-4212124e2e6053fd-E0099",
+              "MC-4212124e2e6053fd-E0138",
+              "MC-4212124e2e6053fd-E0152"
+            ],
+            "component_type": "csms",
+            "signal_key": "mc_metering_mismatch",
+            "weight": 1.0,
+            "tool_name": "communication_billing"
+          }
+        ],
+        "unresolved_questions": [],
+        "checks": [
+          "communication_authorization",
+          "communication_availability",
+          "communication_billing",
+          "communication_physical",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 6,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [
+          "metering_mismatch"
+        ],
+        "stop_reason": "correlated_evidence_complete",
+        "expected_label": "metering_mismatch",
+        "template_id": "communication-v1-test-10"
+      },
+      {
+        "session_id": "MC-c7d9f12a0c9b80b2",
+        "root_cause": null,
+        "category": null,
+        "classification": "inconclusive",
+        "component_type": null,
+        "component_id": null,
+        "evidence_strength": 0.0,
+        "confidence": null,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [],
+        "unresolved_questions": [
+          "A single root cause could not be established from the observed event sequence.",
+          "Obtain missing receiver/response, component safety, lifecycle and payment observations before asserting a cause."
+        ],
+        "checks": [
+          "communication_availability",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 3,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [],
+        "stop_reason": "insufficient_or_conflicting_observations",
+        "expected_label": "inconclusive",
+        "template_id": "communication-v1-test-11"
+      },
+      {
+        "session_id": "MC-f144a9c83942bcd4",
+        "root_cause": null,
+        "category": null,
+        "classification": "inconclusive",
+        "component_type": null,
+        "component_id": null,
+        "evidence_strength": 0.0,
+        "confidence": null,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [],
+        "unresolved_questions": [
+          "A single root cause could not be established from the observed event sequence.",
+          "Obtain missing receiver/response, component safety, lifecycle and payment observations before asserting a cause."
+        ],
+        "checks": [
+          "communication_availability",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 3,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [],
+        "stop_reason": "insufficient_or_conflicting_observations",
+        "expected_label": "inconclusive",
+        "template_id": "communication-v1-test-11"
+      },
+      {
+        "session_id": "MC-89904ef03395092b",
+        "root_cause": null,
+        "category": null,
+        "classification": "inconclusive",
+        "component_type": null,
+        "component_id": null,
+        "evidence_strength": 0.0,
+        "confidence": null,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [],
+        "unresolved_questions": [
+          "A single root cause could not be established from the observed event sequence.",
+          "Obtain missing receiver/response, component safety, lifecycle and payment observations before asserting a cause."
+        ],
+        "checks": [
+          "communication_availability",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 3,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [],
+        "stop_reason": "insufficient_or_conflicting_observations",
+        "expected_label": "inconclusive",
+        "template_id": "communication-v1-test-11"
+      },
+      {
+        "session_id": "MC-0d612a58488842c1",
+        "root_cause": null,
+        "category": null,
+        "classification": "inconclusive",
+        "component_type": null,
+        "component_id": null,
+        "evidence_strength": 0.0,
+        "confidence": null,
+        "confidence_scope": "Uncalibrated evidence score; no probability model has been fitted.",
+        "evidence": [],
+        "unresolved_questions": [
+          "A single root cause could not be established from the observed event sequence.",
+          "Obtain missing receiver/response, component safety, lifecycle and payment observations before asserting a cause."
+        ],
+        "checks": [
+          "communication_availability",
+          "communication_transport",
+          "communication_completion"
+        ],
+        "diagnostic_checks": 3,
+        "communication_failure_detected": false,
+        "transport_failure_detected": false,
+        "candidate_root_causes": [],
+        "stop_reason": "insufficient_or_conflicting_observations",
+        "expected_label": "inconclusive",
+        "template_id": "communication-v1-test-11"
+      }
+    ]
+  },
+  "limitations": [
+    "Synthetic mechanisms and diagnostic rules were authored together. Template/configuration holdout is not independent real-world validation.",
+    "Each split has a distinct startup path, fault trigger/operation and configuration band; the causal simulator and root-cause ontology are shared.",
+    "Legacy agents receive factual projections into their original tables. The multi-component agent has richer transport/component evidence; this is a capability comparison, not a pure scheduling ablation.",
+    "Legacy category outputs with several possible mechanisms are explicitly unresolved at exact-root level; category accuracy is reported separately.",
+    "Root-cause accuracy excludes unobservable sessions; decision accuracy additionally scores correct abstentions. Component localization is evaluated on fault sessions only.",
+    "Validation calibrates decision correctness for each method. No test outcomes fit weights or probabilities. Small supports can produce unstable calibration.",
+    "Reviewer learning operates on existing failure categories, not newly trained fine-grained root-cause models.",
+    "OCPP/ISO 15118 inspired event names are semantic simulations, without wire encoding, network interoperability or protocol compliance testing."
+  ],
+  "reproducibility": {
+    "verified": true,
+    "runs": 2,
+    "scope": "all reported metrics and validation probability models"
+  }
+}

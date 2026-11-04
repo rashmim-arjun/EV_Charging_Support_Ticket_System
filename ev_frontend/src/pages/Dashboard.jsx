@@ -1,0 +1,115 @@
+import { Link } from 'react-router-dom'
+import { Bar, BarChart, Cell, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend } from 'recharts'
+import { api } from '../api'
+import { useAsync } from '../hooks'
+import { Badge, Empty, ErrorBox, PageHead, SimulatedBanner, Spinner, Stat } from '../components/ui'
+import { CLASS_TONE, ORIGIN_TONE, STATUS_TONE, fmtDate, pct, titleCase } from '../format'
+
+const COLORS = ['#12b76a', '#2e6cf6', '#f79009', '#7a5af8', '#e5484d', '#06aed4', '#667085']
+
+async function load() {
+  const [recent, open, review, resolved, perf, rec, cats, queue] = await Promise.all([
+    api.listCases({ page_size: 6 }),
+    api.listCases({ page_size: 1, status: 'open' }),
+    api.listCases({ page_size: 1, status: 'awaiting_review' }),
+    api.listCases({ page_size: 1, status: 'resolved' }),
+    api.performance(),
+    api.recurring(),
+    api.categories(),
+    api.ticketSummary(),
+  ])
+  return { recent, open, review, resolved, perf, rec, cats, queue }
+}
+
+export default function Dashboard() {
+  const { data, error, loading, reload } = useAsync(load, [])
+  if (loading) return <Spinner />
+  if (error) return <ErrorBox error={error} onRetry={reload} />
+  const { recent, open, review, resolved, perf, rec, cats, queue } = data
+
+  const label = (id) => cats.find((c) => c.id === id)?.label || titleCase(id)
+  const byCat = {}
+  rec.by_app_category.forEach((r) => { byCat[r.category] = (byCat[r.category] || 0) + r.count })
+  const catData = Object.entries(byCat).map(([id, n]) => ({ name: label(id), n })).sort((a, b) => b.n - a.n)
+  const originData = Object.entries(rec.data_origin_counts).map(([k, v]) => ({ name: titleCase(k), value: v }))
+
+  return (
+    <>
+      <PageHead title="Dashboard" sub="Customer support tickets, evidence-based investigation and auditable internal escalation" />
+      <SimulatedBanner />
+      <div className="card"><h2>Customer support workflow</h2><p>Open a complaint as a support ticket, investigate the related component logs, review its diagnosis and priority, then assign or escalate it to an internal team. Record a reviewer-verified resolution before closing.</p>
+        <div className="row"><Link className="btn primary" to="/new">Open support ticket</Link><Link className="btn" to="/cases">Manage support tickets</Link><Link className="btn" to="/communication">Supporting communication logs</Link></div></div>
+
+      <div className="card" style={{ marginTop: 16 }} aria-label="Ticket queue">
+        <h2>Ticket queue</h2>
+        <div className="grid g4">
+          <Stat label="Open escalated" value={queue.open_escalated} sub="local escalation records" />
+          <Stat label="Awaiting evidence" value={queue.open_awaiting_evidence} sub="more logs or human review needed" />
+          <Stat label="In triage queue" value={queue.open_in_triage} sub="no unique supported owner" />
+          <Stat label="Human overrides" value={queue.human_overrides} sub="tickets with audited overrides" />
+        </div>
+        <p className="small muted" style={{ marginTop: 10 }}>
+          Open by priority: {['P0','P1','P2','P3'].map(p => `${p} ${queue.open_by_priority?.[p] || 0}`).join(' · ')}.
+          {' '}{queue.delivery_scope}</p>
+      </div>
+
+      <div className="grid g4">
+        <Stat label="Total cases" value={recent.total} sub={`${open.total} open`} />
+        <Stat label="Awaiting review" value={review.total} sub="needs a verified outcome" />
+        <Stat label="Resolved" value={resolved.total} sub="reviewer-verified" />
+        <Stat label="Agent accuracy" value={pct(perf.primary_accuracy_pct)}
+          sub={perf.total_resolved_cases ? `${perf.total_resolved_cases} resolved case(s)` : 'No resolved cases yet'} />
+      </div>
+      {perf.small_sample_warning && perf.total_resolved_cases > 0 &&
+        <div className="alert warn" style={{ marginTop: 16 }}>{perf.sample_size_note}</div>}
+
+      <div className="grid g-main" style={{ marginTop: 16 }}>
+        <div className="card">
+          <h2>Failure categories (diagnosed complaints)</h2>
+          {catData.length === 0 ? <Empty>No diagnosed cases yet. Submit a complaint to get started.</Empty> : (
+            <ResponsiveContainer width="100%" height={Math.max(220, catData.length * 34)}>
+              <BarChart data={catData} layout="vertical" margin={{ left: 30 }}>
+                <XAxis type="number" allowDecimals={false} />
+                <YAxis type="category" dataKey="name" width={230} tick={{ fontSize: 12 }} />
+                <Tooltip />
+                <Bar dataKey="n" name="Cases" fill="#12b76a" radius={[0, 6, 6, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          )}
+        </div>
+        <div className="card">
+          <h2>Data origin</h2>
+          {originData.length === 0 ? <Empty>No data.</Empty> : (
+            <ResponsiveContainer width="100%" height={260}>
+              <PieChart>
+                <Pie data={originData} dataKey="value" nameKey="name" innerRadius={55} outerRadius={90} paddingAngle={2}>
+                  {originData.map((_, i) => <Cell key={i} fill={COLORS[(i + 3) % COLORS.length]} />)}
+                </Pie>
+                <Tooltip /><Legend />
+              </PieChart>
+            </ResponsiveContainer>
+          )}
+        </div>
+      </div>
+
+      <div className="card" style={{ marginTop: 16 }}>
+        <h2>Recent cases</h2>
+        {recent.items.length === 0 ? <Empty>No cases yet.</Empty> : (
+          <div className="table-wrap"><table>
+            <thead><tr><th>Case</th><th>App</th><th>Complaint</th><th>Diagnosis</th><th>Status</th><th>Created</th></tr></thead>
+            <tbody>{recent.items.map((c) => (
+              <tr key={c.case_id}>
+                <td><Link to={`/cases/${c.case_id}`} className="mono">{c.case_id}</Link></td>
+                <td>{c.app_display_name || c.app_id}</td>
+                <td className="clip">{c.complaint_text_redacted}</td>
+                <td>{c.diagnosis ? <Badge tone={CLASS_TONE[c.diagnosis.classification]}>{titleCase(c.diagnosis.primary_category) || 'None'}</Badge> : <span className="muted">not run</span>}</td>
+                <td><Badge tone={STATUS_TONE[c.status]}>{titleCase(c.status)}</Badge></td>
+                <td className="small muted">{fmtDate(c.created_at)}</td>
+              </tr>))}
+            </tbody>
+          </table></div>
+        )}
+      </div>
+    </>
+  )
+}

@@ -1,0 +1,181 @@
+{
+  "generated_at": "2026-10-28T05:17:08",
+  "dataset_size": 200,
+  "data_origin": "simulated",
+  "seed": 42,
+  "n_per_template": 8,
+  "procedure": "Both methods ran on the identical labelled synthetic case set inside a fresh temporary SQLite DB seeded only with the static rule set (no learned weights, no cross-run leakage). Ground truth was withheld from agent inputs.",
+  "metrics": {
+    "adaptive_agent": {
+      "n_cases": 200,
+      "accuracy_pct": 53.0,
+      "macro_f1": 0.5255,
+      "abstention_correct_pct": 59.38,
+      "truly_inconclusive_cases": 32,
+      "false_confident_pct": 40.62,
+      "avg_checks_per_case": 5.37,
+      "avg_unnecessary_checks": 0.14,
+      "traceability_pct": 100.0,
+      "conflict_detection_pct": 100.0,
+      "planted_conflict_cases": 8,
+      "calibration": {
+        "n_cases": 168,
+        "ece": 0.2651,
+        "mean_confidence_when_correct": 0.493,
+        "mean_confidence_when_wrong": 0.376,
+        "bins": [
+          {
+            "range": "0.0-0.2",
+            "n": 10,
+            "mean_confidence": 0.0,
+            "accuracy_pct": 80.0
+          },
+          {
+            "range": "0.2-0.4",
+            "n": 48,
+            "mean_confidence": 0.334,
+            "accuracy_pct": 43.8
+          },
+          {
+            "range": "0.4-0.6",
+            "n": 65,
+            "mean_confidence": 0.509,
+            "accuracy_pct": 84.6
+          },
+          {
+            "range": "0.6-0.8",
+            "n": 45,
+            "mean_confidence": 0.631,
+            "accuracy_pct": 84.4
+          },
+          {
+            "range": "0.8-1.0",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          }
+        ]
+      },
+      "per_category_accuracy": {
+        "charger_availability_mismatch": 0.0,
+        "session_fails_to_start": 100.0,
+        "session_stops_unexpectedly": 16.7,
+        "payment_or_billing_failure": 50.0,
+        "incorrect_or_delayed_station_status": 62.5,
+        "app_crash_or_technical_error": 100.0,
+        "network_or_connectivity_issue": 62.5,
+        "connector_or_charger_hardware_fault": 100.0,
+        "vehicle_charger_communication_issue": 100.0,
+        "incorrect_or_incomplete_charging_history": 0.0,
+        "customer_support_issue": 0.0,
+        "vehicle_specific_or_telematics_issue": 12.5,
+        "inconclusive": 59.4
+      },
+      "runtime_s": 0.459
+    },
+    "fixed_baseline": {
+      "n_cases": 200,
+      "accuracy_pct": 23.5,
+      "macro_f1": 0.1476,
+      "abstention_correct_pct": 65.62,
+      "truly_inconclusive_cases": 32,
+      "false_confident_pct": 34.38,
+      "avg_checks_per_case": 7.71,
+      "avg_unnecessary_checks": 0.69,
+      "traceability_pct": 100.0,
+      "conflict_detection_pct": 100.0,
+      "planted_conflict_cases": 8,
+      "calibration": {
+        "n_cases": 168,
+        "ece": 0.2686,
+        "mean_confidence_when_correct": 0.412,
+        "mean_confidence_when_wrong": 0.362,
+        "bins": [
+          {
+            "range": "0.0-0.2",
+            "n": 2,
+            "mean_confidence": 0.0,
+            "accuracy_pct": 0.0
+          },
+          {
+            "range": "0.2-0.4",
+            "n": 90,
+            "mean_confidence": 0.334,
+            "accuracy_pct": 60.0
+          },
+          {
+            "range": "0.4-0.6",
+            "n": 66,
+            "mean_confidence": 0.452,
+            "accuracy_pct": 71.2
+          },
+          {
+            "range": "0.6-0.8",
+            "n": 10,
+            "mean_confidence": 0.604,
+            "accuracy_pct": 20.0
+          },
+          {
+            "range": "0.8-1.0",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          }
+        ]
+      },
+      "per_category_accuracy": {
+        "charger_availability_mismatch": 0.0,
+        "session_fails_to_start": 66.7,
+        "session_stops_unexpectedly": 0.0,
+        "payment_or_billing_failure": 0.0,
+        "incorrect_or_delayed_station_status": 0.0,
+        "app_crash_or_technical_error": 25.0,
+        "network_or_connectivity_issue": 0.0,
+        "connector_or_charger_hardware_fault": 100.0,
+        "vehicle_charger_communication_issue": 0.0,
+        "incorrect_or_incomplete_charging_history": 0.0,
+        "customer_support_issue": 0.0,
+        "vehicle_specific_or_telematics_issue": 0.0,
+        "inconclusive": 65.6
+      },
+      "runtime_s": 0.268
+    }
+  },
+  "learning_experiment": {
+    "seed": 42,
+    "train_cases": 100,
+    "test_cases": 100,
+    "train_skipped_inconclusive": 19,
+    "verified_resolutions_applied": 81,
+    "knowledge_changes": 741,
+    "before": {
+      "accuracy_pct": 49.0,
+      "macro_f1": 0.4939,
+      "abstention_correct_pct": 53.85,
+      "false_confident_pct": 46.15,
+      "avg_checks_per_case": 5.56
+    },
+    "after": {
+      "accuracy_pct": 57.0,
+      "macro_f1": 0.4319,
+      "abstention_correct_pct": 92.31,
+      "false_confident_pct": 7.69,
+      "avg_checks_per_case": 4.26
+    },
+    "delta": {
+      "accuracy_pct": 8.0,
+      "macro_f1": -0.062,
+      "abstention_correct_pct": 38.46,
+      "false_confident_pct": -38.46,
+      "avg_checks_per_case": -1.3
+    },
+    "note": "Reviewer simulated from synthetic labels; train/test disjoint; single split, so differences of a few points are within noise."
+  },
+  "limitations": [
+    "Dataset is synthetic data authored by the same developer as the rules; results are optimistic and NOT real-world performance.",
+    "Small scale (~hundreds of cases); percentages carry wide uncertainty.",
+    "Generator templates and diagnosis rules are correlated by design (signals were defined together).",
+    "No real charging-network logs were used anywhere.",
+    "PII redaction is best-effort, not a guarantee."
+  ]
+}

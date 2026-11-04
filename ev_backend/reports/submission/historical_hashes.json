@@ -1,0 +1,14 @@
+{
+  "ev_backend/reports/communication_categories.csv": "355526fd60a4fb01b5e4c28e66024318c2feff0e8afd2d32b7d079432bb1b2bf",
+  "ev_backend/reports/communication_evaluation.json": "a10cc5219396dd38a94161651b854efcadb300a42b4e72e9fea782c1bbe1aaef",
+  "ev_backend/reports/communication_evaluation.md": "d564af2f538e8df6bd164e7f3cda71dd2e776d5838d04b16fde7c6140fe1eb1b",
+  "ev_backend/reports/evaluation_cases.json": "e54c0bd343a9292a0752ec975149a9a274bea5b8021f343d8e1227b29894a8cf",
+  "ev_backend/reports/evaluation_categories.csv": "88220ea418171eb0f328b2e3be03db4e6f4e71b2e01964555b518b6b324d7c71",
+  "ev_backend/reports/evaluation_errors.json": "0f4eac6ec9476747bd41ac6b8bfba5dd627771cdf84fe84296570bad8d2b6b1e",
+  "ev_backend/reports/evaluation_report.md": "92a6eda7d0cd51524ac1b2a57624358695f81255eed857eb7e6b9504facdc257",
+  "ev_backend/reports/evaluation_results.csv": "6ed063228f523783bb33ed01cc59f5009ec106d33a174871a9bdac2efe202c2f",
+  "ev_backend/reports/evaluation_results.json": "5a7dfe84ce001c66cad3d73d36e127a351d6e45fcbd048ce8ce5beeaf0eb2c17",
+  "docs/original-evaluation/evaluation_report.md": "e93c8b1d35dad5baf5a3197b2c9696540e5c7775b171854e70208b490c136992",
+  "docs/original-evaluation/evaluation_results.csv": "d5a3b05e655e29c23f8fbef5895e83ff7098ae14a77a9cae5eb8f1cb8c60621b",
+  "docs/original-evaluation/evaluation_results.json": "5512916ffec09591592dc2b5e4b59b09cd03882262e9ed348f5e281867c7a992"
+}

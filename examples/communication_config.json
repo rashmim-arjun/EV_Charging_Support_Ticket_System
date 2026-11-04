@@ -1,0 +1,9 @@
+{
+  "seed": 42,
+  "per_template": 1,
+  "split": "test",
+  "scenarios": ["none"],
+  "injections": [
+    {"kind": "delay", "operation": "PaymentCapture", "delay_ms": 8000}
+  ]
+}

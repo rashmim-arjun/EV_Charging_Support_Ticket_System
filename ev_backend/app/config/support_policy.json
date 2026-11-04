@@ -1,0 +1,30 @@
+{
+  "version": "support-policy-v1",
+  "teams": {
+    "triage": "Support triage",
+    "application_support": "Application support",
+    "csms_engineering": "Backend / CSMS engineering",
+    "charger_maintenance": "Charger and connector maintenance",
+    "vehicle_specialists": "Vehicle / BMS specialists",
+    "payment_support": "Payment support",
+    "network_operations": "Network operations"
+  },
+  "component_teams": {"app":"application_support","csms":"csms_engineering","charger":"charger_maintenance","connector":"charger_maintenance","vehicle":"vehicle_specialists","bms":"vehicle_specialists","payment":"payment_support","network":"network_operations"},
+  "category_teams": {
+    "session_fails_to_start":"charger_maintenance",
+    "session_stops_unexpectedly":"charger_maintenance",
+    "connector_or_charger_hardware_fault":"charger_maintenance",
+    "vehicle_specific_or_telematics_issue":"vehicle_specialists",
+    "payment_or_billing_failure":"payment_support",
+    "network_or_connectivity_issue":"network_operations",
+    "charger_availability_mismatch":"csms_engineering",
+    "app_crash_or_technical_error":"application_support",
+    "incorrect_or_delayed_station_status":"csms_engineering",
+    "vehicle_charger_communication_issue":"triage",
+    "incorrect_or_incomplete_charging_history":"csms_engineering",
+    "customer_support_issue":"triage"
+  },
+  "large_financial_amount": 500,
+  "urgent_report_terms": ["smoke", "fire", "sparks", "electric shock"],
+  "priorities": {"P0":"Immediate safety triage","P1":"High impact / safety investigation","P2":"Standard investigation","P3":"Low impact / informational"}
+}

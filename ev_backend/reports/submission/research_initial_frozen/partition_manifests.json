@@ -1,0 +1,683 @@
+{
+  "train": [
+    {
+      "split": "train",
+      "profile": "none",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": true,
+      "physical_variant": 0,
+      "configuration_id": "CFG-7305a1ce04539ecd"
+    },
+    {
+      "split": "train",
+      "profile": "charger_controller_timeout",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "charger_controller_timeout"
+      ],
+      "sufficient": true,
+      "physical_variant": 0,
+      "configuration_id": "CFG-5e6f9875dd42eb20"
+    },
+    {
+      "split": "train",
+      "profile": "vehicle_bms_fault",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "vehicle_bms_fault"
+      ],
+      "sufficient": true,
+      "physical_variant": 0,
+      "configuration_id": "CFG-a652c61aa6799c67"
+    },
+    {
+      "split": "train",
+      "profile": "authorization_conflict",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "authorization_conflict"
+      ],
+      "sufficient": true,
+      "physical_variant": 0,
+      "configuration_id": "CFG-7ca2bb4d4c7943bc"
+    },
+    {
+      "split": "train",
+      "profile": "payment_conflict",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "payment_conflict"
+      ],
+      "sufficient": true,
+      "physical_variant": 0,
+      "configuration_id": "CFG-18962314b178a19d"
+    },
+    {
+      "split": "train",
+      "profile": "connector_fault",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "connector_fault"
+      ],
+      "sufficient": true,
+      "physical_variant": 0,
+      "configuration_id": "CFG-a2f170f552939a43"
+    },
+    {
+      "split": "train",
+      "profile": "network_delay",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "network_delay"
+      ],
+      "sufficient": true,
+      "physical_variant": 0,
+      "configuration_id": "CFG-1f98d540ac9b9a48"
+    },
+    {
+      "split": "train",
+      "profile": "network_loss",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "network_loss"
+      ],
+      "sufficient": true,
+      "physical_variant": 0,
+      "configuration_id": "CFG-8887d1106c4e725e"
+    },
+    {
+      "split": "train",
+      "profile": "network_duplicate",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "network_duplicate"
+      ],
+      "sufficient": true,
+      "physical_variant": 0,
+      "configuration_id": "CFG-d132bc1b58ced94e"
+    },
+    {
+      "split": "train",
+      "profile": "stale_availability",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "stale_availability"
+      ],
+      "sufficient": true,
+      "physical_variant": 0,
+      "configuration_id": "CFG-89d6a7d03d292149"
+    },
+    {
+      "split": "train",
+      "profile": "metering_mismatch",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "metering_mismatch"
+      ],
+      "sufficient": true,
+      "physical_variant": 0,
+      "configuration_id": "CFG-6bcf112f2d8fc412"
+    },
+    {
+      "split": "train",
+      "profile": "none",
+      "mode": "complete",
+      "injections": [
+        {
+          "kind": "retry",
+          "operation": "Authorize",
+          "delay_ms": 3700
+        }
+      ],
+      "expected_roots": [
+        "network_loss"
+      ],
+      "sufficient": true,
+      "physical_variant": 0,
+      "configuration_id": "CFG-4f7b23e814698589"
+    },
+    {
+      "split": "train",
+      "profile": "none",
+      "mode": "missing_sender",
+      "operation": "SetChargingProfile",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": false,
+      "physical_variant": 0,
+      "configuration_id": "CFG-73312787f44a91cb"
+    },
+    {
+      "split": "train",
+      "profile": "vehicle_bms_fault",
+      "mode": "complete",
+      "injections": [
+        {
+          "kind": "duplicate",
+          "operation": "Authorize"
+        }
+      ],
+      "expected_roots": [
+        "network_duplicate",
+        "vehicle_bms_fault"
+      ],
+      "sufficient": true,
+      "physical_variant": 0,
+      "configuration_id": "CFG-08f6628f551d3ee3"
+    },
+    {
+      "split": "train",
+      "profile": "none",
+      "mode": "contradictory_drop",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": false,
+      "physical_variant": 0,
+      "configuration_id": "CFG-ac1434fa57b6977a"
+    },
+    {
+      "split": "train",
+      "profile": "inconclusive",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": false,
+      "physical_variant": 0,
+      "configuration_id": "CFG-aa03394ebd77dbec"
+    }
+  ],
+  "validation": [
+    {
+      "split": "validation",
+      "profile": "none",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": true,
+      "physical_variant": 1,
+      "configuration_id": "CFG-3452a48e93370373"
+    },
+    {
+      "split": "validation",
+      "profile": "charger_controller_timeout",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "charger_controller_timeout"
+      ],
+      "sufficient": true,
+      "physical_variant": 1,
+      "configuration_id": "CFG-975db713d2283fb4"
+    },
+    {
+      "split": "validation",
+      "profile": "vehicle_bms_fault",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "vehicle_bms_fault"
+      ],
+      "sufficient": true,
+      "physical_variant": 1,
+      "configuration_id": "CFG-0ae8ea8d84d30a65"
+    },
+    {
+      "split": "validation",
+      "profile": "authorization_conflict",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "authorization_conflict"
+      ],
+      "sufficient": true,
+      "physical_variant": 1,
+      "configuration_id": "CFG-ea9afc1bcfcd104e"
+    },
+    {
+      "split": "validation",
+      "profile": "payment_conflict",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "payment_conflict"
+      ],
+      "sufficient": true,
+      "physical_variant": 1,
+      "configuration_id": "CFG-55f5f602acd7ce38"
+    },
+    {
+      "split": "validation",
+      "profile": "connector_fault",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "connector_fault"
+      ],
+      "sufficient": true,
+      "physical_variant": 1,
+      "configuration_id": "CFG-1b1c0ed3c2759b43"
+    },
+    {
+      "split": "validation",
+      "profile": "network_delay",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "network_delay"
+      ],
+      "sufficient": true,
+      "physical_variant": 1,
+      "configuration_id": "CFG-0def7c4588b2afef"
+    },
+    {
+      "split": "validation",
+      "profile": "network_loss",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "network_loss"
+      ],
+      "sufficient": true,
+      "physical_variant": 1,
+      "configuration_id": "CFG-29f058abe57e30d3"
+    },
+    {
+      "split": "validation",
+      "profile": "network_duplicate",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "network_duplicate"
+      ],
+      "sufficient": true,
+      "physical_variant": 1,
+      "configuration_id": "CFG-bed7c068f9406319"
+    },
+    {
+      "split": "validation",
+      "profile": "stale_availability",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "stale_availability"
+      ],
+      "sufficient": true,
+      "physical_variant": 1,
+      "configuration_id": "CFG-f107ac1feed0f535"
+    },
+    {
+      "split": "validation",
+      "profile": "metering_mismatch",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "metering_mismatch"
+      ],
+      "sufficient": true,
+      "physical_variant": 1,
+      "configuration_id": "CFG-f75fc3438a3cad56"
+    },
+    {
+      "split": "validation",
+      "profile": "none",
+      "mode": "complete",
+      "injections": [
+        {
+          "kind": "retry",
+          "operation": "SessionSetupReq",
+          "delay_ms": 5800
+        }
+      ],
+      "expected_roots": [
+        "network_loss"
+      ],
+      "sufficient": true,
+      "physical_variant": 1,
+      "configuration_id": "CFG-7aa62a3c721c92ab"
+    },
+    {
+      "split": "validation",
+      "profile": "none",
+      "mode": "missing_receiver",
+      "operation": "RequestStartTransaction",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": false,
+      "physical_variant": 1,
+      "configuration_id": "CFG-7af1553ccc90bd22"
+    },
+    {
+      "split": "validation",
+      "profile": "payment_conflict",
+      "mode": "complete",
+      "injections": [
+        {
+          "kind": "duplicate",
+          "operation": "MeterValues"
+        }
+      ],
+      "expected_roots": [
+        "network_duplicate",
+        "payment_conflict"
+      ],
+      "sufficient": true,
+      "physical_variant": 1,
+      "configuration_id": "CFG-4857435980772c29"
+    },
+    {
+      "split": "validation",
+      "profile": "none",
+      "mode": "contradictory_status",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": false,
+      "physical_variant": 1,
+      "configuration_id": "CFG-076d2d5ff6c05ee9"
+    },
+    {
+      "split": "validation",
+      "profile": "inconclusive",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": false,
+      "physical_variant": 1,
+      "configuration_id": "CFG-1c76c02a0cd348e8"
+    }
+  ],
+  "test": [
+    {
+      "split": "test",
+      "profile": "none",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-edab33efda69e607"
+    },
+    {
+      "split": "test",
+      "profile": "charger_controller_timeout",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "charger_controller_timeout"
+      ],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-629c45a4e358da10"
+    },
+    {
+      "split": "test",
+      "profile": "vehicle_bms_fault",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "vehicle_bms_fault"
+      ],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-681fa1041a37d4a9"
+    },
+    {
+      "split": "test",
+      "profile": "authorization_conflict",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "authorization_conflict"
+      ],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-b2fed8b4a86f350b"
+    },
+    {
+      "split": "test",
+      "profile": "payment_conflict",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "payment_conflict"
+      ],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-835c2b9c3961281a"
+    },
+    {
+      "split": "test",
+      "profile": "connector_fault",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "connector_fault"
+      ],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-bc1bfe9bf484d60f"
+    },
+    {
+      "split": "test",
+      "profile": "network_delay",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "network_delay"
+      ],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-1c925994631939ab"
+    },
+    {
+      "split": "test",
+      "profile": "network_loss",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "network_loss"
+      ],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-6fa587f2818c4dd4"
+    },
+    {
+      "split": "test",
+      "profile": "network_duplicate",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "network_duplicate"
+      ],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-ff3e95054b4d04c7"
+    },
+    {
+      "split": "test",
+      "profile": "stale_availability",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "stale_availability"
+      ],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-fbd637084d86daea"
+    },
+    {
+      "split": "test",
+      "profile": "metering_mismatch",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [
+        "metering_mismatch"
+      ],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-5e694c1843b0497c"
+    },
+    {
+      "split": "test",
+      "profile": "none",
+      "mode": "complete",
+      "injections": [
+        {
+          "kind": "retry",
+          "operation": "PaymentCapture",
+          "delay_ms": 7900
+        }
+      ],
+      "expected_roots": [
+        "network_loss"
+      ],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-8e1d69c5a6f9586d"
+    },
+    {
+      "split": "test",
+      "profile": "none",
+      "mode": "missing_response",
+      "operation": "MeterValues",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": false,
+      "physical_variant": 2,
+      "configuration_id": "CFG-6b0df67e28e9df74"
+    },
+    {
+      "split": "test",
+      "profile": "connector_fault",
+      "mode": "complete",
+      "injections": [
+        {
+          "kind": "duplicate",
+          "operation": "PaymentHold"
+        }
+      ],
+      "expected_roots": [
+        "connector_fault",
+        "network_duplicate"
+      ],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-5df42db1f71f149e"
+    },
+    {
+      "split": "test",
+      "profile": "none",
+      "mode": "contradictory_reply",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": false,
+      "physical_variant": 2,
+      "configuration_id": "CFG-053ab2659ed2fa0f"
+    },
+    {
+      "split": "test",
+      "profile": "inconclusive",
+      "mode": "complete",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": false,
+      "physical_variant": 2,
+      "configuration_id": "CFG-93f806e0d140af88"
+    },
+    {
+      "split": "test",
+      "profile": "metering_mismatch",
+      "mode": "complete",
+      "injections": [
+        {
+          "kind": "duplicate",
+          "operation": "Authorize"
+        }
+      ],
+      "expected_roots": [
+        "metering_mismatch",
+        "network_duplicate"
+      ],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-39f104faefc9356a"
+    },
+    {
+      "split": "test",
+      "profile": "none",
+      "mode": "missing_sender",
+      "operation": "PaymentCapture",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": false,
+      "physical_variant": 2,
+      "configuration_id": "CFG-b2e1b5da2cbe4995"
+    },
+    {
+      "split": "test",
+      "profile": "none",
+      "mode": "missing_receiver",
+      "operation": "SessionSetupReq",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": false,
+      "physical_variant": 2,
+      "configuration_id": "CFG-8cedd6f0efe1a523"
+    },
+    {
+      "split": "test",
+      "profile": "network_loss",
+      "mode": "hidden_loss",
+      "injections": [],
+      "expected_roots": [
+        "network_loss"
+      ],
+      "sufficient": false,
+      "physical_variant": 2,
+      "configuration_id": "CFG-8fb4f73ea9bb7782"
+    },
+    {
+      "split": "test",
+      "profile": "vehicle_bms_fault",
+      "mode": "safety_gap",
+      "injections": [],
+      "expected_roots": [
+        "vehicle_bms_fault"
+      ],
+      "sufficient": false,
+      "physical_variant": 2,
+      "configuration_id": "CFG-8dc88dec12f218d8"
+    },
+    {
+      "split": "test",
+      "profile": "none",
+      "mode": "nearby_session",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": true,
+      "physical_variant": 2,
+      "configuration_id": "CFG-d61753ea94624b13"
+    },
+    {
+      "split": "test",
+      "profile": "inconclusive",
+      "mode": "reported_safety",
+      "injections": [],
+      "expected_roots": [],
+      "sufficient": false,
+      "physical_variant": 2,
+      "configuration_id": "CFG-046c2f5018b77956"
+    }
+  ]
+}

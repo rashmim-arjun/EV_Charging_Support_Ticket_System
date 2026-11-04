@@ -1,0 +1,5041 @@
+{
+  "generated_at": "2026-11-04T06:50:08+00:00",
+  "dataset_size": 200,
+  "data_origin": "simulated",
+  "seed": 42,
+  "n_per_template": 8,
+  "procedure": "Both methods ran on the identical labelled synthetic case set inside a fresh temporary SQLite DB seeded only with the static rule set (no learned weights, no cross-run leakage). Ground truth was withheld from agent inputs.",
+  "metrics": {
+    "adaptive_agent": {
+      "n_cases": 200,
+      "accuracy_pct": 91.0,
+      "abstention_correct_pct": 75.0,
+      "truly_inconclusive_cases": 32,
+      "false_confident_pct": 25.0,
+      "avg_checks_per_case": 4.83,
+      "avg_unnecessary_checks": 0.12,
+      "traceability_pct": 100.0,
+      "conflict_detection_pct": 100.0,
+      "planted_conflict_cases": 8,
+      "calibration": {
+        "n_cases": 168,
+        "ece": 0.4498,
+        "mean_confidence_when_correct": 0.545,
+        "mean_confidence_when_wrong": 0.0,
+        "bins": [
+          {
+            "range": "0.0-0.2",
+            "n": 10,
+            "mean_confidence": 0.0,
+            "accuracy_pct": 80.0
+          },
+          {
+            "range": "0.2-0.4",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.4-0.6",
+            "n": 83,
+            "mean_confidence": 0.492,
+            "accuracy_pct": 100.0
+          },
+          {
+            "range": "0.6-0.8",
+            "n": 75,
+            "mean_confidence": 0.661,
+            "accuracy_pct": 100.0
+          },
+          {
+            "range": "0.8-1.0",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          }
+        ]
+      },
+      "per_category_accuracy": {
+        "charger_availability_mismatch": 87.5,
+        "session_fails_to_start": 100.0,
+        "session_stops_unexpectedly": 100.0,
+        "payment_or_billing_failure": 75.0,
+        "incorrect_or_delayed_station_status": 100.0,
+        "app_crash_or_technical_error": 100.0,
+        "network_or_connectivity_issue": 100.0,
+        "connector_or_charger_hardware_fault": 100.0,
+        "vehicle_charger_communication_issue": 100.0,
+        "incorrect_or_incomplete_charging_history": 100.0,
+        "customer_support_issue": 100.0,
+        "vehicle_specific_or_telematics_issue": 100.0,
+        "inconclusive": 75.0
+      },
+      "macro_f1": 0.9548,
+      "macro_f1_with_abstention": 0.9373,
+      "classification_report": {
+        "charger_availability_mismatch": {
+          "precision": 1.0,
+          "recall": 0.875,
+          "f1": 0.9333,
+          "support": 16,
+          "predicted": 14,
+          "true_positive": 14,
+          "false_positive": 0,
+          "false_negative": 2
+        },
+        "session_fails_to_start": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 24,
+          "predicted": 24,
+          "true_positive": 24,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "session_stops_unexpectedly": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 24,
+          "predicted": 24,
+          "true_positive": 24,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "payment_or_billing_failure": {
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571,
+          "support": 32,
+          "predicted": 24,
+          "true_positive": 24,
+          "false_positive": 0,
+          "false_negative": 8
+        },
+        "incorrect_or_delayed_station_status": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8,
+          "predicted": 8,
+          "true_positive": 8,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "app_crash_or_technical_error": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8,
+          "predicted": 8,
+          "true_positive": 8,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "network_or_connectivity_issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8,
+          "predicted": 8,
+          "true_positive": 8,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "connector_or_charger_hardware_fault": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6667,
+          "support": 8,
+          "predicted": 16,
+          "true_positive": 8,
+          "false_positive": 8,
+          "false_negative": 0
+        },
+        "vehicle_charger_communication_issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 16,
+          "predicted": 16,
+          "true_positive": 16,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "incorrect_or_incomplete_charging_history": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8,
+          "predicted": 8,
+          "true_positive": 8,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "customer_support_issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8,
+          "predicted": 8,
+          "true_positive": 8,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "vehicle_specific_or_telematics_issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8,
+          "predicted": 8,
+          "true_positive": 8,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "inconclusive": {
+          "precision": 0.7059,
+          "recall": 0.75,
+          "f1": 0.7273,
+          "support": 32,
+          "predicted": 34,
+          "true_positive": 24,
+          "false_positive": 10,
+          "false_negative": 8
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "charger_availability_mismatch",
+          "session_fails_to_start",
+          "session_stops_unexpectedly",
+          "payment_or_billing_failure",
+          "incorrect_or_delayed_station_status",
+          "app_crash_or_technical_error",
+          "network_or_connectivity_issue",
+          "connector_or_charger_hardware_fault",
+          "vehicle_charger_communication_issue",
+          "incorrect_or_incomplete_charging_history",
+          "customer_support_issue",
+          "vehicle_specific_or_telematics_issue",
+          "inconclusive"
+        ],
+        "rows": [
+          [
+            14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            16,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            0,
+            24
+          ]
+        ],
+        "orientation": "rows=true label, columns=predicted; inconclusive column includes abstentions"
+      },
+      "assertion_coverage_pct": 83.0,
+      "asserted_accuracy_pct": 95.18,
+      "outcome_counts": {
+        "correct_root_cause": 158,
+        "wrong_root_cause": 0,
+        "false_assertion_on_inconclusive": 8,
+        "correct_abstention": 24,
+        "abstention_on_labelled_cause": 10
+      },
+      "error_analysis": {
+        "n_errors": 18,
+        "confusions": [
+          {
+            "true": "payment_or_billing_failure",
+            "predicted": "inconclusive",
+            "count": 8
+          },
+          {
+            "true": "inconclusive",
+            "predicted": "connector_or_charger_hardware_fault",
+            "count": 8
+          },
+          {
+            "true": "charger_availability_mismatch",
+            "predicted": "inconclusive",
+            "count": 2
+          }
+        ],
+        "cases": [
+          {
+            "scenario_id": "SIM-042-0060",
+            "ground_truth": "charger_availability_mismatch",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": null,
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "history_check",
+              "payment_check",
+              "telematics_check",
+              "app_error_check",
+              "similar_cases_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "history_ok",
+              "no_error_code",
+              "no_matching_session",
+              "no_similar_cases",
+              "no_telematics_events",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "all_applicable_tools_exhausted",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0064",
+            "ground_truth": "charger_availability_mismatch",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": null,
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "history_check",
+              "payment_check",
+              "telematics_check",
+              "app_error_check",
+              "similar_cases_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "history_ok",
+              "no_error_code",
+              "no_matching_session",
+              "no_similar_cases",
+              "no_telematics_events",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "all_applicable_tools_exhausted",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0137",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "history_check",
+              "payment_check",
+              "similar_cases_check",
+              "error_code_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "no_similar_cases"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0138",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "history_check",
+              "payment_check",
+              "similar_cases_check",
+              "error_code_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "no_similar_cases"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0139",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "history_check",
+              "payment_check",
+              "similar_cases_check",
+              "error_code_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "no_similar_cases"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0140",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "history_check",
+              "payment_check",
+              "similar_cases_check",
+              "error_code_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "no_similar_cases"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0141",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "history_check",
+              "payment_check",
+              "similar_cases_check",
+              "error_code_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "no_similar_cases"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0142",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "history_check",
+              "payment_check",
+              "similar_cases_check",
+              "error_code_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "no_similar_cases"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0143",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "history_check",
+              "payment_check",
+              "similar_cases_check",
+              "error_code_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "no_similar_cases"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0144",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "history_check",
+              "payment_check",
+              "similar_cases_check",
+              "error_code_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "no_similar_cases"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0161",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "probable",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [],
+            "evidence_strength": 0.45,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "error_code_check"
+            ],
+            "signals": [
+              "error_code_HW2xx",
+              "matched_session_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "confidence_threshold_reached",
+            "checks_run": 2,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0162",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "probable",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [],
+            "evidence_strength": 0.45,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "error_code_check"
+            ],
+            "signals": [
+              "error_code_HW2xx",
+              "matched_session_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "confidence_threshold_reached",
+            "checks_run": 2,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0163",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "probable",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [],
+            "evidence_strength": 0.45,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "error_code_check"
+            ],
+            "signals": [
+              "error_code_HW2xx",
+              "matched_session_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "confidence_threshold_reached",
+            "checks_run": 2,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0164",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "confirmed",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [],
+            "evidence_strength": 0.75,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "connector_check"
+            ],
+            "signals": [
+              "connector_fault_event",
+              "error_code_HW2xx",
+              "matched_session_found",
+              "overtemperature"
+            ],
+            "tool_errors": [],
+            "stop_reason": "confidence_threshold_reached",
+            "checks_run": 3,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0165",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "probable",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [],
+            "evidence_strength": 0.45,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "error_code_check"
+            ],
+            "signals": [
+              "error_code_HW2xx",
+              "matched_session_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "confidence_threshold_reached",
+            "checks_run": 2,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0166",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "confirmed",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [],
+            "evidence_strength": 0.75,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "connector_check"
+            ],
+            "signals": [
+              "connector_fault_event",
+              "error_code_HW2xx",
+              "matched_session_found",
+              "overtemperature"
+            ],
+            "tool_errors": [],
+            "stop_reason": "confidence_threshold_reached",
+            "checks_run": 3,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0167",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "probable",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [],
+            "evidence_strength": 0.45,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "error_code_check"
+            ],
+            "signals": [
+              "error_code_HW2xx",
+              "matched_session_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "confidence_threshold_reached",
+            "checks_run": 2,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0168",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "probable",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [],
+            "evidence_strength": 0.45,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "error_code_check"
+            ],
+            "signals": [
+              "error_code_HW2xx",
+              "matched_session_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "confidence_threshold_reached",
+            "checks_run": 2,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          }
+        ]
+      },
+      "assertion_calibration": {
+        "n_cases": 166,
+        "ece": 0.0066,
+        "brier": 0.0459,
+        "bins": [
+          {
+            "range": "0.0-0.2",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.2-0.4",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.4-0.6",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.6-0.8",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.8-1.0",
+            "n": 166,
+            "mean_confidence": 0.9452,
+            "accuracy_pct": 95.18
+          }
+        ],
+        "scope": "All asserted diagnoses, including false assertions on inconclusive cases; abstentions excluded."
+      },
+      "heuristic_assertion_calibration": {
+        "n_cases": 166,
+        "ece": 0.3817,
+        "brier": 0.1971,
+        "bins": [
+          {
+            "range": "0.0-0.2",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.2-0.4",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.4-0.6",
+            "n": 89,
+            "mean_confidence": 0.4893,
+            "accuracy_pct": 93.26
+          },
+          {
+            "range": "0.6-0.8",
+            "n": 77,
+            "mean_confidence": 0.6634,
+            "accuracy_pct": 97.4
+          },
+          {
+            "range": "0.8-1.0",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          }
+        ],
+        "scope": "All asserted diagnoses, including false assertions on inconclusive cases; abstentions excluded."
+      },
+      "runtime_s": 2.676
+    },
+    "fixed_baseline": {
+      "n_cases": 200,
+      "accuracy_pct": 78.0,
+      "abstention_correct_pct": 75.0,
+      "truly_inconclusive_cases": 32,
+      "false_confident_pct": 25.0,
+      "avg_checks_per_case": 7.6,
+      "avg_unnecessary_checks": 1.96,
+      "traceability_pct": 100.0,
+      "conflict_detection_pct": 100.0,
+      "planted_conflict_cases": 8,
+      "calibration": {
+        "n_cases": 168,
+        "ece": 0.4841,
+        "mean_confidence_when_correct": 0.498,
+        "mean_confidence_when_wrong": 0.207,
+        "bins": [
+          {
+            "range": "0.0-0.2",
+            "n": 28,
+            "mean_confidence": 0.0,
+            "accuracy_pct": 92.9
+          },
+          {
+            "range": "0.2-0.4",
+            "n": 8,
+            "mean_confidence": 0.259,
+            "accuracy_pct": 0.0
+          },
+          {
+            "range": "0.4-0.6",
+            "n": 60,
+            "mean_confidence": 0.503,
+            "accuracy_pct": 100.0
+          },
+          {
+            "range": "0.6-0.8",
+            "n": 72,
+            "mean_confidence": 0.674,
+            "accuracy_pct": 100.0
+          },
+          {
+            "range": "0.8-1.0",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          }
+        ]
+      },
+      "per_category_accuracy": {
+        "charger_availability_mismatch": 87.5,
+        "session_fails_to_start": 100.0,
+        "session_stops_unexpectedly": 100.0,
+        "payment_or_billing_failure": 75.0,
+        "incorrect_or_delayed_station_status": 100.0,
+        "app_crash_or_technical_error": 25.0,
+        "network_or_connectivity_issue": 100.0,
+        "connector_or_charger_hardware_fault": 100.0,
+        "vehicle_charger_communication_issue": 100.0,
+        "incorrect_or_incomplete_charging_history": 25.0,
+        "customer_support_issue": 25.0,
+        "vehicle_specific_or_telematics_issue": 0.0,
+        "inconclusive": 75.0
+      },
+      "macro_f1": 0.7214,
+      "macro_f1_with_abstention": 0.7061,
+      "classification_report": {
+        "charger_availability_mismatch": {
+          "precision": 1.0,
+          "recall": 0.875,
+          "f1": 0.9333,
+          "support": 16,
+          "predicted": 14,
+          "true_positive": 14,
+          "false_positive": 0,
+          "false_negative": 2
+        },
+        "session_fails_to_start": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 24,
+          "predicted": 24,
+          "true_positive": 24,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "session_stops_unexpectedly": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 24,
+          "predicted": 24,
+          "true_positive": 24,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "payment_or_billing_failure": {
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571,
+          "support": 32,
+          "predicted": 24,
+          "true_positive": 24,
+          "false_positive": 0,
+          "false_negative": 8
+        },
+        "incorrect_or_delayed_station_status": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8,
+          "predicted": 8,
+          "true_positive": 8,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "app_crash_or_technical_error": {
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4,
+          "support": 8,
+          "predicted": 2,
+          "true_positive": 2,
+          "false_positive": 0,
+          "false_negative": 6
+        },
+        "network_or_connectivity_issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8,
+          "predicted": 8,
+          "true_positive": 8,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "connector_or_charger_hardware_fault": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6667,
+          "support": 8,
+          "predicted": 16,
+          "true_positive": 8,
+          "false_positive": 8,
+          "false_negative": 0
+        },
+        "vehicle_charger_communication_issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 16,
+          "predicted": 16,
+          "true_positive": 16,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "incorrect_or_incomplete_charging_history": {
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4,
+          "support": 8,
+          "predicted": 2,
+          "true_positive": 2,
+          "false_positive": 0,
+          "false_negative": 6
+        },
+        "customer_support_issue": {
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4,
+          "support": 8,
+          "predicted": 2,
+          "true_positive": 2,
+          "false_positive": 0,
+          "false_negative": 6
+        },
+        "vehicle_specific_or_telematics_issue": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 8,
+          "predicted": 0,
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 8
+        },
+        "inconclusive": {
+          "precision": 0.4,
+          "recall": 0.75,
+          "f1": 0.5217,
+          "support": 32,
+          "predicted": 60,
+          "true_positive": 24,
+          "false_positive": 36,
+          "false_negative": 8
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "charger_availability_mismatch",
+          "session_fails_to_start",
+          "session_stops_unexpectedly",
+          "payment_or_billing_failure",
+          "incorrect_or_delayed_station_status",
+          "app_crash_or_technical_error",
+          "network_or_connectivity_issue",
+          "connector_or_charger_hardware_fault",
+          "vehicle_charger_communication_issue",
+          "incorrect_or_incomplete_charging_history",
+          "customer_support_issue",
+          "vehicle_specific_or_telematics_issue",
+          "inconclusive"
+        ],
+        "rows": [
+          [
+            14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            6
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            16,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            6
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            6
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            0,
+            24
+          ]
+        ],
+        "orientation": "rows=true label, columns=predicted; inconclusive column includes abstentions"
+      },
+      "assertion_coverage_pct": 70.0,
+      "asserted_accuracy_pct": 94.29,
+      "outcome_counts": {
+        "correct_root_cause": 132,
+        "wrong_root_cause": 0,
+        "false_assertion_on_inconclusive": 8,
+        "correct_abstention": 24,
+        "abstention_on_labelled_cause": 36
+      },
+      "error_analysis": {
+        "n_errors": 44,
+        "confusions": [
+          {
+            "true": "vehicle_specific_or_telematics_issue",
+            "predicted": "inconclusive",
+            "count": 8
+          },
+          {
+            "true": "payment_or_billing_failure",
+            "predicted": "inconclusive",
+            "count": 8
+          },
+          {
+            "true": "inconclusive",
+            "predicted": "connector_or_charger_hardware_fault",
+            "count": 8
+          },
+          {
+            "true": "app_crash_or_technical_error",
+            "predicted": "inconclusive",
+            "count": 6
+          },
+          {
+            "true": "incorrect_or_incomplete_charging_history",
+            "predicted": "inconclusive",
+            "count": 6
+          },
+          {
+            "true": "customer_support_issue",
+            "predicted": "inconclusive",
+            "count": 6
+          },
+          {
+            "true": "charger_availability_mismatch",
+            "predicted": "inconclusive",
+            "count": 2
+          }
+        ],
+        "cases": [
+          {
+            "scenario_id": "SIM-042-0060",
+            "ground_truth": "charger_availability_mismatch",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": null,
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "history_ok",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0064",
+            "ground_truth": "charger_availability_mismatch",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": null,
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "history_ok",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0073",
+            "ground_truth": "app_crash_or_technical_error",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "app_crash_or_technical_error",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "connectivity_data_unavailable",
+              "error_code_APP500",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "no_matching_session",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0074",
+            "ground_truth": "app_crash_or_technical_error",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "app_crash_or_technical_error",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "connectivity_data_unavailable",
+              "error_code_APP500",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "no_matching_session",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0075",
+            "ground_truth": "app_crash_or_technical_error",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "app_crash_or_technical_error",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "connectivity_data_unavailable",
+              "error_code_APP500",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "no_matching_session",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0077",
+            "ground_truth": "app_crash_or_technical_error",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "app_crash_or_technical_error",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "connectivity_data_unavailable",
+              "error_code_APP500",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "no_matching_session",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0078",
+            "ground_truth": "app_crash_or_technical_error",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "app_crash_or_technical_error",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "connectivity_data_unavailable",
+              "error_code_APP500",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "no_matching_session",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0079",
+            "ground_truth": "app_crash_or_technical_error",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "app_crash_or_technical_error",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "connectivity_data_unavailable",
+              "error_code_APP500",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "no_matching_session",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0105",
+            "ground_truth": "incorrect_or_incomplete_charging_history",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "incorrect_or_incomplete_charging_history",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "matched_session_found",
+              "no_connectivity_data",
+              "no_connector_fault",
+              "no_error_code",
+              "no_handshake_events",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0106",
+            "ground_truth": "incorrect_or_incomplete_charging_history",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "incorrect_or_incomplete_charging_history",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "matched_session_found",
+              "no_connectivity_data",
+              "no_connector_fault",
+              "no_error_code",
+              "no_handshake_events",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0107",
+            "ground_truth": "incorrect_or_incomplete_charging_history",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "incorrect_or_incomplete_charging_history",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "matched_session_found",
+              "no_connectivity_data",
+              "no_connector_fault",
+              "no_error_code",
+              "no_handshake_events",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0109",
+            "ground_truth": "incorrect_or_incomplete_charging_history",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "incorrect_or_incomplete_charging_history",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "matched_session_found",
+              "no_connectivity_data",
+              "no_connector_fault",
+              "no_error_code",
+              "no_handshake_events",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0110",
+            "ground_truth": "incorrect_or_incomplete_charging_history",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "incorrect_or_incomplete_charging_history",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "matched_session_found",
+              "no_connectivity_data",
+              "no_connector_fault",
+              "no_error_code",
+              "no_handshake_events",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0111",
+            "ground_truth": "incorrect_or_incomplete_charging_history",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "incorrect_or_incomplete_charging_history",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "matched_session_found",
+              "no_connectivity_data",
+              "no_connector_fault",
+              "no_error_code",
+              "no_handshake_events",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0113",
+            "ground_truth": "customer_support_issue",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "customer_support_issue",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "connectivity_data_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0114",
+            "ground_truth": "customer_support_issue",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "customer_support_issue",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "connectivity_data_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0115",
+            "ground_truth": "customer_support_issue",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "customer_support_issue",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "connectivity_data_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0117",
+            "ground_truth": "customer_support_issue",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "customer_support_issue",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "connectivity_data_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0118",
+            "ground_truth": "customer_support_issue",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "customer_support_issue",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "connectivity_data_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0119",
+            "ground_truth": "customer_support_issue",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "customer_support_issue",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "connectivity_data_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0121",
+            "ground_truth": "vehicle_specific_or_telematics_issue",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "vehicle_specific_or_telematics_issue",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "history_ok",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0122",
+            "ground_truth": "vehicle_specific_or_telematics_issue",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "vehicle_specific_or_telematics_issue",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "history_ok",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0123",
+            "ground_truth": "vehicle_specific_or_telematics_issue",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "vehicle_specific_or_telematics_issue",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "history_ok",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0124",
+            "ground_truth": "vehicle_specific_or_telematics_issue",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "vehicle_specific_or_telematics_issue",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "history_ok",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0125",
+            "ground_truth": "vehicle_specific_or_telematics_issue",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "vehicle_specific_or_telematics_issue",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "history_ok",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0126",
+            "ground_truth": "vehicle_specific_or_telematics_issue",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "vehicle_specific_or_telematics_issue",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "history_ok",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0127",
+            "ground_truth": "vehicle_specific_or_telematics_issue",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "vehicle_specific_or_telematics_issue",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "history_ok",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0128",
+            "ground_truth": "vehicle_specific_or_telematics_issue",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": "vehicle_specific_or_telematics_issue",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "handshake_data_unavailable",
+              "hardware_data_unavailable",
+              "history_ok",
+              "no_error_code",
+              "no_matching_session",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0137",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "session_fails_to_start",
+            "contributing": [],
+            "evidence_strength": 0.25909090909090904,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "authorize_then_no_start",
+              "complaint_deducted_payment_failed",
+              "matched_session_found",
+              "no_connectivity_data",
+              "no_connector_fault",
+              "no_error_code",
+              "no_handshake_events",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0138",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "session_fails_to_start",
+            "contributing": [],
+            "evidence_strength": 0.25909090909090904,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "authorize_then_no_start",
+              "complaint_deducted_payment_failed",
+              "matched_session_found",
+              "no_connectivity_data",
+              "no_connector_fault",
+              "no_error_code",
+              "no_handshake_events",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0139",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "session_fails_to_start",
+            "contributing": [],
+            "evidence_strength": 0.25909090909090904,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "authorize_then_no_start",
+              "complaint_deducted_payment_failed",
+              "matched_session_found",
+              "no_connectivity_data",
+              "no_connector_fault",
+              "no_error_code",
+              "no_handshake_events",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0140",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "session_fails_to_start",
+            "contributing": [],
+            "evidence_strength": 0.25909090909090904,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "authorize_then_no_start",
+              "complaint_deducted_payment_failed",
+              "matched_session_found",
+              "no_connectivity_data",
+              "no_connector_fault",
+              "no_error_code",
+              "no_handshake_events",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0141",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "session_fails_to_start",
+            "contributing": [],
+            "evidence_strength": 0.25909090909090904,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "authorize_then_no_start",
+              "complaint_deducted_payment_failed",
+              "matched_session_found",
+              "no_connectivity_data",
+              "no_connector_fault",
+              "no_error_code",
+              "no_handshake_events",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0142",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "session_fails_to_start",
+            "contributing": [],
+            "evidence_strength": 0.25909090909090904,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "authorize_then_no_start",
+              "complaint_deducted_payment_failed",
+              "matched_session_found",
+              "no_connectivity_data",
+              "no_connector_fault",
+              "no_error_code",
+              "no_handshake_events",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0143",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "session_fails_to_start",
+            "contributing": [],
+            "evidence_strength": 0.25909090909090904,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "authorize_then_no_start",
+              "complaint_deducted_payment_failed",
+              "matched_session_found",
+              "no_connectivity_data",
+              "no_connector_fault",
+              "no_error_code",
+              "no_handshake_events",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0144",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "session_fails_to_start",
+            "contributing": [],
+            "evidence_strength": 0.25909090909090904,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connectivity_check",
+              "connector_check",
+              "handshake_check",
+              "station_status_check"
+            ],
+            "signals": [
+              "authorize_then_no_start",
+              "complaint_deducted_payment_failed",
+              "matched_session_found",
+              "no_connectivity_data",
+              "no_connector_fault",
+              "no_error_code",
+              "no_handshake_events",
+              "status_not_claimed"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0161",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "confirmed",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [
+              "session_fails_to_start"
+            ],
+            "evidence_strength": 0.75,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "authorize_then_no_start",
+              "connector_fault_event",
+              "error_code_HW2xx",
+              "history_ok",
+              "matched_session_found",
+              "no_handshake_events",
+              "overtemperature",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 3,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0162",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "confirmed",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [
+              "session_fails_to_start"
+            ],
+            "evidence_strength": 0.75,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "authorize_then_no_start",
+              "connector_fault_event",
+              "error_code_HW2xx",
+              "history_ok",
+              "matched_session_found",
+              "no_handshake_events",
+              "overtemperature",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 3,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0163",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "confirmed",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [
+              "session_fails_to_start"
+            ],
+            "evidence_strength": 0.75,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "authorize_then_no_start",
+              "connector_fault_event",
+              "error_code_HW2xx",
+              "history_ok",
+              "matched_session_found",
+              "no_handshake_events",
+              "overtemperature",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 3,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0164",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "confirmed",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [
+              "session_fails_to_start"
+            ],
+            "evidence_strength": 0.75,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "authorize_then_no_start",
+              "connector_fault_event",
+              "error_code_HW2xx",
+              "history_ok",
+              "matched_session_found",
+              "no_handshake_events",
+              "overtemperature",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 3,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0165",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "confirmed",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [
+              "session_fails_to_start"
+            ],
+            "evidence_strength": 0.75,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "authorize_then_no_start",
+              "connector_fault_event",
+              "error_code_HW2xx",
+              "history_ok",
+              "matched_session_found",
+              "no_handshake_events",
+              "overtemperature",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 3,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0166",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "confirmed",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [
+              "session_fails_to_start"
+            ],
+            "evidence_strength": 0.75,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "authorize_then_no_start",
+              "connector_fault_event",
+              "error_code_HW2xx",
+              "history_ok",
+              "matched_session_found",
+              "no_handshake_events",
+              "overtemperature",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 3,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0167",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "confirmed",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [
+              "session_fails_to_start"
+            ],
+            "evidence_strength": 0.75,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "authorize_then_no_start",
+              "connector_fault_event",
+              "error_code_HW2xx",
+              "history_ok",
+              "matched_session_found",
+              "no_handshake_events",
+              "overtemperature",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 3,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0168",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "confirmed",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [
+              "session_fails_to_start"
+            ],
+            "evidence_strength": 0.75,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "timeline_check",
+              "error_code_check",
+              "payment_check",
+              "connector_check",
+              "handshake_check",
+              "history_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "authorize_then_no_start",
+              "connector_fault_event",
+              "error_code_HW2xx",
+              "history_ok",
+              "matched_session_found",
+              "no_handshake_events",
+              "overtemperature",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "baseline_complete",
+            "checks_run": 8,
+            "unnecessary_checks": 3,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          }
+        ]
+      },
+      "assertion_calibration": {
+        "n_cases": 140,
+        "ece": 0.0023,
+        "brier": 0.0539,
+        "bins": [
+          {
+            "range": "0.0-0.2",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.2-0.4",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.4-0.6",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.6-0.8",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.8-1.0",
+            "n": 140,
+            "mean_confidence": 0.9452,
+            "accuracy_pct": 94.29
+          }
+        ],
+        "scope": "All asserted diagnoses, including false assertions on inconclusive cases; abstentions excluded."
+      },
+      "heuristic_assertion_calibration": {
+        "n_cases": 140,
+        "ece": 0.3376,
+        "brier": 0.1948,
+        "bins": [
+          {
+            "range": "0.0-0.2",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.2-0.4",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.4-0.6",
+            "n": 60,
+            "mean_confidence": 0.5035,
+            "accuracy_pct": 100.0
+          },
+          {
+            "range": "0.6-0.8",
+            "n": 80,
+            "mean_confidence": 0.6817,
+            "accuracy_pct": 90.0
+          },
+          {
+            "range": "0.8-1.0",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          }
+        ],
+        "scope": "All asserted diagnoses, including false assertions on inconclusive cases; abstentions excluded."
+      },
+      "runtime_s": 2.703
+    }
+  },
+  "calibration_model": {
+    "method": "monotonic evidence-strength bins with Beta(1,1) smoothing",
+    "seed": 314159,
+    "n_per_template": 20,
+    "dataset_size": 500,
+    "scope": "asserted diagnoses only; synthetic development data; no probabilities for abstentions",
+    "bins": [
+      {
+        "upper": 0.2,
+        "successes": 0,
+        "support": 0,
+        "probability": 0.5
+      },
+      {
+        "upper": 0.4,
+        "successes": 0,
+        "support": 0,
+        "probability": 0.5
+      },
+      {
+        "upper": 0.6,
+        "successes": 218,
+        "support": 228,
+        "probability": 0.9452
+      },
+      {
+        "upper": 0.8,
+        "successes": 176,
+        "support": 186,
+        "probability": 0.9452
+      },
+      {
+        "upper": 1.0,
+        "successes": 0,
+        "support": 0,
+        "probability": 0.9452
+      }
+    ]
+  },
+  "dataset_audit": {
+    "unsupported_app_labels": [
+      {
+        "scenario_id": "SIM-042-0060",
+        "app_id": "bajaj_chetak",
+        "label": "charger_availability_mismatch"
+      },
+      {
+        "scenario_id": "SIM-042-0064",
+        "app_id": "bajaj_chetak",
+        "label": "charger_availability_mismatch"
+      }
+    ],
+    "inconclusive_with_logged_fault": [
+      {
+        "scenario_id": "SIM-042-0161",
+        "label": "inconclusive",
+        "logged_error": "HW210",
+        "reason": "A labelled-inconclusive fixture supplies a matched session with a specific logged fault."
+      },
+      {
+        "scenario_id": "SIM-042-0162",
+        "label": "inconclusive",
+        "logged_error": "HW210",
+        "reason": "A labelled-inconclusive fixture supplies a matched session with a specific logged fault."
+      },
+      {
+        "scenario_id": "SIM-042-0163",
+        "label": "inconclusive",
+        "logged_error": "HW210",
+        "reason": "A labelled-inconclusive fixture supplies a matched session with a specific logged fault."
+      },
+      {
+        "scenario_id": "SIM-042-0164",
+        "label": "inconclusive",
+        "logged_error": "HW210",
+        "reason": "A labelled-inconclusive fixture supplies a matched session with a specific logged fault."
+      },
+      {
+        "scenario_id": "SIM-042-0165",
+        "label": "inconclusive",
+        "logged_error": "HW210",
+        "reason": "A labelled-inconclusive fixture supplies a matched session with a specific logged fault."
+      },
+      {
+        "scenario_id": "SIM-042-0166",
+        "label": "inconclusive",
+        "logged_error": "HW210",
+        "reason": "A labelled-inconclusive fixture supplies a matched session with a specific logged fault."
+      },
+      {
+        "scenario_id": "SIM-042-0167",
+        "label": "inconclusive",
+        "logged_error": "HW210",
+        "reason": "A labelled-inconclusive fixture supplies a matched session with a specific logged fault."
+      },
+      {
+        "scenario_id": "SIM-042-0168",
+        "label": "inconclusive",
+        "logged_error": "HW210",
+        "reason": "A labelled-inconclusive fixture supplies a matched session with a specific logged fault."
+      }
+    ],
+    "policy": "All cases remain in the comparison and its denominators. Unsupported labels are not applied as reviewer training feedback."
+  },
+  "learning_experiment": {
+    "seed": 42,
+    "train_cases": 100,
+    "test_cases": 100,
+    "train_skipped_inconclusive": 19,
+    "train_invalid_label_cases": [
+      "SIM-042-0064"
+    ],
+    "verified_resolutions_applied": 80,
+    "knowledge_changes": 161,
+    "before": {
+      "accuracy_pct": 91.0,
+      "macro_f1": 0.9637,
+      "abstention_correct_pct": 76.92,
+      "false_confident_pct": 23.08,
+      "avg_checks_per_case": 4.83
+    },
+    "after": {
+      "accuracy_pct": 91.0,
+      "macro_f1": 0.9637,
+      "abstention_correct_pct": 76.92,
+      "false_confident_pct": 23.08,
+      "avg_checks_per_case": 3.25
+    },
+    "delta": {
+      "accuracy_pct": 0.0,
+      "macro_f1": 0.0,
+      "abstention_correct_pct": 0.0,
+      "false_confident_pct": 0.0,
+      "avg_checks_per_case": -1.58
+    },
+    "before_details": {
+      "n_cases": 100,
+      "accuracy_pct": 91.0,
+      "abstention_correct_pct": 76.92,
+      "truly_inconclusive_cases": 13,
+      "false_confident_pct": 23.08,
+      "avg_checks_per_case": 4.83,
+      "avg_unnecessary_checks": 0.16,
+      "traceability_pct": 100.0,
+      "conflict_detection_pct": 100.0,
+      "planted_conflict_cases": 5,
+      "calibration": {
+        "n_cases": 87,
+        "ece": 0.4513,
+        "mean_confidence_when_correct": 0.543,
+        "mean_confidence_when_wrong": 0.0,
+        "bins": [
+          {
+            "range": "0.0-0.2",
+            "n": 6,
+            "mean_confidence": 0.0,
+            "accuracy_pct": 83.3
+          },
+          {
+            "range": "0.2-0.4",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.4-0.6",
+            "n": 42,
+            "mean_confidence": 0.494,
+            "accuracy_pct": 100.0
+          },
+          {
+            "range": "0.6-0.8",
+            "n": 39,
+            "mean_confidence": 0.666,
+            "accuracy_pct": 100.0
+          },
+          {
+            "range": "0.8-1.0",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          }
+        ]
+      },
+      "per_category_accuracy": {
+        "charger_availability_mismatch": 88.9,
+        "session_fails_to_start": 100.0,
+        "session_stops_unexpectedly": 100.0,
+        "payment_or_billing_failure": 66.7,
+        "incorrect_or_delayed_station_status": 100.0,
+        "app_crash_or_technical_error": 100.0,
+        "network_or_connectivity_issue": 100.0,
+        "connector_or_charger_hardware_fault": 100.0,
+        "vehicle_charger_communication_issue": 100.0,
+        "incorrect_or_incomplete_charging_history": 100.0,
+        "customer_support_issue": 100.0,
+        "vehicle_specific_or_telematics_issue": 100.0,
+        "inconclusive": 76.9
+      },
+      "macro_f1": 0.9637,
+      "macro_f1_with_abstention": 0.9426,
+      "classification_report": {
+        "charger_availability_mismatch": {
+          "precision": 1.0,
+          "recall": 0.8889,
+          "f1": 0.9412,
+          "support": 9,
+          "predicted": 8,
+          "true_positive": 8,
+          "false_positive": 0,
+          "false_negative": 1
+        },
+        "session_fails_to_start": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 11,
+          "predicted": 11,
+          "true_positive": 11,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "session_stops_unexpectedly": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 16,
+          "predicted": 16,
+          "true_positive": 16,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "payment_or_billing_failure": {
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8,
+          "support": 15,
+          "predicted": 10,
+          "true_positive": 10,
+          "false_positive": 0,
+          "false_negative": 5
+        },
+        "incorrect_or_delayed_station_status": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4,
+          "predicted": 4,
+          "true_positive": 4,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "app_crash_or_technical_error": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3,
+          "predicted": 3,
+          "true_positive": 3,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "network_or_connectivity_issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4,
+          "predicted": 4,
+          "true_positive": 4,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "connector_or_charger_hardware_fault": {
+          "precision": 0.7,
+          "recall": 1.0,
+          "f1": 0.8235,
+          "support": 7,
+          "predicted": 10,
+          "true_positive": 7,
+          "false_positive": 3,
+          "false_negative": 0
+        },
+        "vehicle_charger_communication_issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 9,
+          "predicted": 9,
+          "true_positive": 9,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "incorrect_or_incomplete_charging_history": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2,
+          "predicted": 2,
+          "true_positive": 2,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "customer_support_issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4,
+          "predicted": 4,
+          "true_positive": 4,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "vehicle_specific_or_telematics_issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3,
+          "predicted": 3,
+          "true_positive": 3,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "inconclusive": {
+          "precision": 0.625,
+          "recall": 0.7692,
+          "f1": 0.6897,
+          "support": 13,
+          "predicted": 16,
+          "true_positive": 10,
+          "false_positive": 6,
+          "false_negative": 3
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "charger_availability_mismatch",
+          "session_fails_to_start",
+          "session_stops_unexpectedly",
+          "payment_or_billing_failure",
+          "incorrect_or_delayed_station_status",
+          "app_crash_or_technical_error",
+          "network_or_connectivity_issue",
+          "connector_or_charger_hardware_fault",
+          "vehicle_charger_communication_issue",
+          "incorrect_or_incomplete_charging_history",
+          "customer_support_issue",
+          "vehicle_specific_or_telematics_issue",
+          "inconclusive"
+        ],
+        "rows": [
+          [
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            11,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            16,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            10,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            9,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            10
+          ]
+        ],
+        "orientation": "rows=true label, columns=predicted; inconclusive column includes abstentions"
+      },
+      "assertion_coverage_pct": 84.0,
+      "asserted_accuracy_pct": 96.43,
+      "outcome_counts": {
+        "correct_root_cause": 81,
+        "wrong_root_cause": 0,
+        "false_assertion_on_inconclusive": 3,
+        "correct_abstention": 10,
+        "abstention_on_labelled_cause": 6
+      },
+      "error_analysis": {
+        "n_errors": 9,
+        "confusions": [
+          {
+            "true": "payment_or_billing_failure",
+            "predicted": "inconclusive",
+            "count": 5
+          },
+          {
+            "true": "inconclusive",
+            "predicted": "connector_or_charger_hardware_fault",
+            "count": 3
+          },
+          {
+            "true": "charger_availability_mismatch",
+            "predicted": "inconclusive",
+            "count": 1
+          }
+        ],
+        "cases": [
+          {
+            "scenario_id": "SIM-042-0139",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "history_check",
+              "payment_check",
+              "similar_cases_check",
+              "error_code_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "no_similar_cases"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0165",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "probable",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [],
+            "evidence_strength": 0.45,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "error_code_check"
+            ],
+            "signals": [
+              "error_code_HW2xx",
+              "matched_session_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "confidence_threshold_reached",
+            "checks_run": 2,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0142",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "history_check",
+              "payment_check",
+              "similar_cases_check",
+              "error_code_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "no_similar_cases"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0138",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "history_check",
+              "payment_check",
+              "similar_cases_check",
+              "error_code_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "no_similar_cases"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0167",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "probable",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [],
+            "evidence_strength": 0.45,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "error_code_check"
+            ],
+            "signals": [
+              "error_code_HW2xx",
+              "matched_session_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "confidence_threshold_reached",
+            "checks_run": 2,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0144",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "history_check",
+              "payment_check",
+              "similar_cases_check",
+              "error_code_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "no_similar_cases"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0060",
+            "ground_truth": "charger_availability_mismatch",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": null,
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "history_check",
+              "payment_check",
+              "telematics_check",
+              "app_error_check",
+              "similar_cases_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "history_ok",
+              "no_error_code",
+              "no_matching_session",
+              "no_similar_cases",
+              "no_telematics_events",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "all_applicable_tools_exhausted",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0140",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "history_check",
+              "payment_check",
+              "similar_cases_check",
+              "error_code_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "no_similar_cases"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0164",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "confirmed",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [],
+            "evidence_strength": 0.75,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "connector_check"
+            ],
+            "signals": [
+              "connector_fault_event",
+              "error_code_HW2xx",
+              "matched_session_found",
+              "overtemperature"
+            ],
+            "tool_errors": [],
+            "stop_reason": "confidence_threshold_reached",
+            "checks_run": 3,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          }
+        ]
+      },
+      "assertion_calibration": {
+        "n_cases": 84,
+        "ece": 0.0191,
+        "brier": 0.0348,
+        "bins": [
+          {
+            "range": "0.0-0.2",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.2-0.4",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.4-0.6",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.6-0.8",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.8-1.0",
+            "n": 84,
+            "mean_confidence": 0.9452,
+            "accuracy_pct": 96.43
+          }
+        ],
+        "scope": "All asserted diagnoses, including false assertions on inconclusive cases; abstentions excluded."
+      },
+      "heuristic_assertion_calibration": {
+        "n_cases": 84,
+        "ece": 0.3882,
+        "brier": 0.1934,
+        "bins": [
+          {
+            "range": "0.0-0.2",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.2-0.4",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.4-0.6",
+            "n": 44,
+            "mean_confidence": 0.4921,
+            "accuracy_pct": 95.45
+          },
+          {
+            "range": "0.6-0.8",
+            "n": 40,
+            "mean_confidence": 0.6684,
+            "accuracy_pct": 97.5
+          },
+          {
+            "range": "0.8-1.0",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          }
+        ],
+        "scope": "All asserted diagnoses, including false assertions on inconclusive cases; abstentions excluded."
+      }
+    },
+    "after_details": {
+      "n_cases": 100,
+      "accuracy_pct": 91.0,
+      "abstention_correct_pct": 76.92,
+      "truly_inconclusive_cases": 13,
+      "false_confident_pct": 23.08,
+      "avg_checks_per_case": 3.25,
+      "avg_unnecessary_checks": 0.23,
+      "traceability_pct": 100.0,
+      "conflict_detection_pct": 100.0,
+      "planted_conflict_cases": 5,
+      "calibration": {
+        "n_cases": 87,
+        "ece": 0.4726,
+        "mean_confidence_when_correct": 0.522,
+        "mean_confidence_when_wrong": 0.0,
+        "bins": [
+          {
+            "range": "0.0-0.2",
+            "n": 6,
+            "mean_confidence": 0.121,
+            "accuracy_pct": 83.3
+          },
+          {
+            "range": "0.2-0.4",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.4-0.6",
+            "n": 51,
+            "mean_confidence": 0.483,
+            "accuracy_pct": 100.0
+          },
+          {
+            "range": "0.6-0.8",
+            "n": 30,
+            "mean_confidence": 0.652,
+            "accuracy_pct": 100.0
+          },
+          {
+            "range": "0.8-1.0",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          }
+        ]
+      },
+      "per_category_accuracy": {
+        "charger_availability_mismatch": 88.9,
+        "session_fails_to_start": 100.0,
+        "session_stops_unexpectedly": 100.0,
+        "payment_or_billing_failure": 66.7,
+        "incorrect_or_delayed_station_status": 100.0,
+        "app_crash_or_technical_error": 100.0,
+        "network_or_connectivity_issue": 100.0,
+        "connector_or_charger_hardware_fault": 100.0,
+        "vehicle_charger_communication_issue": 100.0,
+        "incorrect_or_incomplete_charging_history": 100.0,
+        "customer_support_issue": 100.0,
+        "vehicle_specific_or_telematics_issue": 100.0,
+        "inconclusive": 76.9
+      },
+      "macro_f1": 0.9637,
+      "macro_f1_with_abstention": 0.9426,
+      "classification_report": {
+        "charger_availability_mismatch": {
+          "precision": 1.0,
+          "recall": 0.8889,
+          "f1": 0.9412,
+          "support": 9,
+          "predicted": 8,
+          "true_positive": 8,
+          "false_positive": 0,
+          "false_negative": 1
+        },
+        "session_fails_to_start": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 11,
+          "predicted": 11,
+          "true_positive": 11,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "session_stops_unexpectedly": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 16,
+          "predicted": 16,
+          "true_positive": 16,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "payment_or_billing_failure": {
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8,
+          "support": 15,
+          "predicted": 10,
+          "true_positive": 10,
+          "false_positive": 0,
+          "false_negative": 5
+        },
+        "incorrect_or_delayed_station_status": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4,
+          "predicted": 4,
+          "true_positive": 4,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "app_crash_or_technical_error": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3,
+          "predicted": 3,
+          "true_positive": 3,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "network_or_connectivity_issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4,
+          "predicted": 4,
+          "true_positive": 4,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "connector_or_charger_hardware_fault": {
+          "precision": 0.7,
+          "recall": 1.0,
+          "f1": 0.8235,
+          "support": 7,
+          "predicted": 10,
+          "true_positive": 7,
+          "false_positive": 3,
+          "false_negative": 0
+        },
+        "vehicle_charger_communication_issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 9,
+          "predicted": 9,
+          "true_positive": 9,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "incorrect_or_incomplete_charging_history": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2,
+          "predicted": 2,
+          "true_positive": 2,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "customer_support_issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4,
+          "predicted": 4,
+          "true_positive": 4,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "vehicle_specific_or_telematics_issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3,
+          "predicted": 3,
+          "true_positive": 3,
+          "false_positive": 0,
+          "false_negative": 0
+        },
+        "inconclusive": {
+          "precision": 0.625,
+          "recall": 0.7692,
+          "f1": 0.6897,
+          "support": 13,
+          "predicted": 16,
+          "true_positive": 10,
+          "false_positive": 6,
+          "false_negative": 3
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "charger_availability_mismatch",
+          "session_fails_to_start",
+          "session_stops_unexpectedly",
+          "payment_or_billing_failure",
+          "incorrect_or_delayed_station_status",
+          "app_crash_or_technical_error",
+          "network_or_connectivity_issue",
+          "connector_or_charger_hardware_fault",
+          "vehicle_charger_communication_issue",
+          "incorrect_or_incomplete_charging_history",
+          "customer_support_issue",
+          "vehicle_specific_or_telematics_issue",
+          "inconclusive"
+        ],
+        "rows": [
+          [
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            11,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            16,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            10,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            9,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            10
+          ]
+        ],
+        "orientation": "rows=true label, columns=predicted; inconclusive column includes abstentions"
+      },
+      "assertion_coverage_pct": 84.0,
+      "asserted_accuracy_pct": 96.43,
+      "outcome_counts": {
+        "correct_root_cause": 81,
+        "wrong_root_cause": 0,
+        "false_assertion_on_inconclusive": 3,
+        "correct_abstention": 10,
+        "abstention_on_labelled_cause": 6
+      },
+      "error_analysis": {
+        "n_errors": 9,
+        "confusions": [
+          {
+            "true": "payment_or_billing_failure",
+            "predicted": "inconclusive",
+            "count": 5
+          },
+          {
+            "true": "inconclusive",
+            "predicted": "connector_or_charger_hardware_fault",
+            "count": 3
+          },
+          {
+            "true": "charger_availability_mismatch",
+            "predicted": "inconclusive",
+            "count": 1
+          }
+        ],
+        "cases": [
+          {
+            "scenario_id": "SIM-042-0139",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.18157894736842103,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "payment_check",
+              "history_check",
+              "similar_cases_check",
+              "app_error_check",
+              "error_code_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "similar_resolved_case_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0165",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "probable",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [],
+            "evidence_strength": 0.45,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "error_code_check"
+            ],
+            "signals": [
+              "error_code_HW2xx",
+              "matched_session_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "confidence_threshold_reached",
+            "checks_run": 2,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0142",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "payment_check",
+              "history_check",
+              "similar_cases_check",
+              "error_code_check",
+              "app_error_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "no_similar_cases"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0138",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.18157894736842103,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "payment_check",
+              "history_check",
+              "similar_cases_check",
+              "app_error_check",
+              "error_code_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "similar_resolved_case_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0167",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "probable",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [],
+            "evidence_strength": 0.45,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "error_code_check"
+            ],
+            "signals": [
+              "error_code_HW2xx",
+              "matched_session_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "confidence_threshold_reached",
+            "checks_run": 2,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0144",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.18157894736842103,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "payment_check",
+              "history_check",
+              "similar_cases_check",
+              "app_error_check",
+              "error_code_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "similar_resolved_case_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0060",
+            "ground_truth": "charger_availability_mismatch",
+            "secondary": null,
+            "classification": "requires_further_investigation",
+            "primary_category": null,
+            "leading_hypothesis": null,
+            "contributing": [],
+            "evidence_strength": 0.0,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "error_code_check",
+              "history_check",
+              "payment_check",
+              "telematics_check",
+              "app_error_check",
+              "similar_cases_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "history_ok",
+              "no_error_code",
+              "no_matching_session",
+              "no_similar_cases",
+              "no_telematics_events",
+              "payment_ok"
+            ],
+            "tool_errors": [],
+            "stop_reason": "all_applicable_tools_exhausted",
+            "checks_run": 7,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          },
+          {
+            "scenario_id": "SIM-042-0140",
+            "ground_truth": "payment_or_billing_failure",
+            "secondary": null,
+            "classification": "inconclusive",
+            "primary_category": null,
+            "leading_hypothesis": "payment_or_billing_failure",
+            "contributing": [],
+            "evidence_strength": 0.18157894736842103,
+            "confidence": null,
+            "tools": [
+              "session_lookup",
+              "payment_check",
+              "history_check",
+              "similar_cases_check",
+              "app_error_check",
+              "error_code_check"
+            ],
+            "signals": [
+              "app_telemetry_unavailable",
+              "complaint_deducted_payment_failed",
+              "history_ok",
+              "matched_session_found",
+              "no_error_code",
+              "similar_resolved_case_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "no_remaining_gain",
+            "checks_run": 6,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": true,
+            "found_conflict": true
+          },
+          {
+            "scenario_id": "SIM-042-0164",
+            "ground_truth": "inconclusive",
+            "secondary": null,
+            "classification": "probable",
+            "primary_category": "connector_or_charger_hardware_fault",
+            "leading_hypothesis": "connector_or_charger_hardware_fault",
+            "contributing": [],
+            "evidence_strength": 0.45,
+            "confidence": 0.9452,
+            "tools": [
+              "session_lookup",
+              "error_code_check"
+            ],
+            "signals": [
+              "error_code_HW2xx",
+              "matched_session_found"
+            ],
+            "tool_errors": [],
+            "stop_reason": "confidence_threshold_reached",
+            "checks_run": 2,
+            "unnecessary_checks": 0,
+            "traceable": true,
+            "had_planted_conflict": false,
+            "found_conflict": false
+          }
+        ]
+      },
+      "assertion_calibration": {
+        "n_cases": 84,
+        "ece": 0.0191,
+        "brier": 0.0348,
+        "bins": [
+          {
+            "range": "0.0-0.2",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.2-0.4",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.4-0.6",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.6-0.8",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.8-1.0",
+            "n": 84,
+            "mean_confidence": 0.9452,
+            "accuracy_pct": 96.43
+          }
+        ],
+        "scope": "All asserted diagnoses, including false assertions on inconclusive cases; abstentions excluded."
+      },
+      "heuristic_assertion_calibration": {
+        "n_cases": 84,
+        "ece": 0.4226,
+        "brier": 0.2152,
+        "bins": [
+          {
+            "range": "0.0-0.2",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.2-0.4",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          },
+          {
+            "range": "0.4-0.6",
+            "n": 54,
+            "mean_confidence": 0.4807,
+            "accuracy_pct": 94.44
+          },
+          {
+            "range": "0.6-0.8",
+            "n": 30,
+            "mean_confidence": 0.6515,
+            "accuracy_pct": 100.0
+          },
+          {
+            "range": "0.8-1.0",
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy_pct": null
+          }
+        ],
+        "scope": "All asserted diagnoses, including false assertions on inconclusive cases; abstentions excluded."
+      }
+    },
+    "transitions": [],
+    "note": "Reviewer simulated from synthetic labels; train/test disjoint; single split, so differences of a few points are within noise."
+  },
+  "limitations": [
+    "Dataset is synthetic data authored by the same developer as the rules; results are optimistic and NOT real-world performance.",
+    "Small scale (~hundreds of cases); percentages carry wide uncertainty.",
+    "Generator templates and diagnosis rules are correlated by design (signals were defined together).",
+    "No real charging-network logs were used anywhere.",
+    "PII redaction is best-effort, not a guarantee."
+  ],
+  "reproducibility": {
+    "verified": true,
+    "runs": 2,
+    "compared": "all predictions, evidence scores, confidence, tool order, signals and learning headline metrics; runtimes/timestamps excluded"
+  }
+}

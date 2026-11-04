@@ -1,0 +1,3 @@
+app_id,text,data_origin,source
+statiq,The app reported a timeout when starting a charge.,manual_test,academic_demo
+chargezone,My completed session is missing from history.,manual_test,academic_demo

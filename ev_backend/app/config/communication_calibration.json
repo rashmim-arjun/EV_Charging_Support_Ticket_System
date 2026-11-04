@@ -1,0 +1,46 @@
+{
+  "method": "monotonic bins with Beta(1,1) smoothing; fitted on validation decisions only",
+  "bins": [
+    {
+      "upper": 0.5,
+      "support": 0,
+      "correct": 0,
+      "probability": 0.5
+    },
+    {
+      "upper": 0.75,
+      "support": 0,
+      "correct": 0,
+      "probability": 0.5
+    },
+    {
+      "upper": 0.9,
+      "support": 44,
+      "correct": 44,
+      "probability": 0.958333
+    },
+    {
+      "upper": 1.0,
+      "support": 0,
+      "correct": 0,
+      "probability": 0.958333
+    }
+  ],
+  "seed": 42,
+  "simulator_version": "communication-v1",
+  "validation_templates": [
+    "communication-v1-validation-00",
+    "communication-v1-validation-01",
+    "communication-v1-validation-02",
+    "communication-v1-validation-03",
+    "communication-v1-validation-04",
+    "communication-v1-validation-05",
+    "communication-v1-validation-06",
+    "communication-v1-validation-07",
+    "communication-v1-validation-08",
+    "communication-v1-validation-09",
+    "communication-v1-validation-10",
+    "communication-v1-validation-11"
+  ],
+  "scope": "Synthetic validation decisions only; no test labels used."
+}
