@@ -118,6 +118,9 @@ class DiagnosisOut(BaseModel):
     supporting_evidence_ids: List[int] = []
     unresolved_questions: List[str] = []
     stop_reason: str
+    outcome: Optional[str] = Field(default=None, description='Charging outcome; no_fault_established distinguishes normal completion from the legacy failure classification.')
+    root_cause: Optional[str] = None
+    explanation: Optional[str] = None
 
 
 class CaseSummary(BaseModel):

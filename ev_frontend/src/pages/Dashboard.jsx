@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom'
 import { Bar, BarChart, Cell, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend } from 'recharts'
 import { api } from '../api'
 import { useAsync } from '../hooks'
-import { Badge, Empty, ErrorBox, PageHead, SimulatedBanner, Spinner, Stat } from '../components/ui'
-import { CLASS_TONE, ORIGIN_TONE, STATUS_TONE, fmtDate, pct, titleCase } from '../format'
+import { Empty, ErrorBox, PageHead, SimulatedBanner, Spinner, Stat } from '../components/ui'
+import { pct, titleCase } from '../format'
+import TicketList from '../components/TicketList'
 
 const COLORS = ['#12b76a', '#2e6cf6', '#f79009', '#7a5af8', '#e5484d', '#06aed4', '#667085']
 
@@ -13,7 +14,7 @@ async function load() {
     api.listCases({ page_size: 1, status: 'open' }),
     api.listCases({ page_size: 1, status: 'awaiting_review' }),
     api.listCases({ page_size: 1, status: 'resolved' }),
-    api.performance(),
+    api.performance({ data_origin: 'simulated' }),
     api.recurring(),
     api.categories(),
     api.ticketSummary(),
@@ -37,7 +38,7 @@ export default function Dashboard() {
     <>
       <PageHead title="Dashboard" sub="Customer support tickets, evidence-based investigation and auditable internal escalation" />
       <SimulatedBanner />
-      <div className="card"><h2>Customer support workflow</h2><p>Open a complaint as a support ticket, investigate the related component logs, review its diagnosis and priority, then assign or escalate it to an internal team. Record a reviewer-verified resolution before closing.</p>
+      <div className="card"><h2>Customer support workflow</h2><p>Create a complaint, inspect its diagnosis and supporting logs, then track the response in Support tickets. Record a verified resolution before closing the ticket.</p>
         <div className="row"><Link className="btn primary" to="/new">Open support ticket</Link><Link className="btn" to="/cases">Manage support tickets</Link><Link className="btn" to="/communication">Supporting communication logs</Link></div></div>
 
       <div className="card" style={{ marginTop: 16 }} aria-label="Ticket queue">
@@ -54,11 +55,11 @@ export default function Dashboard() {
       </div>
 
       <div className="grid g4">
-        <Stat label="Total cases" value={recent.total} sub={`${open.total} open`} />
+        <Stat label="Total tickets" value={recent.total} sub={`${open.total} awaiting first investigation`} />
         <Stat label="Awaiting review" value={review.total} sub="needs a verified outcome" />
-        <Stat label="Resolved" value={resolved.total} sub="reviewer-verified" />
-        <Stat label="Agent accuracy" value={pct(perf.primary_accuracy_pct)}
-          sub={perf.total_resolved_cases ? `${perf.total_resolved_cases} resolved case(s)` : 'No resolved cases yet'} />
+        <Stat label="Resolved / closed" value={resolved.total} sub="includes labelled simulated reviews" />
+        <Stat label="Demo evaluation accuracy" value={pct(perf.primary_accuracy_pct)}
+          sub={perf.total_resolved_cases ? `${perf.total_resolved_cases} reviewed simulated tickets; no real-world accuracy claim` : 'No reviewed simulated tickets yet'} />
       </div>
       {perf.small_sample_warning && perf.total_resolved_cases > 0 &&
         <div className="alert warn" style={{ marginTop: 16 }}>{perf.sample_size_note}</div>}
@@ -93,22 +94,9 @@ export default function Dashboard() {
       </div>
 
       <div className="card" style={{ marginTop: 16 }}>
-        <h2>Recent cases</h2>
-        {recent.items.length === 0 ? <Empty>No cases yet.</Empty> : (
-          <div className="table-wrap"><table>
-            <thead><tr><th>Case</th><th>App</th><th>Complaint</th><th>Diagnosis</th><th>Status</th><th>Created</th></tr></thead>
-            <tbody>{recent.items.map((c) => (
-              <tr key={c.case_id}>
-                <td><Link to={`/cases/${c.case_id}`} className="mono">{c.case_id}</Link></td>
-                <td>{c.app_display_name || c.app_id}</td>
-                <td className="clip">{c.complaint_text_redacted}</td>
-                <td>{c.diagnosis ? <Badge tone={CLASS_TONE[c.diagnosis.classification]}>{titleCase(c.diagnosis.primary_category) || 'None'}</Badge> : <span className="muted">not run</span>}</td>
-                <td><Badge tone={STATUS_TONE[c.status]}>{titleCase(c.status)}</Badge></td>
-                <td className="small muted">{fmtDate(c.created_at)}</td>
-              </tr>))}
-            </tbody>
-          </table></div>
-        )}
+        <div className="section-head"><h2>Recent support tickets</h2><Link className="btn sm" to="/cases">View all tickets</Link></div>
+        <p className="muted small">Showing the latest {recent.items.length} of {recent.total} tickets. Open Support tickets to browse the complete queue.</p>
+        {recent.items.length === 0 ? <Empty>No tickets yet.</Empty> : <TicketList items={recent.items} categories={cats} />}
       </div>
     </>
   )

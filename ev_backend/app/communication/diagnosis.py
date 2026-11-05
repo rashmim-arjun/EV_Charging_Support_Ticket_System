@@ -155,6 +155,9 @@ class MultiComponentAgent:
             evidence.append({'root_cause': 'none', 'description': 'Observed authorization, power delivery, increasing metering, completion and successful payment agree.',
                 'event_ids': [e['event_id'] for e in rows if e['event_type'] in ('session.state_changed', 'meter.sample', 'payment.result', 'invoice.created')],
                 'component_type': None, 'signal_key': None, 'weight': .8, 'tool_name': 'communication_completion'})
+            state.evidence.append(Evidence(kind='neutral', description=evidence[-1]['description'],
+                source_table='communication_events', source_ref=evidence[-1]['event_ids'][0],
+                tool_name='communication_completion', weight=.8))
         for conflict in integrity_conflicts:
             evidence.append({'root_cause': None, 'kind': 'conflicting', 'description': conflict['description'], 'event_ids': conflict['event_ids'],
                              'component_type': None, 'signal_key': None, 'weight': 0, 'tool_name': 'communication_completion'})
@@ -177,6 +180,7 @@ class MultiComponentAgent:
         if not healthy and not roots:
             unresolved.append('Obtain missing receiver/response, component safety, lifecycle and payment observations before asserting a cause.')
         run.stop_reason = 'correlated_evidence_complete' if root is not None else 'insufficient_or_conflicting_observations'
+        run.outcome = 'no_fault_established' if root == 'none' else 'fault_detected' if root else 'inconclusive'
         state.step_count += 1
         run.trace.append(TraceStep(state.step_count, 'communication_completion', 'Verify lifecycle continuity, metering and payment completion.', [],
             {'session_id': session_id}, {'status': 'ok', 'signals': [], 'evidence_items': [e.to_dict() for e in state.evidence if e.kind == 'conflicting' and e.tool_name == 'communication_completion']},

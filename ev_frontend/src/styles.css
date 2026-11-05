@@ -18,6 +18,21 @@ h3 { font-size: 14px; margin: 0 0 8px; }
   position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; flex-shrink: 0; }
 .brand { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; padding: 4px 8px 18px; font-size: 15px; line-height: 1.2; }
 .brand .logo { width: 32px; height: 32px; border-radius: 9px; background: var(--accent); display: grid; place-items: center; font-size: 18px; }
+.brand-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.mobile-menu-toggle { display: none; border: 1px solid #526078; border-radius: 8px; background: transparent; color: #fff; padding: 10px 14px; font: inherit; cursor: pointer; }
+.section-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.section-head h2 { margin: 0; }
+.investigation-summary { margin-bottom: 16px; border-top: 3px solid var(--accent); }
+.summary-title { font-size: 21px; font-weight: 700; margin: 12px 0 18px; }
+.investigation-summary h3 { margin: 0; }
+.investigation-summary p { overflow-wrap: anywhere; }
+.ticket-controls { margin-bottom: 16px; }
+.ticket-details { margin: 12px 0; }
+.ticket-details > form { margin-top: 14px; }
+.mobile-ticket-list { display: none; }
+.ticket-table .clip { max-width: 260px; min-width: 160px; white-space: normal; }
+.ticket-table .badge { white-space: normal; }
+.ticket-table td { overflow-wrap: anywhere; }
 .nav a { display: flex; gap: 10px; align-items: center; padding: 9px 10px; border-radius: 8px; color: var(--side-ink); margin-bottom: 2px; font-weight: 500; }
 .nav a:hover { background: rgba(255,255,255,.06); text-decoration: none; }
 .nav a.active { background: rgba(18,183,106,.16); color: #fff; }
@@ -36,7 +51,10 @@ h3 { font-size: 14px; margin: 0 0 8px; }
 @media (max-width: 1000px) {
   .shell { display: block; }
   .side { display: flex; width: 100%; height: auto; position: static; }
-  .nav { display: flex; flex-wrap: wrap; gap: 4px; }
+  .mobile-menu-toggle { display: inline-flex; }
+  .brand { padding-bottom: 4px; }
+  .nav { display: none; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
+  .nav.is-open { display: flex; }
   .nav a { flex: 1 1 150px; }
   .side-foot { margin-top: 4px; }
   .main { width: 100%; }
@@ -48,6 +66,13 @@ h3 { font-size: 14px; margin: 0 0 8px; }
   .belief { grid-template-columns: minmax(100px, 1fr) minmax(50px, 1fr) 42px !important; font-size: 12px; }
   .pager { flex-wrap: wrap; }
   .page-head h1 { overflow-wrap: anywhere; }
+  .ticket-table { display: none; }
+  .mobile-ticket-list { display: grid; gap: 12px; }
+  .mobile-ticket-list .ticket-card { margin-top: 0; }
+  .ticket-link { display: block; padding: 8px 0; font-weight: 700; overflow-wrap: anywhere; }
+  .ticket-excerpt { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .ticket-card .badge { white-space: normal; }
+  .summary-title { font-size: 19px; }
 }
 .stat .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
 .stat .value { font-size: 28px; font-weight: 700; margin-top: 2px; } .stat .sub { color: var(--muted); font-size: 12px; }

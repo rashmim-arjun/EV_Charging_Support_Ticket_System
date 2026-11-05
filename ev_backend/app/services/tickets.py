@@ -28,8 +28,8 @@ def policy():
 
 
 @atomic
-def open_ticket(conn,complaint):
-    case_id='C-'+uuid.uuid4().hex[:16].upper()
+def open_ticket(conn,complaint,*,case_id=None):
+    case_id=case_id or 'C-'+uuid.uuid4().hex[:16].upper()
     conn.execute("INSERT INTO cases(case_id,app_id,complaint_text_redacted,complaint_ts,reported_error,reported_payment_status,reported_session_ref,reported_station_id,user_ref,data_origin,status) VALUES (?,?,?,?,?,?,?,?,?,?,'open')",
         (case_id,complaint.app_id,complaint.text_redacted,complaint.complaint_ts,complaint.reported_error,
          complaint.reported_payment_status,complaint.session_ref,complaint.station_id,complaint.user_ref,complaint.data_origin))

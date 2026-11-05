@@ -1,5 +1,5 @@
 import { NavLink, Route, Routes } from 'react-router-dom'
-import { Component, lazy, Suspense } from 'react'
+import { Component, lazy, Suspense, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Spinner } from './components/ui'
 import { api } from './api'
@@ -25,7 +25,7 @@ class RouteBoundary extends Component {
 const NAV = [
   ['/', '📊', 'Dashboard'],
   ['/new', '➕', 'New complaint'],
-  ['/cases', '🗂️', 'Cases'],
+  ['/cases', '🗂️', 'Support tickets'],
   ['/knowledge', '🧠', 'Knowledge & learning'],
   ['/evaluation', '🧪', 'Evaluation'],
   ['/reviews', '📥', 'Review import'],
@@ -38,18 +38,21 @@ function Health() {
   return (
     <div className="side-foot">
       <span className={`dot ${error ? 'bad' : ok ? 'ok' : ''}`} />
-      {error ? 'Backend offline' : ok ? `API online · schema v${data.schema_version}` : 'Checking…'}
+      {error ? 'Backend offline' : ok ? 'API online' : 'Checking…'}
     </div>
   )
 }
 
 export default function App() {
   const location = useLocation()
+  const [menuOpen, setMenuOpen] = useState(false)
+  useEffect(() => setMenuOpen(false), [location.pathname])
   return (
     <div className="shell">
       <aside className="side">
-        <div className="brand"><div className="logo">⚡</div><div>EV Charging<br />Support Tickets</div></div>
-        <nav className="nav" aria-label="Main navigation">
+        <div className="brand-row"><div className="brand"><div className="logo">⚡</div><div>EV Charging<br />Support Tickets</div></div>
+          <button className="mobile-menu-toggle" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} aria-controls="main-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'}</button></div>
+        <nav id="main-navigation" className={`nav${menuOpen ? ' is-open' : ''}`} aria-label="Main navigation">
           {NAV.map(([to, icon, label]) => (
             <NavLink key={to} to={to} end={to === '/'} className={({ isActive }) => (isActive ? 'active' : '')}>
               <span aria-hidden="true">{icon}</span>{label}

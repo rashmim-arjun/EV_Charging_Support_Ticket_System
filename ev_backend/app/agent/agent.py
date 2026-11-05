@@ -42,6 +42,7 @@ class AgentRun:
     trace: List[TraceStep] = field(default_factory=list)
     diagnosis: Optional[models.DiagnosisResult] = None
     stop_reason: str = ""
+    outcome: Optional[str] = None
 
 
 class DiagnosticAgent:

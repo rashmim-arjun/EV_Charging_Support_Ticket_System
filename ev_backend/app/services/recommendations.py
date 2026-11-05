@@ -115,11 +115,22 @@ INFO_GATHER_ACTIONS = [
 ]
 
 
-def build_recommendations(diag: DiagnosisResult, state: CaseState) -> List[Dict[str, Any]]:
+NO_FAULT_ACTION = 'No corrective work is indicated by these observations. Retain the session record and receipt; review any new symptoms before closing the enquiry.'
+
+
+def build_recommendations(diag: DiagnosisResult, state: CaseState, *, outcome=None) -> List[Dict[str, Any]]:
     """Return recommendation dicts with linked evidence ids.
 
     Traceability chain: recommendation -> diagnosis -> evidence ids -> source row.
     """
+    from app.services.tickets import policy
+    if any(term in state.complaint.text_redacted.lower() for term in policy()['urgent_report_terms']):
+        return [{'action': 'Route the reported hazard to immediate human safety review before clearing or closing this ticket.',
+                 'rationale': 'A reported safety concern needs precautionary review even when available charging records show normal completion.',
+                 'priority': 1, 'linked_evidence_ids': []}]
+    if outcome == 'no_fault_established':
+        return [{'action': NO_FAULT_ACTION, 'rationale': 'Recorded authorization, energy delivery, completion and payment agree.',
+                 'priority': 1, 'linked_evidence_ids': [e.evidence_id for e in state.evidence if e.evidence_id is not None]}]
     recs: List[Dict[str, Any]] = []
 
     def ev_ids_for(cat: str | None) -> List[int]:

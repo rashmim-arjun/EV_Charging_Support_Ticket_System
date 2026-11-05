@@ -12,11 +12,23 @@ export const fmtDate = (s) => {
 }
 
 export const CLASS_TONE = {
+  no_fault_established: 'green',
   confirmed: 'green',
   probable: 'blue',
   inconclusive: 'amber',
   requires_further_investigation: 'amber',
 }
+
+export const diagnosisTitle = (diagnosis, categories = []) => {
+  if (!diagnosis) return 'Awaiting investigation'
+  if (diagnosis.outcome === 'no_fault_established') return 'No fault established'
+  return diagnosis.primary_category
+    ? categories.find(c => c.id === diagnosis.primary_category)?.label || titleCase(diagnosis.primary_category)
+    : 'Insufficient evidence'
+}
+
+export const diagnosisTone = diagnosis => diagnosis?.outcome === 'no_fault_established'
+  ? 'green' : CLASS_TONE[diagnosis?.classification] || 'gray'
 export const STATUS_TONE = {
   open: 'gray', diagnosed: 'blue', awaiting_review: 'amber', resolved: 'green',
 }

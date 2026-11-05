@@ -17,6 +17,7 @@ it('shows ownership, cautious diagnosis and links the exact correlated session',
 })
 it('saves an explained escalation with optimistic version and human owner',async()=>{
   const changed=vi.fn();mount({onChange:changed});await screen.findByText('Ticket ID: C-1')
+  await userEvent.click(screen.getByText('Update assignment or ticket state'))
   await userEvent.selectOptions(screen.getByRole('combobox',{name:'Ticket state'}),'escalated')
   await userEvent.selectOptions(screen.getByRole('combobox',{name:'Assigned team'}),'vehicle_specialists')
   await userEvent.type(screen.getByRole('textbox',{name:'Assignment / escalation reason'}),'Safety logs require specialist review')
@@ -27,6 +28,7 @@ it('saves an explained escalation with optimistic version and human owner',async
 it('preserves the ticket and exposes a failed update for retry',async()=>{
   api.updateTicket.mockRejectedValue(new Error('Ticket changed; reload before applying an override.'))
   mount();await screen.findByText('Ticket ID: C-1')
+  await userEvent.click(screen.getByText('Update assignment or ticket state'))
   await userEvent.type(screen.getByRole('textbox',{name:'Assignment / escalation reason'}),'Reviewed current evidence')
   await userEvent.click(screen.getByRole('button',{name:'Save ticket decision'}))
   expect(await screen.findByRole('alert')).toHaveTextContent('Ticket changed')

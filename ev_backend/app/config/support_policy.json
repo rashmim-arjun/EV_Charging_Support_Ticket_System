@@ -1,5 +1,5 @@
 {
-  "version": "support-policy-v1",
+  "version": "support-policy-v2",
   "teams": {
     "triage": "Support triage",
     "application_support": "Application support",
@@ -25,6 +25,6 @@
     "customer_support_issue":"triage"
   },
   "large_financial_amount": 500,
-  "urgent_report_terms": ["smoke", "fire", "sparks", "electric shock"],
+  "urgent_report_terms": ["smoke", "fire", "sparks", "electric shock", "burning smell", "burnt smell", "smell of burning", "smell of burnt"],
   "priorities": {"P0":"Immediate safety triage","P1":"High impact / safety investigation","P2":"Standard investigation","P3":"Low impact / informational"}
 }

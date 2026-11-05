@@ -38,6 +38,23 @@ beforeEach(() => {
 })
 
 describe('complaint and case workflow', () => {
+  it('presents corroborated normal completion consistently without an inconclusive label', async () => {
+    const normal = {...diag,primary_category:null,classification:'inconclusive',outcome:'no_fault_established',
+      explanation:'Authorization, delivered energy, completion and payment agree.',evidence_strength_label:'corroborated completion'}
+    api.getCase.mockResolvedValue({...full,case:{...summary,diagnosis:normal},diagnosis:normal,recommendations:[]})
+    render(<MemoryRouter initialEntries={['/cases/C-test']}><Routes><Route path="/cases/:caseId" element={<CaseDetail />} /></Routes></MemoryRouter>)
+    expect(await screen.findByRole('heading',{name:'No fault established',exact:true})).toBeInTheDocument()
+    expect(screen.queryByText('Inconclusive',{exact:true})).not.toBeInTheDocument()
+    expect(screen.getAllByText(/No corrective work is indicated/).length).toBeGreaterThan(0)
+  })
+  it('uses consistent ticket naming and removes the app queue filter', async () => {
+    api.listCases.mockResolvedValue({items:[summary],total:1,page:1})
+    mount(<Cases />)
+    await screen.findAllByRole('link',{name:'C-test'})
+    expect(screen.queryByLabelText('App')).not.toBeInTheDocument()
+    expect(api.apps).not.toHaveBeenCalled()
+    expect(screen.getByRole('heading',{name:'Support tickets'})).toBeInTheDocument()
+  })
   it('submits the sample and navigates using the real nested API response', async () => {
     api.submitCase.mockResolvedValue({ case_summary: summary, case: full })
     render(<MemoryRouter initialEntries={['/new']}><Routes><Route path="/new" element={<NewCase />} /><Route path="/cases/:id" element={<p>Diagnosis loaded</p>} /></Routes></MemoryRouter>)
@@ -92,17 +109,17 @@ describe('complaint and case workflow', () => {
   it('paginates then resets the page when filters change', async () => {
     api.listCases.mockImplementation(async ({ page }) => ({ items: [summary], total: 31, page }))
     mount(<Cases />)
-    await screen.findByRole('link', { name: 'C-test' })
+    await screen.findAllByRole('link', { name: 'C-test' })
     await userEvent.click(screen.getByRole('button', { name: /Next/ }))
     await waitFor(() => expect(api.listCases).toHaveBeenLastCalledWith(expect.objectContaining({ page: 2 })))
-    await userEvent.selectOptions(screen.getByLabelText('App'), 'tata_power_ez_charge')
-    await waitFor(() => expect(api.listCases).toHaveBeenLastCalledWith(expect.objectContaining({ page: 1, app_id: 'tata_power_ez_charge' })))
+    await userEvent.selectOptions(screen.getByLabelText('Category'), 'session_fails_to_start')
+    await waitFor(() => expect(api.listCases).toHaveBeenLastCalledWith(expect.objectContaining({ page: 1, category: 'session_fails_to_start' })))
   })
   it('displays API errors without incorrectly claiming no matches', async () => {
     api.listCases.mockRejectedValue(new Error('Server failed'))
     mount(<Cases />)
     expect(await screen.findByRole('alert')).toHaveTextContent('Server failed')
-    expect(screen.queryByText('No cases match these filters.')).not.toBeInTheDocument()
+    expect(screen.queryByText('No tickets match these filters.')).not.toBeInTheDocument()
   })
   it('shows evidence, accepts feedback, previews and applies learning', async () => {
     api.submitResolution.mockImplementation(async () => {
@@ -114,7 +131,7 @@ describe('complaint and case workflow', () => {
     render(<MemoryRouter initialEntries={['/cases/C-test']}><Routes><Route path="/cases/:caseId" element={<CaseDetail />} /></Routes></MemoryRouter>)
     expect(await screen.findByText(/Synthetic calibrated confidence/)).toBeInTheDocument()
     await userEvent.click(screen.getByRole('button', { name: 'Evidence' }))
-    expect(screen.getByText('Start timeout in charger log')).toBeInTheDocument()
+    expect(screen.getAllByText('Start timeout in charger log').length).toBeGreaterThan(0)
     await userEvent.click(screen.getByRole('button', { name: 'Verify & learn' }))
     await userEvent.selectOptions(screen.getByLabelText(/Reviewer \*/), 'rev-001')
     await userEvent.type(screen.getByLabelText(/Corrective action/), 'Verified start timeout')

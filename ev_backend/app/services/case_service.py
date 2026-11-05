@@ -8,6 +8,44 @@ from typing import Any, Dict, List, Optional
 from app.core.db import query_all, query_one
 
 
+def describe_diagnosis(conn, case_id, diag):
+    """Expose the charging outcome without changing historic failure grades.
+
+    A no-fault result requires the current correlated result and its supporting
+    event references. Old diagnostics are not relabelled from a later review.
+    """
+    if not diag:
+        return None
+    diag = dict(diag)
+    fault = diag.get('primary_category') and diag['classification'] in ('confirmed', 'probable')
+    diag['outcome'] = 'fault_detected' if fault else 'inconclusive'
+    diag['root_cause'] = None
+    diag['explanation'] = None
+    row = query_one(conn, 'SELECT result_json FROM communication_diagnoses WHERE case_id=? ORDER BY id DESC LIMIT 1', (case_id,))
+    decision_row = query_one(conn, 'SELECT decision_json FROM support_tickets WHERE case_id=?', (case_id,))
+    if row and decision_row:
+        result = json.loads(row['result_json'])
+        decision = json.loads(decision_row['decision_json'])
+        current = (decision.get('diagnosis_id') == diag['id']
+                   and result.get('diagnosis_id', diag['id']) == diag['id'])
+        refs = {ref for evidence in result.get('evidence', []) for ref in evidence.get('event_ids', [])}
+        found = {r['event_id'] for r in query_all(conn, 'SELECT event_id FROM communication_events WHERE session_id=?', (result.get('session_id'),))}
+        supported = bool(refs) and refs <= found
+        if current:
+            diag['root_cause'] = result.get('root_cause')
+            if (result.get('root_cause') == 'none' and result.get('classification') == 'normal'
+                    and not diag.get('primary_category')
+                    and decision.get('classification') == 'no_fault_established' and supported):
+                diag['outcome'] = 'no_fault_established'
+                diag['evidence_strength_label'] = 'corroborated completion'
+            descriptions = [e['description'] for e in result.get('evidence', []) if e.get('description') and e.get('kind') != 'conflicting']
+            if supported and descriptions:
+                diag['explanation'] = ' '.join(descriptions[:2])
+            if result.get('root_cause') == 'none' and decision.get('classification') == 'inconclusive':
+                diag['explanation'] = 'Charging records show normal completion, but the reported safety concern still requires human review.'
+    return diag
+
+
 def get_case_full(conn: sqlite3.Connection, case_id: str) -> Optional[Dict[str, Any]]:
     # NOTE: app.core.db.query_all/query_one take (conn, sql, params). Several
     # calls below previously passed only (sql, params), which made the SQL
@@ -33,7 +71,7 @@ def get_case_full(conn: sqlite3.Connection, case_id: str) -> Optional[Dict[str, 
         "SELECT * FROM resolutions WHERE case_id=? AND diagnosis_version=COALESCE((SELECT MAX(version) FROM diagnoses WHERE case_id=?),1) ORDER BY id DESC LIMIT 1",
         (case_id,case_id))
     if diag:
-        diag = dict(diag)
+        diag = describe_diagnosis(conn, case_id, diag)
         diag["contributing_categories"] = json.loads(
             diag.get("contributing_categories_json") or "[]")
         diag["supporting_evidence_ids"] = json.loads(
@@ -42,6 +80,13 @@ def get_case_full(conn: sqlite3.Connection, case_id: str) -> Optional[Dict[str, 
             diag.get("unresolved_questions_json") or "[]")
     out_recs = [{**r, "linked_evidence_ids": json.loads(
         r.get("linked_evidence_ids_json") or "[]")} for r in recs]
+    if diag:
+        # Historical healthy tickets may contain the old generic requests for
+        # missing logs. Preserve those rows, but do not present them as current
+        # advice when completion has already been corroborated.
+        from app.services.recommendations import NO_FAULT_ACTION
+        healthy = diag.get('outcome') == 'no_fault_established'
+        out_recs = [r for r in out_recs if (r['action'] == NO_FAULT_ACTION) == healthy]
     summary = {
         "case_id": c["case_id"], "created_at": c["created_at"],
         "app_id": c["app_id"],
@@ -109,7 +154,7 @@ def list_cases(conn: sqlite3.Connection, *, app_id: Optional[str] = None,
             "SELECT * FROM diagnoses WHERE case_id=? ORDER BY version DESC LIMIT 1",
             (c["case_id"],))
         if diag:
-            diag = dict(diag)
+            diag = describe_diagnosis(conn, c['case_id'], diag)
             diag["contributing_categories"] = json.loads(
                 diag.get("contributing_categories_json") or "[]")
             diag["supporting_evidence_ids"] = json.loads(

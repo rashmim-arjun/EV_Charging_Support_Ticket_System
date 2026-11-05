@@ -4,7 +4,7 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[2]
 EXCLUDED={'node_modules','.venv','.venv-clean','__pycache__','.pytest_cache','.tmp','dist','test-results','playwright-report','coverage','logs','.git','.codex','.agents'}
-ROOT_FILES={'README.md','.gitignore','LICENSE','LICENSE.md'}
+ROOT_FILES={'README.md','.gitignore','.gitattributes','LICENSE','LICENSE.md'}
 
 def package(output):
     output=output.resolve()
@@ -15,8 +15,10 @@ def package(output):
             relative=p.relative_to(ROOT)
             if not p.is_file() or not p.resolve().is_relative_to(ROOT):continue
             if any(part in EXCLUDED or part.startswith('.venv') for part in relative.parts):continue
+            if relative.parts[:3]==('ev_backend','reports','live'):continue
             if p.name.startswith('.env') and p.name!='.env.example':continue
             if p.suffix in ('.db','.log','.pyc','.zip') or p.name.endswith(('.db-wal','.db-shm','.log.1')):continue
+            if '.db.backup-' in p.name or p.suffix in ('.pem','.key'):continue
             if p.name in ('.coverage','Thumbs.db','.DS_Store'):continue
             files.append(p)
     files.extend(ROOT/name for name in ROOT_FILES if (ROOT/name).is_file())

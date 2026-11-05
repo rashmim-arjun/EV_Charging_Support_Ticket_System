@@ -28,6 +28,7 @@ test('communication session monitoring, correlation, diagnosis, feedback and com
   await expect(page.getByRole('columnheader', { name: 'Old', exact: true })).toBeVisible()
   await page.getByRole('button', { name: /Apply learning/ }).click()
   await expect(page.getByText('Learning from this case has already been applied.')).toBeVisible()
+  if (!(await nav.isVisible())) await page.getByRole('button', { name: 'Open navigation' }).click()
   await nav.getByRole('link', { name: 'Communication monitoring', exact: true }).click()
   await page.getByRole('combobox', { name: 'Scenario', exact: true }).selectOption('none')
   await page.getByRole('button', { name: 'Generate sessions', exact: true }).click()
@@ -41,7 +42,7 @@ test('communication session monitoring, correlation, diagnosis, feedback and com
     await expect(page.getByRole('cell').filter({ hasText: event }).first()).toBeVisible()
   }
   await page.getByRole('button', { name: 'Diagnose session', exact: true }).click()
-  await expect(page.getByRole('heading', { name: 'Successful charging: no fault established' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'No fault established' })).toBeVisible()
   await page.getByRole('combobox', { name: 'Scenario', exact: true }).selectOption('inconclusive')
   await page.getByRole('button', { name: 'Generate sessions', exact: true }).click()
   await expect(page.getByRole('heading', { name: 'Chronological session logs' })).toBeVisible()

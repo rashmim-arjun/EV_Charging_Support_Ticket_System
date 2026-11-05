@@ -2,15 +2,15 @@
 
 ## Run a fresh GitHub checkout (Windows Git Bash)
 
-The GitHub repository contains the full application source, tests, lockfiles, configuration, examples and intentional research reports. Local SQLite ticket data, credentials, logs, environments and installed packages are excluded. API startup creates the database automatically; the optional seed command supplies synthetic session logs for demonstrations.
+The source repository and submission ZIP contain the full application source, tests, lockfiles, configuration, examples and intentional research reports. If you received the ZIP, extract it and open a terminal in the extracted project root; skip the clone commands below. Local SQLite ticket data, credentials, logs, environments and installed packages are excluded. API startup creates the database automatically; the optional seed command supplies synthetic session logs for demonstrations.
 
 ```bash
 git clone https://github.com/rashmim-arjun/EV_Charging_Support_Ticket_System.git
 cd EV_Charging_Support_Ticket_System
 py -3.13 -m venv .venv
 ./.venv/Scripts/python.exe -m pip install -r ev_backend/requirements-lock.txt
-# Optional: create synthetic charging-session records for the demo examples.
-./.venv/Scripts/python.exe ev_backend/scripts/seed_database.py --seed 42 --per-template 10
+# Recommended for a realistic demo queue: 24 labelled simulated support tickets.
+./.venv/Scripts/python.exe ev_backend/scripts/seed_demo_tickets.py
 (cd ev_frontend && npm.cmd ci)
 ```
 
@@ -37,7 +37,7 @@ Demo charging records are **synthetic**. Imported reviews and manually entered c
 
 ## Combined completion package (4 November 2026)
 
-This edition merges the stronger completed implementation with the original project's SQLite data (250 existing cases/tickets), fixes evidence validation and human escalation lifecycle consistency, and includes new regression tests and reproducible synthetic evaluation outputs. Review the full eight-point objective checklist and verification limits in **`docs/PROJECT_COMPARISON_AND_VERIFICATION.md`**. The shipped `ev_diagnosis.db` already contains original demonstration cases; reseeding is optional, not required to view those records. The database remains a local support-ticket store; no external assignment notification is sent.
+This edition merges the stronger completed implementation with the original project's SQLite data (250 existing cases/tickets), fixes evidence validation and human escalation lifecycle consistency, and includes new regression tests and reproducible synthetic evaluation outputs. Review the full eight-point objective checklist and verification limits in **`docs/PROJECT_COMPARISON_AND_VERIFICATION.md`**. The working folder may contain original demonstration cases. The source repository and ZIP exclude local databases; run `seed_demo_tickets.py` to recreate the realistic support queue in a fresh installation. The database remains a local support-ticket store; no external assignment notification is sent.
 
 ## Requirements
 
@@ -54,7 +54,7 @@ These blocks are specifically for **PowerShell**. If your prompt contains `MINGW
 ```powershell
 py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r ev_backend\requirements-lock.txt
-.\.venv\Scripts\python.exe ev_backend\scripts\seed_database.py --seed 42 --per-template 10
+.\.venv\Scripts\python.exe ev_backend\scripts\seed_demo_tickets.py
 ```
 
 Start the API in the first terminal:
@@ -140,7 +140,7 @@ This uses SQLite's backup API and retains a timestamped `.db.backup-*` file. To 
 ```bash
 python3 -m venv .venv
 .venv/bin/python -m pip install -r ev_backend/requirements-lock.txt
-.venv/bin/python ev_backend/scripts/seed_database.py --seed 42 --per-template 10
+.venv/bin/python ev_backend/scripts/seed_demo_tickets.py
 .venv/bin/python -m uvicorn app.main:app --app-dir ev_backend --host 127.0.0.1 --port 8000 --reload
 # Second terminal:
 cd ev_frontend
@@ -152,9 +152,17 @@ These commands are provided for portability; the final full-stack browser run wa
 
 ## Database lifecycle
 
+To add a realistic support queue to an existing or fresh database, run from the project root:
+
+```bash
+./.venv/Scripts/python.exe ev_backend/scripts/seed_demo_tickets.py
+```
+
+This adds **24 simulated customer tickets** with recent incident timestamps, correlated component logs, agent-generated diagnoses, and new/assigned/investigating/awaiting-evidence/escalated/resolved/closed examples. It backs up an existing database, preserves its tickets, and skips the same completed fixtures on subsequent runs. `--db path/to/demo.db` selects another database; otherwise `EV_DB_PATH` or the application's normal database is used. Every ticket is labelled `simulated`; fictional resolutions explicitly say `[SIMULATED OUTCOME]` and use a dedicated demo reviewer who is disabled after generation. The script performs no external repair, payment or notification, and does not apply learning. Refresh the dashboard after running it. The older `seed_database.py` command below creates the original bulk benchmark records.
+
 `ev_diagnosis.db` is generated next to `ev_backend/` and is ignored by Git. API startup creates/migrates schema version **6**, syncs the existing demo apps plus general EV support, adds missing seed rules without overwriting learned weights, and initializes three demo reviewers. It does not automatically fabricate charging sessions. Version 4 adds communication observations and separate annotations. Version 5 adds delivery-attempt identity, one support profile per existing case, audited ticket history and versioned checks/evidence/resolutions. Version 6 repairs shipped v5 databases missing `diagnosis_version` columns and restores the per-diagnosis resolution index. Migrations commit schema changes and their version marker together. Existing cases are backfilled conservatively into triage, preserving their IDs, diagnoses and feedback. Generation is additive/idempotent; the legacy demo reset preserves communication sessions.
 
-The seed command above creates 250 labelled synthetic cases plus their sessions, events, payments and status snapshots. Seeded cases initially show **open / not run**; submit the first quick sample to generate and persist a diagnosis. Repeating the same seed and template count is idempotent. Changing the template count for an existing seed requires a fresh database or a deliberate demo reset to prevent mixed datasets.
+The optional legacy command `seed_database.py --seed 42 --per-template 10` creates 250 labelled synthetic cases plus their sessions, events, payments and status snapshots. The recommended `seed_demo_tickets.py` command creates 24 recent, investigated support examples instead. Seeded cases initially show **open / not run**; submit the first quick sample to generate and persist a diagnosis. Repeating the same seed and template count is idempotent. Changing the template count for an existing seed requires a fresh database or a deliberate demo reset to prevent mixed datasets.
 
 ```powershell
 # A separate, reproducible demo database:
@@ -167,11 +175,11 @@ $env:EV_DB_PATH = (Join-Path $PWD '.tmp\review-demo.db')
 
 ## Academic demonstration
 
-1. Open **New complaint**, expand **Demo examples**, select **Session never started (matches seeded logs)** and click **Run diagnosis**. The sample uses Tata Power EZ Charge / `SSN-042-0001` from seed 42.
+1. Open **Support tickets** and select **C-DEMO-20261105-001**, a simulated network timeout. Its investigation summary links the observed fault, evidence and next action. To create a fresh example, use **Communication monitoring**, generate a scenario and select **Open support ticket for this session**. The older quick sample `SSN-042-0001` requires the optional legacy seed command.
 2. Inspect **Diagnosis**, **Evidence** and **Agent trace**. The trace records candidate scores, selection reasons, actual tool results and belief changes. Missing data and failures are explicit.
-3. Open **Verify & learn**, select `rev-001`, verify **Session fails to start**, enter the corrective action and submit. Preview and apply learning. A second application is a no-op.
+3. Open **Verify & learn**, select `rev-001`, verify **Network or connectivity issue**, enter the corrective action and submit. Preview and apply learning. A second application is a no-op.
 4. Visit **Knowledge & learning** to inspect updated weights, tool priors and observation counts. Revert the newest change or roll back changes after an anchor. Older changes to the same target must be reverted in reverse order. Inactive proposed rules can be activated through an audited action.
-5. Filter **Cases** by status/category/app/origin and open the resolved case. The dashboard's accuracy uses reviewer-verified resolutions, with a small-sample warning.
+5. Filter **Support tickets** by status/category/app/origin and open the resolved case. The dashboard's accuracy uses reviewer-verified resolutions, with a small-sample warning.
 6. Open **Evaluation** and run seed 42 with 8 cases/template. It evaluates 200 cases, compares the adaptive agent with a fixed-order baseline under the same eight-check budget, and shows calibration, class metrics and confusion matrices.
 7. Import `examples/reviews.csv` or `examples/reviews.json` on **Review import**. Inspect imported/skipped counts, error messages and stored redacted text. Reviews are stored for analysis; importing them does not fabricate charging logs or automatically turn them into verified diagnoses.
 
@@ -223,7 +231,7 @@ The customer form requires only a short complaint (10–500 characters); date/ti
 6. Use **Record verified resolution / Verify & learn**. Known verified fault categories can update the existing bounded learning system. `No fault established` and `Inconclusive after human review` can close administrative investigations without training on a fabricated fault label. Resolve before closing.
 7. Close the ticket, or reopen and investigate new evidence. The same ID is retained with a new diagnosis version, separate evidence/check traces and a new reviewer resolution. Original resolutions and learning audit remain available.
 
-Ticket states: `new`, `investigating`, `awaiting_evidence`, `assigned`, `escalated`, `resolved`, `closed`. Existing case status fields remain for API compatibility. **Cases** is the support queue, with ticket-state/priority filters and ownership displays. Communication monitoring offers **Open support ticket for this session**, preserving the selected session in intake.
+Ticket states: `new`, `investigating`, `awaiting_evidence`, `assigned`, `escalated`, `resolved`, `closed`. Existing case status fields remain for API compatibility. **Support tickets** is the support queue, with ticket-state/priority filters and ownership displays. Communication monitoring offers **Open support ticket for this session**, preserving the selected session in intake.
 
 ## Research and submission commands
 
@@ -242,7 +250,7 @@ The new challenge has **32 train, 32 validation and 46 test sessions** from sepa
 
 Final scores are synthetic simulation results. Models/rules/configuration hashes and validation calibration are frozen before each test scoring run. The first frozen challenge report is retained separately; after first exposure, ticket intake persistence was hardened without tuning diagnostic rules, thresholds or labels. The final repeat is an exposed-test regression, not a fresh blind external holdout. The simulator, ontology and authored symptoms remain shared sources of bias.
 
-The clean ZIP is `submission/EV_Support_Submission.zip`, generated without the working database, environments, installed dependencies, caches, logs, browser traces or frontend builds. Source, lockfiles, tests, required configuration, intentional reports and a SHA256 file manifest are retained. Extract it into a new directory and use the setup commands above. The database is regenerated by `seed_database.py` and `generate_communication.py`; no runtime DB is needed in the archive.
+The clean ZIP is `submission/EV_Support_Submission.zip`, generated without the working database, environments, installed dependencies, caches, logs, browser traces or frontend builds. Source, lockfiles, tests, required configuration, intentional reports and a SHA256 file manifest are retained. Extract it into a new directory and use the setup commands above. The demo database is regenerated by `seed_demo_tickets.py`; the legacy bulk seeder and `generate_communication.py` remain available; no runtime DB is needed in the archive.
 
 Agents receive an allowlisted, read-only SQLite observation snapshot. Annotation tables/columns, scenario IDs, generation settings and split assignments are absent; SQL write/attachment operations are denied. Verified historical resolutions remain legitimate learning inputs. This is an enforced application boundary, not protection against hostile Python code with filesystem access.
 
@@ -331,3 +339,13 @@ Code: `ev_backend/app/agent/` (policy/tools), `services/` (orchestration/learnin
 This is a functional local academic demo, not a validated production diagnosis service. Ten legacy fixtures have app/label or evidence/label inconsistencies, and eight payment-conflict fixtures lack independently verified capture evidence. They remain in the scored benchmark. Their case IDs and effects are documented in the generated dataset audit and findings.
 
 The legacy rule set and generator share template families, calibration is synthetic, and its learning split is case-disjoint rather than template-disjoint. The new communication benchmark separately holds out templates/configurations, with the limitations described above. No real charging-network integration, production identity/authentication, independent expert-labelled test set or deployment is claimed. Reviewer IDs represent local demo identities, not authenticated users. The runtime database, local `.env`, caches, logs, build outputs and dependency directories are ignored; retain `.env.example`, lockfiles, source tests and intentional evaluation reports.
+
+## Final UI and outcome semantics (5 November 2026)
+
+The interface consistently uses **Support tickets**. The queue has an Origin filter but no provider selector; the API retains provider metadata for compatibility. On mobile, use **Menu** for navigation; tickets appear as readable cards. The dashboard explains that Recent support tickets shows six records and links to the full queue. Accuracy is explicitly scoped to reviewed simulated records.
+
+Ticket details begin with the reason, cited evidence, recommended next action and responsible team. Assignment evidence, operator controls and agent belief details are expandable. Urgent reported hazards, including a burning smell, receive precautionary P0 triage without inventing a proven cause. Normal completion does not clear an independently reported hazard.
+
+The additive API field `diagnosis.outcome` distinguishes `no_fault_established`, `fault_detected` and `inconclusive`. Existing SQLite failure classifications and historic records are preserved; the UI uses the charging outcome for its headline and badges. A no-fault display requires the current correlated result, its cited session observations and the matching ticket decision. Historic generic requests for missing logs are suppressed when normal completion is already corroborated. No-fault and inconclusive administrative resolutions are not scored as failed fault predictions.
+
+See [the current final submission verification](docs/FINAL_SUBMISSION.md). Historical evaluation reports remain historical records; their perfect synthetic scores do not establish live charger accuracy. GitHub publication requires authentication to the intended account; local source preparation does not establish that a remote repository has been published.

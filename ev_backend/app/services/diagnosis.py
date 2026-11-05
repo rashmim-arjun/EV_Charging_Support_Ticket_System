@@ -80,7 +80,7 @@ def diagnose_and_persist(conn: sqlite3.Connection, complaint: models.Complaint,
                  1 if step.replanned else 0,version))
 
         # Recommendation links require the real evidence ids assigned above.
-        recs = build_recommendations(diag, run.state)
+        recs = build_recommendations(diag, run.state, outcome=getattr(run, 'outcome', None))
 
         sup_ids = [e.evidence_id for e in run.state.evidence
                    if diag.primary_category and e.kind == "matching"

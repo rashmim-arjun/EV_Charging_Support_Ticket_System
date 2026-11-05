@@ -26,6 +26,7 @@ def diagnose_session(conn, session_id, complaint=None, case_id=None):
 
     def store(c, case_id=None, diagnosis_id=None):
         result['case_id'] = case_id
+        result['diagnosis_id'] = diagnosis_id
         c.execute('INSERT INTO communication_diagnoses(session_id,result_json,case_id) VALUES (?,?,?)',
                   (session_id, json.dumps(result, sort_keys=True), case_id))
 

@@ -4,7 +4,7 @@ import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recha
 import { api } from '../api'
 import { useAsync } from '../hooks'
 import { Badge, BeliefBars, Empty, ErrorBox, PageHead, SimulatedBanner, Spinner } from '../components/ui'
-import { CLASS_TONE, EVIDENCE_TONE, ORIGIN_TONE, STATUS_TONE, fmtDate, titleCase } from '../format'
+import { EVIDENCE_TONE, ORIGIN_TONE, STATUS_TONE, diagnosisTitle, diagnosisTone, fmtDate, titleCase } from '../format'
 import TicketPanel from '../components/TicketPanel'
 
 const load = (id) => () => Promise.all([api.getCase(id), api.getTrace(id), api.categories(), api.reviewers()])
@@ -14,9 +14,9 @@ export default function CaseDetail() {
   const { data, error, loading, reload } = useAsync(load(caseId), [caseId])
   const [tab, setTab] = useState('diagnosis')
   if (loading && !data) return <Spinner />
-  if (error) return <><ErrorBox error={error} onRetry={reload} /><Link to="/cases">← Back to cases</Link></>
+  if (error) return <><ErrorBox error={error} onRetry={reload} /><Link to="/cases">← Back to support tickets</Link></>
   const [full, trace, cats, reviewers] = data
-  const { case: c, complaint, diagnosis: d } = full
+  const { case: c, complaint } = full
   const catLabel = (id) => cats.find((x) => x.id === id)?.label || titleCase(id)
   const TABS = [['diagnosis', 'Diagnosis'], ['evidence', 'Evidence'], ['trace', `Agent trace (${trace.steps.length})`], ['review', 'Verify & learn']]
 
@@ -29,7 +29,8 @@ export default function CaseDetail() {
         </span>
       </PageHead>
       <SimulatedBanner />
-      {full.ticket && <TicketPanel key={`${caseId}-${full.ticket.version}`} ticket={full.ticket} sessionId={complaint.reported_session_ref}
+      <InvestigationSummary full={full} cats={cats} onEvidence={() => setTab('evidence')} />
+      {full.ticket && <TicketPanel key={caseId} ticket={full.ticket} sessionId={complaint.reported_session_ref}
         onChange={reload} onResolve={() => setTab('review')} />}
 
       <div className="card" style={{ marginBottom: 16 }}>
@@ -56,6 +57,28 @@ export default function CaseDetail() {
   )
 }
 
+function InvestigationSummary({ full, cats, onEvidence }) {
+  const diagnosis = full.diagnosis
+  const ticket = full.ticket
+  const healthy = diagnosis?.outcome === 'no_fault_established'
+  const evidence = (full.evidence?.matching || []).find(item => item.supports_category === diagnosis?.primary_category)
+  const reason = diagnosis?.explanation || evidence?.description || diagnosis?.unresolved_questions?.[0]
+    || (diagnosis ? 'Available records do not establish a single fault.' : 'Ticket saved. Run an investigation to compare the available session logs.')
+  const action = full.recommendations?.[0]?.action || (healthy
+    ? 'No corrective work is indicated. Retain the session record and receipt, and review any new symptoms.'
+    : diagnosis ? 'Review the missing or conflicting evidence before choosing a corrective action.' : 'Choose Investigate ticket below to check the available records.')
+  return <section className="card investigation-summary" aria-label="Investigation summary">
+    <div className="section-head"><h2>Investigation summary</h2><Badge tone={diagnosisTone(diagnosis)}>{healthy ? 'No fault established' : diagnosis ? titleCase(diagnosis.classification) : 'Pending'}</Badge></div>
+    <p className="summary-title">{diagnosisTitle(diagnosis, cats)}</p>
+    {ticket?.priority === 'P0' && <div className="alert warn">Immediate human safety review is required. The reported hazard is precautionary until verified.</div>}
+    <div className="grid g3">
+      <div><h3>Reason and evidence</h3><p>{reason}</p><button type="button" className="btn sm" onClick={onEvidence}>View supporting evidence</button></div>
+      <div><h3>Recommended next action</h3><p>{action}</p></div>
+      <div><h3>Responsible team</h3><p>{titleCase(ticket?.assigned_team || 'Support triage')}</p><div className="chips"><Badge tone={ticket?.priority === 'P0' ? 'red' : ticket?.priority === 'P1' ? 'amber' : 'blue'}>{ticket?.priority || 'Pending'}</Badge><Badge>{titleCase(ticket?.state || 'new')}</Badge></div></div>
+    </div>
+  </section>
+}
+
 function DiagnosisTab({ full, trace, cats, catLabel }) {
   const d = full.diagnosis
   if (!d) return <div className="card"><Empty>No diagnosis has been produced for this case.</Empty></div>
@@ -64,10 +87,10 @@ function DiagnosisTab({ full, trace, cats, catLabel }) {
       <div>
         <div className="card">
           <div className="chips" style={{ marginBottom: 10 }}>
-            <Badge tone={CLASS_TONE[d.classification]}>{titleCase(d.classification)}</Badge>
+            <Badge tone={diagnosisTone(d)}>{d.outcome === 'no_fault_established' ? 'No fault established' : titleCase(d.classification)}</Badge>
             <Badge tone="gray">Strength: {d.evidence_strength_label}</Badge>
           </div>
-          <h2 style={{ fontSize: 20 }}>{d.primary_category ? catLabel(d.primary_category) : 'No category asserted'}</h2>
+          <h2 style={{ fontSize: 20 }}>{diagnosisTitle(d, cats)}</h2>
           <div className="muted small" style={{ marginBottom: 6 }}>Evidence score {(d.evidence_strength * 100).toFixed(0)}%</div>
           {d.confidence != null && <div className="muted small">Synthetic calibrated confidence {(d.confidence * 100).toFixed(0)}% (assertions only)</div>}
           {!d.primary_category && d.leading_hypothesis && <p className="muted small">Unverified leading hypothesis: {catLabel(d.leading_hypothesis)}</p>}
@@ -85,17 +108,17 @@ function DiagnosisTab({ full, trace, cats, catLabel }) {
           </div>)}
 
         <div className="card"><h2>Recommended actions</h2>
-          {full.recommendations.length === 0 ? <Empty>No recommendations.</Empty> : full.recommendations.map((r) => (
+          {full.recommendations.length === 0 ? <Empty>{d.outcome === 'no_fault_established' ? 'No corrective work is indicated by these observations. Retain the session record and receipt; review any new symptoms before closing the enquiry.' : 'No recommendations.'}</Empty> : full.recommendations.map((r) => (
             <div className="rec" key={r.id}>
               <div className="prio" title="Priority">{r.priority}</div>
               <div><strong>{r.action}</strong><div className="muted small">{r.rationale}</div></div>
             </div>))}
         </div>
       </div>
-      <div className="card" style={{ alignSelf: 'start' }}>
-        <h2>Final belief scores</h2>
+      <details className="card" style={{ alignSelf: 'start' }}>
+        <summary>Agent belief scores</summary>
         <BeliefBars beliefs={trace.final_beliefs} categories={cats} />
-      </div>
+      </details>
     </div>
   )
 }
@@ -215,7 +238,7 @@ function ReviewTab({ full, cats, reviewers, catLabel, onChange }) {
         <div className="grid g3" style={{ marginBottom: 12 }}>
           <div><div className="muted small">Verified root cause</div><strong>{catLabel(res.verified_root_cause)}</strong></div>
           <div><div className="muted small">Agent predicted</div><strong>{res.agent_prediction_category ? catLabel(res.agent_prediction_category) : '—'}</strong></div>
-          <div><div className="muted small">Prediction</div>{res.prediction_correct ? <Badge tone="green">Correct</Badge> : <Badge tone="red">Incorrect</Badge>}</div>
+          <div><div className="muted small">Prediction</div>{res.verified_root_cause === 'no_fault_established' || res.verified_root_cause === 'inconclusive' ? <Badge tone={res.verified_root_cause === 'no_fault_established' ? 'green' : 'amber'}>{res.verified_root_cause === 'no_fault_established' ? 'No fault established' : 'Inconclusive after review'}</Badge> : res.prediction_correct ? <Badge tone="green">Correct</Badge> : <Badge tone="red">Incorrect</Badge>}</div>
         </div>
         {contributing.length > 0 && <div className="chips" style={{ marginBottom: 10 }}>{contributing.map((x) => <Badge key={x} tone="blue">{catLabel(x)}</Badge>)}</div>}
         <div><strong>Corrective action:</strong> {res.corrective_action}</div>
