@@ -3,6 +3,18 @@ import { api, BASE } from './api'
 
 afterEach(() => vi.unstubAllGlobals())
 describe('API transport contract', () => {
+  it('sends payment proof as multipart and review identity only in its dedicated header', async () => {
+    const fetch = vi.fn().mockResolvedValue({ok:true,json:async () => ({status:'submitted'})})
+    vi.stubGlobal('fetch',fetch)
+    const form = new FormData()
+    form.append('version','0');form.append('transaction_reference','UPI-123456789012')
+    await api.submitPayment('C-test',form)
+    expect(fetch.mock.calls[0][1].body).toBe(form)
+    expect(fetch.mock.calls[0][1].headers['Content-Type']).toBeUndefined()
+    await api.reviewPayment('C-test',{version:1,decision:'under_review',reason:'Manually reviewing'},'rev-payment-001')
+    expect(fetch.mock.calls[1][1].headers['X-Reviewer-ID']).toBe('rev-payment-001')
+    expect(JSON.parse(fetch.mock.calls[1][1].body)).not.toHaveProperty('reviewer_id')
+  })
   it('uses the same-origin proxy by default', () => {
     expect(BASE).toBe('/api/v1')
   })

@@ -23,7 +23,7 @@ def _seed_reference_rows(conn: sqlite3.Connection) -> None:
     from app.core.db import sync_config_tables
     sync_config_tables(conn)
     seed_rules_if_empty(conn)
-    if not conn.execute("SELECT 1 FROM reviewers LIMIT 1").fetchone():
+    if not conn.execute("SELECT 1 FROM reviewers WHERE reviewer_id != 'rev-payment-001' LIMIT 1").fetchone():
         conn.executemany(
             "INSERT INTO reviewers(reviewer_id, name, role, active) VALUES (?,?,?,?)",
             [("rev-001", "A. Analyst", "diagnosis_reviewer", 1),
@@ -115,6 +115,8 @@ def create_app() -> FastAPI:
     app.include_router(communication.router, prefix=prefix)
     from app.routers import tickets
     app.include_router(tickets.router,prefix=prefix)
+    from app.routers import payments
+    app.include_router(payments.router,prefix=prefix)
 
     return app
 

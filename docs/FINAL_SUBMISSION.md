@@ -2,7 +2,9 @@
 
 This is an academic local prototype for evidence-based EV charging support. The application preserves the React/Vite frontend, FastAPI backend, SQLite schema and existing ticket records.
 
-## Verification of the final implementation
+The later payment workflow update is documented in [manual payment verification](PAYMENT_VERIFICATION.md). The verification counts below describe the earlier UI/diagnosis submission; payment regression results are recorded separately there after execution.
+
+## Verification before the payment workflow update
 
 Verified on Windows with Python 3.13.5, Node.js 24.14.1 and Microsoft Edge. Both the working source and a separately extracted source ZIP were checked. The clean copy used its own new `.venv` and new `node_modules`; dependencies were installed from `ev_backend/requirements-lock.txt` and `ev_frontend/package-lock.json`, using available package caches. It did not reuse the original installed dependency directories or working database.
 

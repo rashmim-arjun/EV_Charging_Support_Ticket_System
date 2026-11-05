@@ -17,7 +17,10 @@ def test_shipped_v5_schema_drift_preserves_records_and_restores_diagnosis(conn):
               for t in ('cases', 'diagnoses', 'support_tickets', 'ticket_history')}
     # Reproduce the actual shipped file: v5 marker and ticket tables, but no
     # version columns and the old one-resolution-per-case index.
-    conn.execute('DELETE FROM schema_version WHERE version=6')
+    conn.execute('DROP TRIGGER create_ticket_payment')
+    conn.execute('DROP TABLE ticket_payments')
+    conn.execute('DROP TABLE payment_submissions')
+    conn.execute('DELETE FROM schema_version WHERE version>=6')
     conn.execute('DROP INDEX idx_resolution_case_version')
     for table in ('case_checks', 'case_evidence', 'resolutions'):
         conn.execute(f'ALTER TABLE {table} DROP COLUMN diagnosis_version')
@@ -27,7 +30,7 @@ def test_shipped_v5_schema_drift_preserves_records_and_restores_diagnosis(conn):
         diagnose_and_persist(conn, complaint, case_id=cid)
     db.init_db(conn)
     db.init_db(conn)
-    assert conn.execute('SELECT MAX(version) FROM schema_version').fetchone()[0] == 6
+    assert conn.execute('SELECT MAX(version) FROM schema_version').fetchone()[0] == db.SCHEMA_VERSION_KEY
     for table, rows in before.items():
         assert rows == [tuple(r) for r in conn.execute(f'SELECT * FROM {table}')]
     assert diagnose_and_persist(conn, complaint, case_id=cid)['case_id'] == cid
@@ -41,7 +44,7 @@ def test_failed_migration_rolls_back_ddl_and_version_marker(conn, monkeypatch):
     with pytest.raises(sqlite3.OperationalError):
         db.init_db(conn)
     assert 'should_rollback' not in {r['name'] for r in conn.execute('PRAGMA table_info(cases)')}
-    assert conn.execute('SELECT MAX(version) FROM schema_version').fetchone()[0] == 6
+    assert conn.execute('SELECT MAX(version) FROM schema_version').fetchone()[0] == db.SCHEMA_VERSION_KEY
     assert not conn.in_transaction
 
 

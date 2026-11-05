@@ -308,10 +308,13 @@ def migration_006(conn: sqlite3.Connection) -> str:
     return '\n'.join(statements)
 
 
-MIGRATIONS = [MIGRATION_001, MIGRATION_002, MIGRATION_003, MIGRATION_004, MIGRATION_005, migration_006]
+from app.services.payment_migration import SQL as MIGRATION_007
+from app.services.payment_migration import RESET_COMPATIBILITY_SQL as MIGRATION_008
+
+MIGRATIONS = [MIGRATION_001, MIGRATION_002, MIGRATION_003, MIGRATION_004, MIGRATION_005, migration_006, MIGRATION_007, MIGRATION_008]
 
 
-SCHEMA_VERSION_KEY = 6
+SCHEMA_VERSION_KEY = 8
 
 
 def init_db(conn: sqlite3.Connection) -> None:

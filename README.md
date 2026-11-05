@@ -1,5 +1,29 @@
 # EV Charging Customer Support and Escalation System
 
+## Payment proof and manual verification
+
+Payment verification is a separate workflow on each ticket. A transaction reference or uploaded screenshot is **submitted information**, not proof that money settled. The ticket's **Payment verification** panel is authoritative for this workflow; customer-reported payment fields and simulated charging logs are not verification decisions.
+
+| State | Meaning / permitted next action |
+| --- | --- |
+| `not_submitted` | No payment information submitted; customer may submit a reference, screenshot, or both. |
+| `submitted` | Information saved, **not verified**; an authorized local payment reviewer may start review. |
+| `under_review` | Manual review pending; an authorized local payment reviewer may verify or reject with a reason. |
+| `verified` | A local reviewer recorded a manual approval; this is not an independently verified bank/UPI result. |
+| `rejected` | Reviewer recorded a rejection reason; customer may submit corrected information as a new attempt. |
+
+References accept 6-100 letters/digits and `.`, `_`, `/`, `-`; this format check does not validate a transaction. Screenshots must be PNG/JPEG, non-empty and at most 2 MB. Proof bytes, filename, type, size and SHA256 are stored in SQLite; previous submissions remain available. Customers should remove unrelated account information before uploading.
+
+Expand **Manual reviewer actions**, choose an active local identity with the `payment_reviewer` role, enter a review reason and select **Start manual review**, followed by **Verify payment manually** or **Reject payment**. The local demo identity is `rev-payment-001`. Unknown, inactive and other-role identities cannot review. The backend rejects customer-supplied decision/role fields, invalid transitions and stale payment versions. Every submission/review is recorded in ticket history with before/after values, reviewer identity, server timestamp and reason. Payment decisions do not change the charging diagnosis, benchmark labels, ticket state or resolution; resolving/closing a charging ticket does not verify its payment.
+
+**Scope:** no payment gateway, bank/UPI lookup, settlement check, refund execution or external notification service is integrated. The reviewer must assess available records manually; the system does not perform that reconciliation or invent gateway responses. `X-Reviewer-ID` selects a local demo identity and the backend checks its stored role/active flag. This is not production authentication: someone who can access the API can impersonate a known local reviewer identity. Deploying to untrusted users requires authenticated sessions and access control; the existing local identity model remains unchanged for other workflows.
+
+Schema migration **v7** adds payment submission/review tables and a dedicated local payment reviewer; **v8** preserves their contents while making deliberate simulated-ticket resets compatible. Existing records, references and ticket history are preserved. Historical `Paid`/`verified` claims are retained and surfaced as **under review**, never automatically verified. Existing simulated `captured` observations remain diagnostic observations and do not populate the verification state. See [payment API, migration and verification details](docs/PAYMENT_VERIFICATION.md). Normal backend startup applies the migrations; back up an existing database first:
+
+```bash
+./.venv/Scripts/python.exe ev_backend/scripts/check_local_database.py --repair
+```
+
 ## Run a fresh GitHub checkout (Windows Git Bash)
 
 The source repository and submission ZIP contain the full application source, tests, lockfiles, configuration, examples and intentional research reports. If you received the ZIP, extract it and open a terminal in the extracted project root; skip the clone commands below. Local SQLite ticket data, credentials, logs, environments and installed packages are excluded. API startup creates the database automatically; the optional seed command supplies synthetic session logs for demonstrations.

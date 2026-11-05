@@ -137,3 +137,10 @@ pre { background: #0f1b2d; color: #d7e0ee; padding: 12px; border-radius: 8px; ov
 .comm-log { max-height: 600px; }
 .comm-log th { position: sticky; top: 0; z-index: 1; }
 .comm-highlight { background: #fffaeb; outline: 2px solid var(--amber); outline-offset: -2px; }
+:where(.payment-panel) fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.payment-panel { margin-bottom: 16px; }
+.payment-panel input[type=file] { max-width: 100%; }
+.payment-panel .payment-summary { overflow-wrap: anywhere; margin: 16px 0; }
+.payment-panel .payment-review, .payment-panel .payment-history { margin-top: 20px; }
+.payment-panel summary { cursor: pointer; }
+.payment-panel pre { white-space: pre-wrap; overflow-wrap: anywhere; }

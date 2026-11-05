@@ -11,7 +11,7 @@ export class ApiError extends Error {
   }
 }
 
-async function request(path, { method = 'GET', body, form, params } = {}) {
+async function request(path, { method = 'GET', body, form, params, headers = {}, responseType } = {}) {
   let url = BASE + path
   if (params) {
     const q = new URLSearchParams()
@@ -21,7 +21,7 @@ async function request(path, { method = 'GET', body, form, params } = {}) {
     const s = q.toString()
     if (s) url += '?' + s
   }
-  const opts = { method, headers: {} }
+  const opts = { method, headers: { ...headers } }
   if (form) opts.body = form
   else if (body !== undefined) {
     opts.headers['Content-Type'] = 'application/json'
@@ -34,6 +34,7 @@ async function request(path, { method = 'GET', body, form, params } = {}) {
     throw new ApiError(0, 'network_error',
       `Cannot reach ${BASE}. Check that FastAPI is running on port 8000 and that the API URL and allowed CORS origin match this page. Retry after starting the backend.`)
   }
+  if (res.ok && responseType === 'blob') return res.blob()
   let data = null
   try { data = await res.json() } catch {
     if (res.ok && res.status !== 204) throw new ApiError(res.status, 'invalid_response',
@@ -70,6 +71,12 @@ export const api = {
   intakeContext: (params) => request('/tickets/intake-context', { params }),
   updateTicket: (id,body) => request(`/tickets/${id}`, { method:'PATCH',body }),
   investigateTicket: (id) => request(`/tickets/${id}/investigate`, { method:'POST' }),
+  getPayment: id => request(`/tickets/${encodeURIComponent(id)}/payment`),
+  submitPayment: (id, form) => request(`/tickets/${encodeURIComponent(id)}/payment/submissions`, { method:'POST',form }),
+  reviewPayment: (id, body, reviewerId) => request(`/tickets/${encodeURIComponent(id)}/payment/review`, {
+    method:'POST',body,headers:{'X-Reviewer-ID':reviewerId} }),
+  paymentProof: (id, submissionId, reviewerId) => request(`/tickets/${encodeURIComponent(id)}/payment/submissions/${encodeURIComponent(submissionId)}/proof`, {
+    headers:{'X-Reviewer-ID':reviewerId},responseType:'blob' }),
   getTrace: (id) => request(`/cases/${id}/trace`),
   submitCase: (body) => request('/cases', { method: 'POST', body }),
   submitResolution: (id, body) =>

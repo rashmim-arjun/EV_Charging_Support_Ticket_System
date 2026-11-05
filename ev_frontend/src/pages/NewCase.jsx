@@ -100,10 +100,10 @@ export default function NewCase() {
             <summary>Additional details (optional)</summary>
             <div className="row" style={{ marginTop: 12 }}>
               <label className="field">Error shown<input value={f.reported_error} onChange={set('reported_error')} placeholder="e.g. E101" maxLength={200} /></label>
-              <label className="field">Payment status<select value={f.reported_payment_status} onChange={set('reported_payment_status')}>
+              <label className="field">Customer-reported payment<select value={f.reported_payment_status} onChange={set('reported_payment_status')}>
                 <option value="">Not specified</option><option value="deducted">Deducted</option>
                 <option value="not_deducted">Not deducted</option><option value="refund_pending">Refund pending</option><option value="unknown">Unknown</option>
-              </select></label>
+              </select><span className="hint">A customer report, not payment verification.</span></label>
             </div>
             <label className="field">User reference<span className="hint">pseudonymous</span><input value={f.user_ref} onChange={set('user_ref')} maxLength={100} /></label>
             <label className="field">Data origin<select value={f.data_origin} onChange={set('data_origin')}>

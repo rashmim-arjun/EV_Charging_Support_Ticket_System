@@ -6,6 +6,7 @@ import { useAsync } from '../hooks'
 import { Badge, BeliefBars, Empty, ErrorBox, PageHead, SimulatedBanner, Spinner } from '../components/ui'
 import { EVIDENCE_TONE, ORIGIN_TONE, STATUS_TONE, diagnosisTitle, diagnosisTone, fmtDate, titleCase } from '../format'
 import TicketPanel from '../components/TicketPanel'
+import PaymentPanel from '../components/PaymentPanel'
 
 const load = (id) => () => Promise.all([api.getCase(id), api.getTrace(id), api.categories(), api.reviewers()])
 
@@ -32,6 +33,7 @@ export default function CaseDetail() {
       <InvestigationSummary full={full} cats={cats} onEvidence={() => setTab('evidence')} />
       {full.ticket && <TicketPanel key={caseId} ticket={full.ticket} sessionId={complaint.reported_session_ref}
         onChange={reload} onResolve={() => setTab('review')} />}
+      {full.ticket && <PaymentPanel key={'payment-'+caseId} caseId={caseId} reviewers={reviewers} onChange={reload} />}
 
       <div className="card" style={{ marginBottom: 16 }}>
         <h3>Complaint (PII redacted)</h3>
@@ -39,7 +41,7 @@ export default function CaseDetail() {
         <div className="chips small muted">
           {complaint.complaint_ts && <span>🕒 {fmtDate(complaint.complaint_ts)}</span>}
           {complaint.reported_error && <span>⚠ Error: {complaint.reported_error}</span>}
-          {complaint.reported_payment_status && <span>💳 {titleCase(complaint.reported_payment_status)}</span>}
+          {complaint.reported_payment_status && <span>Customer-reported payment: {titleCase(complaint.reported_payment_status)} (unverified claim)</span>}
           {complaint.reported_session_ref && <span>Session: {complaint.reported_session_ref}</span>}
           {complaint.reported_station_id && <span>Station: {complaint.reported_station_id}</span>}
         </div>
